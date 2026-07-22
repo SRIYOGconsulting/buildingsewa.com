@@ -22,24 +22,17 @@ export default function PrivacyPage() {
 
         <div className="prose prose-gray max-w-none">
           <p>
-            Welcome to <strong>Building Sewa</strong> ("Building Sewa", "we",
-            "our", or "us"). This Privacy Policy explains how we collect, use,
-            disclose, store, and protect your personal information when you
-            visit <strong>www.buildingsewa.com</strong>, submit inquiries,
-            request construction services, register as a business partner,
-            apply for careers, or otherwise interact with our platform.
+            This Privacy Policy explains how <strong>Building Sewa</strong>
+            (&ldquo;we&rdquo;, &ldquo;our&rdquo;, or &ldquo;us&rdquo;) collects,
+            uses, stores, shares, and protects your personal information when
+            you visit <strong>www.buildingsewa.com</strong>, request services,
+            submit an inquiry, apply as a business partner, apply for a job,
+            or otherwise interact with our website or business operations.
           </p>
 
           <p>
-            Building Sewa is a professional construction management startup in
-            Nepal providing end-to-end construction management services from
-            planning and design to construction, interior finishing, handover,
-            and long-term maintenance.
-          </p>
-
-          <p>
-            By using our website, you agree to the practices described in this
-            Privacy Policy.
+            By using our website, you agree to the terms of this Privacy Policy.
+            If you do not agree, please do not use our website or services.
           </p>
 
           <hr />
@@ -47,175 +40,107 @@ export default function PrivacyPage() {
           <h2>1. Information We Collect</h2>
 
           <p>
-            We collect information you voluntarily provide as well as
-            information collected automatically while using our website.
+            We may collect personal information from you directly, from
+            automated technologies, or from third parties where permitted by
+            law. The types of information we may collect include:
           </p>
 
-          <h3>Service Booking Information</h3>
-
           <ul>
-            <li>Full Name</li>
-            <li>Phone Number</li>
-            <li>Email Address</li>
-            <li>City</li>
-            <li>Area</li>
-            <li>Land Size</li>
-            <li>Construction Budget</li>
-            <li>Number of Storeys</li>
-            <li>Project Start Date</li>
-            <li>Expected Completion Date</li>
-            <li>Selected Construction Services</li>
-            <li>Additional Project Information</li>
+            <li>Name, email address, phone number, and mailing address</li>
+            <li>Project or service request details, including location, scope,
+              budget, timeline, and service preferences</li>
+            <li>Business contact information for partnership inquiries</li>
+            <li>Career application information, including CVs, resumes,
+              qualifications, and supporting documents</li>
+            <li>Messages, support requests, and other communications you send to us</li>
+            <li>Technical information such as IP address, browser type,
+              device information, operating system, and usage data</li>
+            <li>Cookies and analytics information collected through our website</li>
           </ul>
-
-          <h3>Partnership Applications</h3>
-
-          <ul>
-            <li>Full Name</li>
-            <li>Company Name</li>
-            <li>Address</li>
-            <li>City</li>
-            <li>Country</li>
-            <li>Phone Number</li>
-            <li>Email Address</li>
-            <li>Website</li>
-            <li>Services Offered</li>
-            <li>Company Registration Documents</li>
-            <li>Referral Information</li>
-          </ul>
-
-          <h3>Career Applications</h3>
-
-          <ul>
-            <li>Name</li>
-            <li>Contact Information</li>
-            <li>Resume / CV</li>
-            <li>Educational Qualifications</li>
-            <li>Experience</li>
-            <li>Supporting Documents</li>
-          </ul>
-
-          <h3>Contact & Support</h3>
-
-          <ul>
-            <li>Name</li>
-            <li>Email Address</li>
-            <li>Phone Number</li>
-            <li>Messages</li>
-            <li>Support Requests</li>
-          </ul>
-
-          <h3>Automatically Collected Information</h3>
-
-          <ul>
-            <li>IP Address</li>
-            <li>Browser Type</li>
-            <li>Device Information</li>
-            <li>Operating System</li>
-            <li>Website Usage Data</li>
-            <li>Cookies</li>
-            <li>Analytics Information</li>
-          </ul>
-
-          <hr />
-
-          <h2>2. Construction Services Covered</h2>
 
           <p>
-            Building Sewa provides end-to-end construction and property
-            management services including:
+            We only collect information that is necessary for the purpose for
+            which it is being collected, or that you voluntarily provide to us.
           </p>
 
-          <ul>
-            <li>Land Survey & Site Inspection</li>
-            <li>Soil Testing</li>
-            <li>Architecture & House Design</li>
-            <li>Structural Engineering</li>
-            <li>Building Approval & Documentation</li>
-            <li>Project Management</li>
-            <li>Vaastu Consultation</li>
-            <li>Civil Construction</li>
-            <li>Water Boring</li>
-            <li>Plumbing</li>
-            <li>Electrical Services</li>
-            <li>Roofing</li>
-            <li>Waterproofing</li>
-            <li>Doors & Windows Installation</li>
-            <li>Glass Works</li>
-            <li>Tiling</li>
-            <li>Painting</li>
-            <li>Woodwork</li>
-            <li>Modular Kitchen</li>
-            <li>Bathroom Setup</li>
-            <li>Interior Designing</li>
-            <li>Landscaping</li>
-            <li>Home Automation</li>
-            <li>CCTV Installation</li>
-            <li>Solar Panel Installation</li>
-            <li>EV Charger Installation</li>
-            <li>Fire Safety Systems</li>
-            <li>Post Construction Cleaning</li>
-            <li>Packing & Moving</li>
-            <li>Annual Home Maintenance</li>
-          </ul>
-
           <hr />
 
-          <h2>3. How We Use Your Information</h2>
-
-          <ul>
-            <li>Provide requested construction services.</li>
-            <li>Prepare quotations and project estimates.</li>
-            <li>Coordinate architects, engineers and contractors.</li>
-            <li>Manage ongoing projects.</li>
-            <li>Respond to customer inquiries.</li>
-            <li>Process partnership applications.</li>
-            <li>Review career applications.</li>
-            <li>Improve our services and website.</li>
-            <li>Maintain internal business records.</li>
-            <li>Meet legal and regulatory obligations.</li>
-          </ul>
-
-          <hr />
-
-          <h2>4. Cookies</h2>
+          <h2>2. How We Use Your Information</h2>
 
           <p>
-            We use cookies and similar technologies to improve user experience,
-            analyze website traffic, remember preferences, and enhance website
-            performance. You may disable cookies through your browser settings.
+            We use your information to:
+          </p>
+
+          <ul>
+            <li>Respond to inquiries and provide construction-related services</li>
+            <li>Prepare quotations, project estimates, and service coordination</li>
+            <li>Manage project bookings, scheduling, and internal records</li>
+            <li>Process partnership and career applications</li>
+            <li>Communicate with you regarding updates, support, and service delivery</li>
+            <li>Improve our website, customer experience, and business operations</li>
+            <li>Comply with legal, regulatory, contractual, and tax obligations</li>
+          </ul>
+
+          <hr />
+
+          <h2>3. Legal Basis for Processing</h2>
+
+          <p>
+            Where applicable under law, we process your personal information
+            based on one or more of the following grounds:
+          </p>
+
+          <ul>
+            <li>Your consent</li>
+            <li>The performance of a contract with you</li>
+            <li>Our legitimate business interests</li>
+            <li>Compliance with legal obligations</li>
+          </ul>
+
+          <hr />
+
+          <h2>4. Sharing of Information</h2>
+
+          <p>
+            We do not sell your personal information. We may share your
+            information only with trusted third parties where necessary to
+            provide services, manage operations, or comply with legal
+            requirements. This may include:
+          </p>
+
+          <ul>
+            <li>Architects, engineers, contractors, and suppliers involved in project delivery</li>
+            <li>Technology, hosting, analytics, payment, communication, and support providers</li>
+            <li>Government authorities or legal entities when required by law</li>
+          </ul>
+
+          <p>
+            Where we share information with third parties, we require them to
+            handle it securely and only for the purposes authorized by us.
           </p>
 
           <hr />
 
-          <h2>5. Sharing of Information</h2>
+          <h2>5. Cookies and Tracking Technologies</h2>
 
           <p>
-            Building Sewa does not sell your personal information.
+            We use cookies and similar technologies to improve website
+            performance, remember preferences, understand user behavior, and
+            support analytics. You can control cookies through your browser
+            settings; however, disabling cookies may affect certain website
+            features.
           </p>
-
-          <p>Your information may be shared with:</p>
-
-          <ul>
-            <li>Architects</li>
-            <li>Engineers</li>
-            <li>Construction Contractors</li>
-            <li>Material Suppliers</li>
-            <li>Interior Designers</li>
-            <li>Technology Service Providers</li>
-            <li>Payment Providers</li>
-            <li>Government Authorities when legally required</li>
-          </ul>
 
           <hr />
 
           <h2>6. Data Security</h2>
 
           <p>
-            We implement reasonable technical and organizational safeguards,
-            including encrypted connections, secure cloud infrastructure,
-            restricted administrative access, backups, and security monitoring
-            to help protect your information.
+            We implement reasonable administrative, technical, and physical
+            safeguards to protect your personal information against
+            unauthorized access, misuse, loss, or disclosure. While we take
+            reasonable measures to secure your information, no method of
+            transmission or storage is completely risk-free.
           </p>
 
           <hr />
@@ -223,107 +148,97 @@ export default function PrivacyPage() {
           <h2>7. Data Retention</h2>
 
           <p>
-            Personal information is retained only as long as necessary to
-            provide services, comply with legal obligations, resolve disputes,
-            and maintain project records.
+            We retain personal information only for as long as necessary to
+            fulfill the purposes described in this Policy, meet legal and
+            regulatory obligations, resolve disputes, and maintain business
+            records.
           </p>
 
           <hr />
 
           <h2>8. Your Rights</h2>
 
-          <ul>
-            <li>Access your personal information.</li>
-            <li>Request corrections.</li>
-            <li>Request deletion where legally permitted.</li>
-            <li>Withdraw consent when applicable.</li>
-            <li>Contact us regarding privacy concerns.</li>
-          </ul>
-
-          <hr />
-
-          <h2>9. Marketing Communications</h2>
-
           <p>
-            With your consent, we may send project updates, promotional offers,
-            maintenance reminders, and service announcements. You may opt out
-            at any time.
+            Depending on your location and applicable law, you may have the
+            right to:
           </p>
-
-          <hr />
-
-          <h2>10. Third-Party Services</h2>
-
-          <p>
-            Our website may use services including Google Analytics, Google
-            Maps, payment gateways, cloud hosting providers, SMS providers, and
-            email service providers. These services operate under their own
-            privacy policies.
-          </p>
-
-          <hr />
-
-          <h2>11. Children's Privacy</h2>
-
-          <p>
-            Our services are intended for individuals legally capable of
-            entering contracts under Nepalese law. We do not knowingly collect
-            information from children.
-          </p>
-
-          <hr />
-
-          <h2>12. Internal Database Records</h2>
-
-          <p>Building Sewa may securely maintain records for:</p>
 
           <ul>
-            <li>Bookings</li>
-            <li>Services</li>
-            <li>Areas</li>
-            <li>Partnerships</li>
-            <li>Careers</li>
-            <li>Contacts</li>
-            <li>Help Desk</li>
-            <li>Administration</li>
-            <li>Calendar & Project Scheduling</li>
+            <li>Access the personal information we hold about you</li>
+            <li>Request correction of inaccurate or incomplete information</li>
+            <li>Request deletion of your personal information where permitted by law</li>
+            <li>Withdraw consent for processing where consent is required</li>
+            <li>Object to or restrict certain processing activities</li>
+            <li>Request information about how your information is used</li>
           </ul>
 
-          <hr />
-
-          <h2>13. Changes to This Policy</h2>
-
           <p>
-            We may update this Privacy Policy periodically. The latest version
-            will always be published on this page with an updated effective
-            date.
+            To exercise these rights, please contact us using the details in
+            the &ldquo;Contact Us&rdquo; section below.
           </p>
 
           <hr />
 
-          <h2>14. Contact Us</h2>
+          <h2>9. Third-Party Links and Services</h2>
+
+          <p>
+            Our website may contain links to third-party websites or may use
+            third-party services such as analytics, mapping, hosting,
+            communication, or payment platforms. These third parties operate
+            under their own privacy policies, and we are not responsible for
+            their practices.
+          </p>
+
+          <hr />
+
+          <h2>10. Children&apos;s Privacy</h2>
+
+          <p>
+            Our website and services are not directed to children, and we do
+            not knowingly collect personal information from children without
+            appropriate parental or guardian consent where required by law.
+          </p>
+
+          <hr />
+
+          <h2>11. International Transfers</h2>
+
+          <p>
+            If your information is transferred outside Nepal or outside your
+            jurisdiction for processing, we will take reasonable steps to
+            ensure that such transfers are protected in accordance with
+            applicable privacy laws.
+          </p>
+
+          <hr />
+
+          <h2>12. Changes to This Policy</h2>
+
+          <p>
+            We may update this Privacy Policy from time to time to reflect
+            changes in our practices, services, or legal requirements. Any
+            revised version will be posted on this page with an updated
+            effective date.
+          </p>
+
+          <hr />
+
+          <h2>13. Contact Us</h2>
+
+          <p>
+            If you have any questions, concerns, or requests regarding this
+            Privacy Policy or your personal information, please contact us at
+            <strong> hello@buildingsewa.com</strong>.
+          </p>
 
           <p>
             <strong>Building Sewa</strong>
-          </p>
-
-          <p>
+            <br />
             Website: https://www.buildingsewa.com
             <br />
             Email: privacy@buildingsewa.com
             <br />
-            Phone: +977-XXXXXXXXXX
-          </p>
-
-          <hr />
-
-          <h2>Consent</h2>
-
-          <p>
-            By accessing or using Building Sewa's website or services, you
-            acknowledge that you have read, understood, and agreed to this
-            Privacy Policy and consent to the collection and use of your
-            information as described herein.
+            Phone: +977-9852024365
           </p>
         </div>
       </div>
