@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --mainBackground : #e1e1e1;
+  --text : black;
+  --text2 : #6a7282;
+  --border : #d1d5dc;
+   --app-font-size: 1rem;
+  --black:white;
+}
+
+.dark{
+  --background : #212121;
+  --mainBackground : #1d1d1d;
+  --text : rgb(203, 203, 203);
+  --text2 : #a5a5a5;
+  --border : #e1e1e1;
+  --black: black;
+}
+
+.showScroll{
+  --overflow : auto;
+}
+
+.hideScroll{
+  --overflow : hidden;
+}
+
+body{
+  background: var(--background);
+  color: var(--text);
+  font-size: var(--app-font-size);
+  overflow: var(--overflow);
+}
+
+.header{
+  background: var(--background);
+  color: var(--text2);
+}
+
+.footer{
+  background: var(--background);
+  color: var(--text2);
+
+}
+
+.sidekick{
+  background: var(--mainBackground);
+}
+
+.text{
+  color: var(--text2);
+}
+
+.text2{
+  color: var(--text);
+}
+
+.card{
+  background: var(--mainBackground);
+}
+
+.card2{
+  background: var(--black);
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 28s linear infinite;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}

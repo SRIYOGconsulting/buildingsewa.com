@@ -25,32 +25,24 @@ const About = ()=> {
                     {/* Left side - Text content */}
                     <div className="md:w-2/3 space-y-4 md:space-y-6 leading-relaxed ">
                         <p className="content-text ">
-                            Established on June 14, 2018, SRIYOG Consulting Pvt. Ltd., based in Kamalpokhari,
-                            Kathmandu, Nepal, is a leading provider of digital solutions dedicated to driving
-                            digital transformation in the healthcare, employment, and tourism sectors. Our mission
-                            is to empower organizations in these vital industries with innovative, scalable, technology-driven
-                            services that enhance operational efficiency and support long-term growth.
+                            Building Sewa is a professional construction management startup in Nepal dedicated to transforming your dream home into reality. We provide end-to-end building construction services, guiding homeowners through every stage—from initial concept and architectural design to construction, interior finishing, handover, and long-term maintenance.
                         </p>
 
                         <p className="content-text ">
-                            At SRIYOG Consulting, we believe that smart technology is key to addressing sector-specific challenges.
-                            Our diverse IT services include data processing, software and web application development, digital
-                            marketing, database management, business process automation, and expert IT consultancy—each tailored
-                            to the unique needs of agriculture, employment platforms, and tourism operations.
+                            Our mission is to simplify the building process by bringing together experienced architects, engineers, project managers, skilled craftsmen, and trusted contractors under one organized platform. Through structured project management, transparent communication, and strict quality standards, we ensure every project is completed efficiently, within budget, and on schedule.
+
                         </p>
 
                        
 
                         <p className="content-text">
-                            By optimizing digital infrastructure, we help our clients streamline services, engage users effectively,
-                            and scale sustainably. We specialize in crafting robust, user-friendly web solutions with a focus on
-                            modern UI/UX design, full-stack development, and industry-specific platforms—whether for agritech,
-                            job-matching portals, or tourism management systems.
+                            At Building Sewa, we believe constructing a home should be stress-free. We combine industry expertise, professional craftsmanship, and modern construction practices to deliver premium-quality homes that meet the highest standards of safety, durability, and aesthetics. Whether you're building your first home, renovating an existing property, or developing a commercial project, our dedicated team is committed to delivering reliable, budget-friendly, and deadline-focused solutions tailored to your needs.
+
                         </p>
 
                         <p className="content-text ">
-                            Our offerings include e-commerce platforms, CMS, SaaS-based solutions, and Progressive Web Applications
-                            (PWAs) designed for mobile-first experiences with offline functionality.
+                            Building Sewa—your trusted construction partner from concept to completion, building homes with quality, transparency, and excellence across Nepal.
+
                         </p>
 
                         <p className="content-text ">

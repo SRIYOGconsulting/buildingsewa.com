@@ -39,11 +39,11 @@ export default function Home() {
             </div>
 
             <div className="font-bold text-3xl md:text-5xl mb-6">
-              SRIYOG Consulting
+              Building Sewa
             </div>
 
             <h1 className="text-[18px] max-w-[600px] leading-relaxed opacity-95">
-              Professional consulting in Kathmandu, Nepal.
+              Engineered with Excellence
             </h1>
 
             <div className="mt-8 flex gap-4">
@@ -58,7 +58,7 @@ export default function Home() {
                 href="/book"
                 className="inline-block border-2 border-[#0D5D59] py-2 px-6 rounded-md text-[#0D5D59] font-semibold hover:bg-[#0D5D59] hover:text-white transition duration-300 cursor-pointer"
               >
-                Book a Service
+                Explore Services
               </Link>
             </div>
           </div>
