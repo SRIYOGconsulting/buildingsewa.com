@@ -96,9 +96,9 @@ const Header = () => {
             </button>
           </Link>
 
-          <Link href="/notice">
+          <Link href="/book">
             <button className="bg-teal-900 cursor-pointer text-[16px] border border-teal-900 text-white px-4 py-1 rounded hover:bg-teal-800">
-              Notice
+              Book a Service
             </button>
           </Link>
           </div>
@@ -106,9 +106,9 @@ const Header = () => {
           
           {/* Mobile Notice button*/}
           <div>
-            <Link href="/notice">
+            <Link href="/book">
               <button className="bg-[#ebebeb] cursor-pointer sm:hidden border-[1.5px]  border-teal-800 text-black px-4 py-1 rounded hover:bg-teal-800">
-                Notice
+                Book a Service
               </button>
             </Link>
           </div>
