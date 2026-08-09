@@ -24,7 +24,7 @@ const Footer = () => {
               <img
                 src="/logo/wordmark-logo.svg"
                 alt="Sriyog Logo"
-                className="w-[200px] h-auto"
+                className="w-[350px] h-auto"
               />
             </Link>
           </div>
