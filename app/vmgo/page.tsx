@@ -58,7 +58,7 @@ export default function Vmgo() {
           <div className="p-8 md:p-16 bg-teal-700 text-white space-y-4 max-w-3xl rounded-xl ">
             <h2 className="text-3xl font-bold ">Mission</h2>
             <p className="text-md leading-relaxed ">
-              At SRIYOG, our mission is to revolutionize the way work is connected with workers. We strive to provide a seamless platform that empowers individuals and businesses to find the perfect match for their needs, fostering opportunities for growth, collaboration, and success.            </p>
+              At Building Sewa, our mission is to revolutionize the way work is connected with workers. We strive to provide a seamless platform that empowers individuals and businesses to find the perfect match for their needs, fostering opportunities for growth, collaboration, and success.            </p>
           </div>
           <div className="hidden md:flex items-center mb-6">
               <Image height={600} width={800} src="/vmgo/mission.png" alt="" className="w-auto h-40 " />

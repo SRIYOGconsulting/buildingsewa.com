@@ -14,239 +14,667 @@ export default function Glossary() {
     const glossaryTerms:TermsByLetter = {
         A: [
             {
-                term: "API (Application Programming Interface)",
-                definition: "A set of protocols and tools that allows different software applications to communicate with each other."
+                term: "Aggregate",
+                definition: "Materials like sand, gravel, and crushed stone used in concrete and contruction."
             },
             {
-                term: "Agile Methodology",
-                definition: "An iterative approach to software development that emphasizes flexibility, collaboration, and customer feedback."
+                term: "Architrave",
+                definition: "Adecorative frame placed around a door or window"
             },
             {
-                term: "Authentication",
-                definition: "The process of verifying the identity of a user or system before granting access to resources."
+                term: "Asphalt",
+                definition: "A strong, dark material commanly used for roads and driveways."
             },
             {
-                term: "AWS (Amazon Web Services)",
-                definition: "A comprehensive cloud computing platform that provides on-demand services like storage, computing power, and databases."
-            }
+                term: "Acoustic Insulation",
+                definition: "Material used to reduce noise passing between rooms."
+            },
+             {
+                term: "Anchor Bolt",
+                definition: "A bolt used to firmly connect a structure to its foundation."
+            },
+             {
+                term: "Apron",
+                definition: "A praved or concrete area placed near a building entrance or opening."
+            },
+             {
+                term: "Attic",
+                definition: "The space directly below a building's roof, often used for storage."
+            },
+            {
+                term: "Aggregate Concrete",
+                definition: "Concrete made using materials such as gravel or crushed stone."
+            },
+             {
+                term: "Alcove",
+                definition: "A small recessed area built into a room or wall."
+            },
+             {
+                term: "Acoustic Panel",
+                definition: "A panel designed to reduce unwanted sound inside a room."
+            },
         ],
         B: [
             {
-                term: "Backend",
-                definition: "The server-side of a website or application that handles data processing, storage, and business logic."
+                term: "Beam",
+                definition: "A horizontal sttructure element that support the weight of a building."
             },
             {
-                term: "Bootstrap",
-                definition: "A popular front-end framework for developing responsive and mobile-first websites."
+                term: "Bulkhead",
+                definition: "A structure used to separate or support different areas of a building.."
             },
             {
-                term: "Bug",
-                definition: "An error or flaw in software that causes it to produce incorrect or unexpected results."
+                term: "Backfill",
+                definition: "Soil or other material placed back into an area after excavation."
             },
             {
-                term: "Bandwidth",
-                definition: "The maximum rate of data transfer across a network connection, typically measured in Mbps or Gbps."
-            }
+                term: "Balustrade",
+                definition: "A row of small posts supporting a handrail along stairs or balconies."
+            },
+             {
+                term: "Batten",
+                definition: "A narrow strip of wood or metal used to support or fix building materials."
+            },
+             {
+                term: "Building Envelope",
+                definition: "The outer parts of a building that protect the inside from weather."
+            },
+             {
+                term: "Bedding",
+                definition: "A layer of material placed underneath tiles, bricks, or other surfaces."
+            },
+             {
+                term: "Bracing",
+                definition: "Structural support used to make building more stable."
+            },
+             {
+                term: "Bifold Door",
+                definition: "A door made of panels that fold together when opened."
+            },
         ],
         C: [
             {
-                term: "Cache",
-                definition: "A temporary storage area that saves frequently accessed website data to improve load times and performance."
+                term: "Cantilever",
+                definition: "A structure that extends outward while being supported from only one end."
             },
             {
-                term: "CMS (Content Management System)",
-                definition: "A software platform that allows users to create, edit, organize, and publish digital content without needing to code."
+                term: "Coping",
+                definition: "A protective covering placed on top of a wall to prevent water damage."
             },
             {
-                term: "Cloud Hosting",
-                definition: "Hosting website data on virtual cloud servers, for scalability, flexibility, and cost-effectiveness."
+                term: "Cornice",
+                definition: "A decorative structure placed where a wall meets a ceiling or roof."
             },
             {
-                term: "CSS (Cascading Style Sheets)",
-                definition: "A web language that controls the layout and visual style of content, including fonts, colors, spacing, and alignment."
+                term: "Cladding",
+                definition: "A protective or decorative layer attached to the outside of a building."
             },
             {
-                term: "Cybersecurity",
-                definition: "The protection of digital assets and user data from unauthorized access, attacks, or breaches through secure CMS practices."
+                term: "Compaction",
+                definition: "The process of pressing soil or other material to make it more stable."
             },
             {
-                term: "CTA (Call to Action)",
-                definition: "A prompt, such as a button or link, that encourages users to take a specific action like signing up or purchasing."
-            }
+                term: "Cavity Wall",
+                definition: "A wall built with a gap between two layers to improve insulation and prevent moisture."
+            },
+            {
+                term: "Curing",
+                definition: "The process of keeping concrete properly moist while becomes strong."
+            },
+            {
+                term: "Column",
+                definition: "A vertical structural element that supports the weight above it."
+            },
+            {
+                term: "Concrete Slab",
+                definition: "A flat layer of concrete commonly used for floors, roofs and foundations."
+            },
+            {
+                term: "Capillary Action",
+                definition: "The movement of water through tiny spaces in building materials."
+            },
         ],
         D: [
             {
-                term: "Database",
-                definition: "An organized collection of structured data that can be easily accessed, managed, and updated."
+                term: "Damp Proof Course (DPC)",
+                definition: "A protective layer that stops moisture from rising through walls."
             },
             {
-                term: "DevOps",
-                definition: "A set of practices that combines software development and IT operations to shorten development cycles."
+                term: "Damp proofing",
+                definition: "Methods used to prevent moisture from entering a building."
             },
             {
-                term: "DNS (Domain Name System)",
-                definition: "A system that translates domain names into IP addresses so browsers can load websites."
+                term: "Dead load",
+                definition: "The permanent weight of a building's structure and fixed materials."
             },
             {
-                term: "Docker",
-                definition: "A platform that uses containerization to package applications and their dependencies for consistent deployment."
-            }
+                term: "Deflection",
+                definition: "The bending or movement of a building element under weight."
+            },
+            {
+                term: "Drainage",
+                definition: "A system designed to safely remove water from a building or property."
+            },
+            {
+                term: "Dado",
+                definition: "The lower part of an interior wall, often finished differently for protection or decoration."
+            },
+            {
+                term: "Dormer",
+                definition: "A window that projects outward from a sloping roof."
+            },
+            {
+                term: "Downpipe",
+                definition: "A pipe that carries rainwater from a roof gutter to the ground."
+            },
+            {
+                term: "Drywall",
+                definition: "Lightweight boards used to create interior walls and cellings."
+            },
+            {
+                term: "Ductwork",
+                definition: "Anetwork of passages used to move air through a building."
+            },
         ],
         E: [
             {
-                term: "E-commerce",
-                definition: "The buying and selling of goods or services over the internet through online platforms."
+                term: "Eaves",
+                definition: "The edges of a roof that extends beyond the walls of a building."
             },
             {
-                term: "Encryption",
-                definition: "The process of converting data into a coded format to prevent unauthorized access."
+                term: "Efflorescence",
+                definition: "White powdery marks caused by salts appearing on the surface of walls."
             },
             {
-                term: "ERP (Enterprise Resource Planning)",
-                definition: "Integrated software that manages core business processes like accounting, HR, inventory, and supply chain."
-            }
+                term: "Expansion Joint",
+                definition: "A gap designed to allow building materials to expand and contract safely."
+            },
+             {
+                term: "Excavation",
+                definition: "The process of removing soil to prepare for construction."
+            },
+             {
+                term: "Elevation",
+                definition: "A drawing showing what one side of a building looks like."
+            },
+             {
+                term: "Escutcheon",
+                definition: "A decorative plate covering the area around a pipe, lock, or fitting."
+            },
+             {
+                term: "Egress",
+                definition: "A safe way for people to leave a building during normal use or emergencies."
+            },
+             {
+                term: "Epoxy Flooring",
+                definition: "A strong, smooth floor coating made from epoxy material."
+            },
+             {
+                term: "External Wall",
+                definition: "A wall forming the outer boundary of a building."
+            },
+             {
+                term: "Earthwork",
+                definition: "Construction work involving the digging, moving, or shaping of a soil."
+            },
         ],
         F: [
             {
-                term: "Frontend",
-                definition: "The client-side of a website or application that users interact with directly through their browser."
+                term: "Footing",
+                definition: "The widened base of foundation that spreads the building's weight into the ground."
             },
             {
-                term: "Framework",
-                definition: "A pre-built structure or set of tools that helps developers build applications more efficiently."
+                term: "Formwork",
+                definition: "A temporary structure used to hold wet concrete in the correct shape"
             },
             {
-                term: "Firewall",
-                definition: "A network security system that monitors and controls incoming and outgoing traffic based on security rules."
+                term: "Fascia",
+                definition: "A board fixed along the edge of a roof, often supporting the gutter."
             },
             {
-                term: "FTP (File Transfer Protocol)",
-                definition: "A standard protocol used to transfer files between a client and server over a network."
-            }
+                term: "Flashing",
+                definition: "Thin material used around roofs, windows, and joints to prevent water from entering."
+            },
+            {
+                term: "Floor Joist",
+                definition: "A horiaontal support that carries the weight of a floor."
+            },
+             {
+                term: "Facade",
+                definition: "The front or main exterior face of a building."
+            },
+             {
+                term: "Finishes",
+                definition: "The final materials and treatments applied to surfaces for apperance and protection."
+            },
+             {
+                term: "Fireproofing",
+                definition: "Materials or methods used to help a building resist fire."
+            },
+             {
+                term: "Foundation",
+                definition: "The part of a building that transfers its weight safely into the ground."
+            },
+             {
+                term: "French Drain",
+                definition: "A drainage system that uses a gravel-filled tranch and pipe to move away excess water."
+            },
         ],
         G: [
             {
-                term: "Git",
-                definition: "A version control system that tracks changes in code and enables collaboration among developers."
+                term: "Gable",
+                definition: "The triangular upper part of a wall beneath a sloping roof."
             },
             {
-                term: "GUI (Graphical User Interface)",
-                definition: "A visual way for users to interact with software through icons, buttons, and windows."
+                term: "Girder",
+                definition: "A large structural beam that supports smaller beams or parts of a building."
             },
             {
-                term: "GitHub",
-                definition: "A web-based platform for version control and collaboration using Git repositories."
-            }
+                term: "Grout",
+                definition: "A materials used to fill the gaps between tiles."
+            },
+             {
+                term: "Glazing",
+                definition: "The glass fitted into window, doors, or other building openings."
+            },
+             {
+                term: "Grade Beam",
+                definition: "A reinforced beam that helps transfer building loads to the foundation."
+            },
+             {
+                term: "Geotextile",
+                definition: "A fabric used in construction to imporve soil stability and drainage."
+            },
+             {
+                term: "Groundwater",
+                definition: "Water natually found beneath the surface of the ground."
+            },
+             {
+                term: "Gutter",
+                definition: "A channel along a roof that collects and directs rainwater."
+            },
+             {
+                term: "Gypsum Board",
+                definition: "A lightweight board commonly used for interior walls and ceilings."
+            },
+             {
+                term: "Green Building",
+                definition: "A building designed to reduce energy use and environmental impact."
+            },
         ],
         H: [
             {
-                term: "HTML (HyperText Markup Language)",
-                definition: "The standard markup language used to create and structure content on the web."
+                term: "HVAC",
+                definition: "Systems used to control heating, cooling, and air movement inside a building."
             },
             {
-                term: "HTTP/HTTPS",
-                definition: "Protocols for transmitting data over the web; HTTPS is the secure version with encryption."
+                term: "Header",
+                definition: "A structural piece placed above an opening such as a door or window."
             },
             {
-                term: "Hosting",
-                definition: "A service that provides server space and resources for websites to be accessible on the internet."
-            }
+                term: "Herringbone",
+                definition: "A pattern where materials such as tiles or flooring are arranged in a zigzag design."
+            },
+            {
+                term: "Hardscape",
+                definition: "Non-living features of outdoor areas, such as paths, walls, and patios."
+            },
+            {
+                term: "Handrail",
+                definition: "A rail designed to provide support when using stairs or ramps."
+            },
+            {
+                term: "Heat Insulation",
+                definition: "Materials that slows the transfer of heat between spaces."
+            },
+            {
+                term: "Hollow Block",
+                definition: "A lightweight building block containing holloe spaces inside it."
+            },
+            {
+                term: "Hydraulic Cement",
+                definition: "Cement that hardens when mixed with water and can be used in damp areas."
+            },
+            {
+                term: "Hip Roof",
+                definition: "A roof with sloping sides on all four edges."
+            },
+            {
+                term: "Hinge",
+                definition: "A joint that allows a door, window, or panel to open and close."
+            },
         ],
         I: [
             {
-                term: "IDE (Integrated Development Environment)",
-                definition: "A software application that provides comprehensive tools for software development in one place."
+                term: "Insulation",
+                definition: "Material used to reduce the transfer of heat, sound or moisture."
             },
             {
-                term: "IT Consulting",
-                definition: "Professional advisory services that help organizations optimize their technology infrastructure and strategies."
+                term: "Infiltration",
+                definition: "Unwanted air or water entering a building through gaps or cracks."
             },
             {
-                term: "IoT (Internet of Things)",
-                definition: "A network of physical devices connected to the internet, collecting and sharing data."
-            }
+                term: "I-Beam",
+                definition: "A strong structural beam shaped like the letter I."
+            },
+            {
+                term: "Interior Finish",
+                definition: "The final material or treatment applied to an interior surface."
+            },
+            {
+                term: "Isolation Joint",
+                definition: "A joint that separates parts of a structure to allow independent movement."
+            },
+            {
+                term: "Insepection",
+                definition: "A detailed check of a building to identify problems or ensore standards are met."
+            },
+            {
+                term: "Inverter",
+                definition: "A device that convert electrical power into a form suitable for certain appliances or systems."
+            },
+            {
+                term: "Irrigation",
+                definition: "A system used to supply water to gardens and landscaped areas."
+            },
+             {
+                term: "Ironmongery",
+                definition: "Metal fittings used in buildings, such as handles, locks, and hinges."
+            },
+             {
+                term: "Insulated Glass",
+                definition: "Window glass made with multiple layers separated by an insulating space."
+            },
         ],
         J: [
             {
-                term: "JavaScript",
-                definition: "A programming language that enables interactive and dynamic content on websites."
+                term: "Joist",
+                definition: "A horizontal structural member that supports floors or ceilings."
             },
             {
-                term: "JSON (JavaScript Object Notation)",
-                definition: "A lightweight data format used for storing and exchanging data between systems."
+                term: "Jamb",
+                definition: "The vertical side part of a door or window frame"
             },
             {
-                term: "jQuery",
-                definition: "A fast JavaScript library that simplifies HTML document manipulation, event handling, and animation."
-            }
+                term: "Joinery",
+                definition: "Skilled work involving the construction and fitting of wooden parts."
+            },
+             {
+                term: "Junction Box",
+                definition: "A protective box where electrical wires are connected."
+            },
+             {
+                term: "Joint Sealant",
+                definition: "Material used to seal gaps between building materials and prevent water or air from entering."
+            },
+             {
+                term: "Joint Hanger",
+                definition: "A metal fitting used to securely support a joist."
+            },
+             {
+                term: "Jack Arch",
+                definition: "A shallow arch built above a door or window to support the structure above it."
+            },
+            {
+                term: "Junction",
+                definition: "A point where two or more building systems, surfaces, or components."
+            },
+            {
+                term: "Joint Compound",
+                definition: "A paste used to cover and smooth joints between drywall panels."
+            },
+            {
+                term: "Jackhammer",
+                definition: "A powerful tool used to break concrete, stone, or other hard materials."
+            },
         ],
         K: [
             {
-                term: "Kubernetes",
-                definition: "An open-source platform for automating deployment, scaling, and management of containerized applications."
+                term: "Kerb",
+                definition: "A raised edge separating a road, pavement, or landscaped area."
             },
             {
-                term: "Keyword",
-                definition: "A specific word or phrase that users type into search engines, crucial for SEO optimization."
-            }
+                term: "Keyway",
+                definition: "A groove made between concrete sections to help them stay connected."
+            },
+            {
+                term: "Kiln-Dried Timber",
+                definition: "Wood that has been dried in a controlled environment to reduce moisture."
+            },
+            {
+                term: "Knee Wall",
+                definition: "A short wall commanly found under a sloping roof."
+            },
+             {
+                term: "Kickboard",
+                definition: "A protective panel placed at the button of a cabinet or similar structure."
+            },
+            {
+                term: "Keystone",
+                definition: "The central stone at the top of an arch that helps hold it together."
+            },
+             {
+                term: "Kitchen Worktop",
+                definition: "The surable surface installed on top of ktchen cabinets for working and food preparation."
+            },
+            {
+                term: "Kicker",
+                definition: "A small raised concrete section used to help position or support formwork."
+            },
+             {
+                term: "Kiosk",
+                definition: "A small standalone structure designed for a specific service or purpose."
+            },
         ],
         L: [
             {
-                term: "Linux",
-                definition: "An open-source operating system widely used for servers, development, and enterprise applications."
+                term: "Lintel",
+                definition: "A horiaontal support placed above a door or window to carry the weight above it."
             },
             {
-                term: "Load Balancing",
-                definition: "The process of distributing network traffic across multiple servers to ensure optimal performance."
-            }
+                term: "Load-Bearing Wall",
+                definition: "A wall that supports the weight of the structure above it."
+            },
+            {
+                term: "Levelling",
+                definition: "The process of making a surface even and properly aligned."
+            },
+            {
+                term: "Laminated Timber",
+                definition: "Wood made by bonding several layers together to create a stronger material."
+            },
+            {
+                term: "Landscaping",
+                definition: "The planning and improvement of outdoor areas around a building."
+            },
+            {
+                term: "Lath",
+                definition: "Thin strips or sheets used as a base for plaster o other finishes."
+            },
+            {
+                term: "Lean Concrete",
+                definition: "Concrete with a low cement content, often used as a base layer."
+            },
+            {
+                term: "Lightwell",
+                definition: "An open space that allows natural light and sir into lower areas of a building."
+            },
+            {
+                term: "Louvers",
+                definition: "An open space that allows natural light and air into lower areas of a building."
+            },
+            {
+                term: "Level Datum",
+                definition: "A  fixed reference point used to measure heights during construction."
+            },
         ],
         M: [
             {
-                term: "Machine Learning",
-                definition: "A subset of AI that enables systems to learn and improve from experience without explicit programming."
+                term: "Masonry",
+                definition: "Construction using materials such as bricks, blocks, or stone joined with mortar."
             },
             {
-                term: "MySQL",
-                definition: "An open-source relational database management system commonly used for web applications."
+                term: "Mortar",
+                definition: "A mixture used to hold bricks, blocks, or stones together."
             },
             {
-                term: "Metadata",
-                definition: "Data that provides information about other data, such as file creation dates or image properties."
-            }
+                term: "Mezzanine",
+                definition: "A partial floor built between the main floors of a building."
+            },
+            {
+                term: "Moisture Barrier",
+                definition: "A materials that prevents moisture from passing through walls, fllors, or roofs."
+            },
+            {
+                term: "Manhole",
+                definition: "An access opening that allows workers to reach underground drainage or utility systems."
+            },
+            {
+                term: "Mullion",
+                definition: "A vertical structural piece separating sections of a window."
+            },
+            {
+                term: "Membrane",
+                definition: "A thin protective layer used to control water, moisture, or air movement."
+            },
+            {
+                term: "Miter Joint",
+                definition: "A joint where two pieces are cut at an angle and joined together."
+            },
+            {
+                term: "Modular Construction",
+                definition: "Building a structure using sections made separately and assembled on-site."
+            },
+             {
+                term: "Mechanical Ventilation",
+                definition: "A system that uses equipment to move fresh and stale air through a building."
+            },
         ],
         N: [
             {
-                term: "Node.js",
-                definition: "A JavaScript runtime environment that allows developers to run JavaScript on the server-side."
+                term: "Non-Load-Bearing Wall",
+                definition: "A wall that divides spaces but does not support the building's main structure."
             },
             {
-                term: "NoSQL",
-                definition: "A database system that stores data in formats other than traditional relational tables."
-            }
+                term: "Nosing",
+                definition: "The front edge of a stair step that extends slightly beyond the step below."
+            },
+            {
+                term: "Natural Ventilation",
+                definition: "Using windows, openings, and air movement to ventilate a building without mechanical systems."
+            },
+            {
+                term: "Neutral Wire",
+                definition: "An electrical wire that provides a return path for current in many electrical systems."
+            },
+            {
+                term: "Notching",
+                definition: "Cutting a small section from wood or another material to allow components to fit together."
+            },
+            {
+                term: "Newel Post",
+                definition: "A strong post that supports a staircase handrail or balustrade."
+            },
+            {
+                term: "Net Floor Area",
+                definition: "The usable floor space inside a building after certain areas are excluded."
+            },
+            {
+                term: "Noise Insulation",
+                definition: "Materials used to reduce sound travelling between spaces."
+            },
+            {
+                term: "Nailer",
+                definition: "A piece of material added to provide a secure surface for attaching another component."
+            },
+             {
+                term: "Nominal Size",
+                definition: "The stated size of a building material, which may differ slightly from its actual size."
+            },
         ],
         O: [
             {
-                term: "Open Source",
-                definition: "Software with source code that anyone can inspect, modify, and enhance."
+                term: "Occupancy Permit",
+                definition: "Official approval confirming that a building is suitable to be occupied."
             },
             {
-                term: "Operating System",
-                definition: "System software that manages computer hardware and software resources, like Windows, macOS, or Linux."
-            }
+                term: "Open Floor Plan",
+                definition: "A layout with fewer walls separating living or working areas."
+            },
+            {
+                term: "Overhang",
+                definition: "A part of a roof or structure that extends beyond the wall below it."
+            },
+            {
+                term: "Orientation",
+                definition: "The positioning of a building in relation to the sun, wind, and surroundings."
+            },
+            {
+                term: "On-Site Inspection",
+                definition: "A physical check of construction work at the building location."
+            },
+            {
+                term: "Ornamental Work",
+                definition: "Decorative details added to improve the appearance of a building."
+            },
+            {
+                term: "Outlet",
+                definition: "A point where electricity, water, or another service can be accessed."
+            },
+            {
+                term: "Oxide Paint",
+                definition: "A protective coating used to help prevent rust on metal surfaces."
+            },
+            {
+                term: "Overlay",
+                definition: "A new layer placed over an existing surface without completely removing it."
+            },
+            {
+                term: "OSB (Oriented Strand Board)",
+                definition: "A strong engineered wood panel made from compressed wood strands."
+            },
         ],
         P: [
             {
-                term: "PHP",
-                definition: "A server-side scripting language widely used for web development and dynamic content generation."
+                term: "Plinth",
+                definition: "The raised base of a building that separates the main structure from the ground."
             },
             {
-                term: "PWA (Progressive Web App)",
-                definition: "A type of web application that works offline and provides an app-like experience on mobile devices."
+                term: "Purlin",
+                definition: "A horizontal structural member that supports a roof."
             },
             {
-                term: "Python",
-                definition: "A high-level programming language known for its simplicity and versatility in web, data science, and AI."
-            }
+                term: "Parapet",
+                definition: "A low protective wall built along the edge of a roof, balcony, or terrace."
+            },
+            {
+                term: "Plastering",
+                definition: "The process of covering walls or ceilings with a smooth protective layer."
+            },
+            {
+                term: "Piling",
+                definition: "Long structural supports driven deep into the ground to support heavy buildings."
+            },
+            {
+                term: "Partition Wall",
+                definition: "An interior wall used to divide a building into separate spaces."
+            },
+            {
+                term: "Permeability",
+                definition: "How easily water or air can pass through a material."
+            },
+            {
+                term: "Precast Concrete",
+                definition: "Concrete parts made in advance and transported to the construction site."
+            },
+            {
+                term: "Plinth Beam",
+                definition: "A reinforced beam built near ground level to connect and support the foundation and walls."
+            },
+            {
+                term: "Pointing",
+                definition: "The process of filling and finishing the visible joints between bricks or stones."
+            },
         ],
         Q: [
             {
