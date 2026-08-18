@@ -43,7 +43,7 @@ export default function Vmgo() {
           <div className="p-8 md:p-16 card space-y-4 max-w-3xl rounded-xl">
             <h2 className="text-3xl font-bold text">Vision</h2>
             <p className=" text-md leading-relaxed mb-4">
-              Our vision at SRIYOG is to create a future where every individual has access to opportunities that match their skills and aspirations.            </p>
+              Our vision at Building Sewa is to create a future where every individual has access to opportunities that match their skills and aspirations.            </p>
             <p className=" text-md leading-relaxed">
               We envision a world where people searching for any service can easily connect
               with skilled professionals rather than hiring hefty commission from any service
