@@ -1,73 +1,116 @@
-'use client'
-import { useEffect, useState } from 'react';
+import Link from "next/link";
 
-import Lightbox from '../../components/Lightbox';
-import Image from 'next/image';
+const articles = [
+    {
+        title: "Understanding Modern Construction Management",
+        category: "Construction Management",
+        description:
+            "An overview of how organized planning, coordination, and project management can support successful construction projects.",
+    },
+    {
+        title: "The Role of Technology in Construction",
+        category: "Technology",
+        description:
+            "Explore how digital tools can improve communication, coordination, documentation, and project management.",
+    },
+    {
+        title: "Planning a Successful Construction Project",
+        category: "Project Planning",
+        description:
+            "Important areas to consider when planning a construction project, from requirements and resources to timelines and coordination.",
+    },
+    {
+        title: "Common Challenges in Construction Projects",
+        category: "Construction",
+        description:
+            "A look at some common challenges that can affect construction projects and the importance of proper planning and coordination.",
+    },
+    {
+        title: "Why Professional Construction Management Matters",
+        category: "Project Management",
+        description:
+            "Learn why structured project management can help improve coordination between the different people involved in a construction project.",
+    },
+    {
+        title: "Building Better Projects Through Digital Solutions",
+        category: "Digital Solutions",
+        description:
+            "How digital solutions can help bring information, communication, and project activities together in a more organized way.",
+    },
+];
 
-export default function Certificate() {
-    
-    const [lightbox,setLightbox] = useState(false);
-    const [index, setIndex] = useState<number | null>(0);
-
-    useEffect(() => {
-        const originalStyle = window.getComputedStyle(document.body).overflow;
-        
-        if (lightbox) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = originalStyle;
-        }
-
-        // Cleanup on unmount or when lightbox changes
-        return () => {
-            document.body.style.overflow = originalStyle;
-        };
-    }, [lightbox]);
-    // Updated certificate data with new image paths
-    const certificates = [
-        { title: 'Certificate 1', img: '/images/certificates/1.jpg' },
-        { title: 'Certificate 2', img: '/images/certificates/2.jpg' },
-        { title: 'Certificate 3', img: '/images/certificates/3.jpg' },
-        { title: 'Certificate 4', img: '/images/certificates/4.jpg' },
-        { title: 'Certificate 5', img: '/images/certificates/5.jpg' },
-        { title: 'Certificate 6', img: '/images/certificates/6.jpg' },
-        { title: 'Certificate 7', img: '/images/certificates/7.jpg' },
-        { title: 'Certificate 8', img: '/images/certificates/8.jpg' },
-        { title: 'Certificate 9', img: '/images/certificates/9.jpg' },
-    ];
-
+export default function Blog() {
     return (
-        <div className='relative '>
-            {/* Header */}
-            {/* <Ribbon name="Certificates" showfont={false}/> */}
-            <div className="px-5 py-10 max-w-7xl mx-auto">
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-items-center">
-                    {certificates.map((cert, index) => (
-                        <div
-                            key={index}
-                            className="card rounded-lg shadow-md overflow-hidden w-full max-w-xs hover:shadow-lg transition-shadow duration-300"
-                        >
-                            <Image height={600} width={800}
-                                src={cert.img}
-                                alt={cert.title}
-                                onClick={()=>{setLightbox(true);setIndex(index)}}
-                                className="w-full h-56 object-cover cursor-pointer"
-                            />
-                            <div className="px-4 py-5 card2">
-                                <h2 className="text-lg font-medium ">{cert.title}</h2>
-                                <p className="card2 text-sm mt-2">
-                                    Short description about the certificate.
-                                </p>
-                            </div>
-                        </div>
-                    ))}
+        <main>
+          
+            <section className="py-16 px-5 text-center">
+                <div className="max-w-4xl mx-auto">
+                    <p className="text-sm font-semibold uppercase tracking-wider mb-3">
+                        Blog
+                    </p>
+
+                    <h1 className="text-3xl md:text-5xl font-bold">
+                        Insights & Articles
+                    </h1>
+
+                    <p className="mt-5 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
+                        Explore insights, ideas, and useful information related
+                        to construction management, technology, and digital
+                        solutions.
+                    </p>
                 </div>
-            </div>
-            {lightbox && (
-            <>
-            <Lightbox setLightbox={setLightbox} lightbox={lightbox} data={certificates} index={index} setIndex={setIndex}/>
-            </>
-            )}
-        </div>
+            </section>
+
+           
+            <section className="px-5 py-10">
+                <div className="max-w-6xl mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {articles.map((article) => (
+                            <article
+                                key={article.title}
+                                className="card rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col"
+                            >
+                                <span className="text-sm font-semibold">
+                                    {article.category}
+                                </span>
+
+                                <h2 className="text-xl font-bold mt-3">
+                                    {article.title}
+                                </h2>
+
+                                <p className="mt-3 leading-relaxed flex-grow">
+                                    {article.description}
+                                </p>
+
+                                <div className="mt-6">
+                                    <Link
+                                        href="#"
+                                        className="font-semibold hover:underline"
+                                    >
+                                        Read More →
+                                    </Link>
+                                </div>
+                            </article>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+
+            <section className="px-5 py-14">
+                <div className="max-w-3xl mx-auto text-center card rounded-xl p-8 shadow-md">
+                    <h2 className="text-2xl md:text-3xl font-bold">
+                        More Articles Coming Soon
+                    </h2>
+
+                    <p className="mt-4 leading-relaxed">
+                        New articles and updates will be published here as
+                        content becomes available.
+                    </p>
+                </div>
+            </section>
+
+            <div className="h-16"></div>
+        </main>
     );
 }

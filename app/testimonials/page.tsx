@@ -1,73 +1,95 @@
-'use client'
-import { useEffect, useState } from 'react';
-
-import Lightbox from '../../components/Lightbox';
-import Image from 'next/image';
-
-export default function Certificate() {
-    
-    const [lightbox,setLightbox] = useState(false);
-    const [index, setIndex] = useState<number | null>(0);
-
-    useEffect(() => {
-        const originalStyle = window.getComputedStyle(document.body).overflow;
-        
-        if (lightbox) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = originalStyle;
-        }
-
-        // Cleanup on unmount or when lightbox changes
-        return () => {
-            document.body.style.overflow = originalStyle;
-        };
-    }, [lightbox]);
-    // Updated certificate data with new image paths
-    const certificates = [
-        { title: 'Certificate 1', img: '/images/certificates/1.jpg' },
-        { title: 'Certificate 2', img: '/images/certificates/2.jpg' },
-        { title: 'Certificate 3', img: '/images/certificates/3.jpg' },
-        { title: 'Certificate 4', img: '/images/certificates/4.jpg' },
-        { title: 'Certificate 5', img: '/images/certificates/5.jpg' },
-        { title: 'Certificate 6', img: '/images/certificates/6.jpg' },
-        { title: 'Certificate 7', img: '/images/certificates/7.jpg' },
-        { title: 'Certificate 8', img: '/images/certificates/8.jpg' },
-        { title: 'Certificate 9', img: '/images/certificates/9.jpg' },
+export default function Testimonials() {
+    const values = [
+        {
+            title: "Professional Service",
+            description:
+                "We focus on delivering professional and reliable services while keeping project requirements and client needs at the center.",
+        },
+        {
+            title: "Quality & Reliability",
+            description:
+                "Our approach emphasizes quality, consistency, and dependable support throughout the service process.",
+        },
+        {
+            title: "Client Focused",
+            description:
+                "We aim to understand each client's requirements and provide solutions that are practical and suited to their needs.",
+        },
+        {
+            title: "Skilled Team",
+            description:
+                "Our team works collaboratively to provide knowledgeable support and effective solutions across different project requirements.",
+        },
+        {
+            title: "Technology Driven",
+            description:
+                "We use modern digital tools and technologies to improve communication, coordination, and service delivery.",
+        },
+        {
+            title: "Continuous Improvement",
+            description:
+                "We value feedback and continuously look for ways to improve our services and overall client experience.",
+        },
     ];
 
     return (
-        <div className='relative '>
-            {/* Header */}
-            {/* <Ribbon name="Certificates" showfont={false}/> */}
-            <div className="px-5 py-10 max-w-7xl mx-auto">
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-items-center">
-                    {certificates.map((cert, index) => (
-                        <div
-                            key={index}
-                            className="card rounded-lg shadow-md overflow-hidden w-full max-w-xs hover:shadow-lg transition-shadow duration-300"
-                        >
-                            <Image height={600} width={800}
-                                src={cert.img}
-                                alt={cert.title}
-                                onClick={()=>{setLightbox(true);setIndex(index)}}
-                                className="w-full h-56 object-cover cursor-pointer"
-                            />
-                            <div className="px-4 py-5 card2">
-                                <h2 className="text-lg font-medium ">{cert.title}</h2>
-                                <p className="card2 text-sm mt-2">
-                                    Short description about the certificate.
+        <main>
+            {/* Hero */}
+            <section className="py-16 px-5 text-center">
+                <div className="max-w-4xl mx-auto">
+                    <p className="text-sm font-semibold uppercase tracking-wider mb-3">
+                        Testimonials
+                    </p>
+
+                    <h1 className="text-3xl md:text-5xl font-bold">
+                        What Our Clients Value
+                    </h1>
+
+                    <p className="mt-5 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
+                        We are committed to providing professional, reliable, and
+                        client-focused services. Verified client feedback will be
+                        featured here as it becomes available.
+                    </p>
+                </div>
+            </section>
+
+            {/* Values */}
+            <section className="px-5 py-12">
+                <div className="max-w-6xl mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {values.map((item) => (
+                            <div
+                                key={item.title}
+                                className="card rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300"
+                            >
+                                <h2 className="text-xl font-semibold">
+                                    {item.title}
+                                </h2>
+
+                                <p className="mt-3 leading-relaxed">
+                                    {item.description}
                                 </p>
                             </div>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
-            </div>
-            {lightbox && (
-            <>
-            <Lightbox setLightbox={setLightbox} lightbox={lightbox} data={certificates} index={index} setIndex={setIndex}/>
-            </>
-            )}
-        </div>
+            </section>
+
+            {/* Future Testimonials */}
+            <section className="px-5 py-16">
+                <div className="max-w-3xl mx-auto text-center card rounded-xl p-8 shadow-md">
+                    <h2 className="text-2xl md:text-3xl font-bold">
+                        Client Feedback Coming Soon
+                    </h2>
+
+                    <p className="mt-4 leading-relaxed">
+                        Verified testimonials from our clients will be added to
+                        this section as we receive and approve feedback.
+                    </p>
+                </div>
+            </section>
+
+            <div className="h-16"></div>
+        </main>
     );
 }
