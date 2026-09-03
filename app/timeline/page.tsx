@@ -9,38 +9,38 @@ type TimelineItem = {
 
 const events: TimelineItem[] = [
   {
-    year: "2018",
-    title: "Foundation",
+    year: "Our Beginning",
+    title: "Starting the Journey",
     description:
-      "Building Sewa began its journey with the vision of simplifying the home-building process through organized construction services.",
+      "Building Sewa began with a vision to make the construction process more organized, accessible, and convenient for customers.",
     icon: "🏗️",
   },
   {
-    year: "2019",
-    title: "Growing Services",
+    year: "Service Growth",
+    title: "Expanding Our Services",
     description:
-      "The platform expanded its service offerings to connect homeowners with professional design, construction, and project management support.",
+      "Our services continue to grow to support customers across different stages of their construction and building needs.",
     icon: "📐",
   },
   {
-    year: "2021",
-    title: "Digital Development",
+    year: "Digital Progress",
+    title: "Embracing Technology",
     description:
-      "Building Sewa continued improving its digital presence to make information and construction services more accessible for customers.",
+      "Technology plays an important role in improving communication, accessibility, and the overall customer experience.",
     icon: "💻",
   },
   {
-    year: "2023",
-    title: "Team & Network Growth",
+    year: "Growing Network",
+    title: "Building Strong Connections",
     description:
-      "The company strengthened collaboration with architects, engineers, contractors, and skilled professionals across different projects.",
+      "We continue to strengthen relationships with professionals and partners involved in construction and related services.",
     icon: "🤝",
   },
   {
-    year: "Present",
+    year: "Today",
     title: "Building Better Experiences",
     description:
-      "Building Sewa continues working toward delivering reliable end-to-end building solutions while improving customer experience and service quality.",
+      "Building Sewa continues to focus on providing reliable services and improving the experience of customers throughout their building journey.",
     icon: "🏠",
   },
 ];
@@ -60,7 +60,7 @@ export default function TimelinePage() {
         </h1>
 
         <p className="text-gray-600 mt-2 max-w-2xl">
-          Explore the milestones that represent the growth and vision of Building Sewa.
+          Discover the journey, progress, and vision behind Building Sewa.
         </p>
       </div>
 
@@ -79,7 +79,7 @@ export default function TimelinePage() {
 
               return (
                 <div
-                  key={event.year}
+                  key={event.title}
                   className="relative flex items-center"
                 >
                   {/* Desktop dot */}
