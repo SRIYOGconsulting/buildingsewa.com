@@ -1,38 +1,55 @@
+
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+
+const slides = ["/home/hero/3.jpg", "/home/hero/2.jpg"];
 
 const PARTNER_COUNT = 14;
 const partnerLogos = Array.from({ length: PARTNER_COUNT }, (_, i) => i + 1);
 
 export default function Home() {
+  const [current, setCurrent] = useState(0);
+
+  const prevSlide = () => {
+    setCurrent((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+  };
+
+  const nextSlide = () => {
+    setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+  };
+
   return (
     <>
       <section className="w-full min-h-[600px] flex flex-col sm:flex-row justify-between items-start sm:items-center relative overflow-hidden">
         {/* Desktop background */}
         <div className="hidden sm:block absolute inset-0 -z-10">
           <Image
-            src="/home/hero/1.jpg"
+            src={slides[current]}
             alt=""
             fill
-            className="object-cover"
-            sizes="100vw"
             priority
+            sizes="100vw"
+            className="object-cover"
           />
         </div>
 
         <div className="max-w-[1200px] mx-auto w-full flex flex-col sm:flex-row justify-between items-start sm:items-center sm:px-6">
-          {/* Mobile image */}
+          
           <div className="relative block sm:hidden w-full h-[300px]">
             <Image
               src="/home/hero/1.jpg"
               alt="SRIYOG Consulting"
               fill
               className="object-cover"
-              sizes="(max-width: 639px) 100vw, 50vw"
+              sizes="100vw"
               priority
             />
           </div>
 
+          {/* Hero content */}
           <div className="flex flex-col justify-start text-left z-10 w-full sm:w-1/2 mt-4 px-6 sm:mt-0">
             <div className="text-[23px] md:text-2xl font-semibold mb-3 opacity-90">
               Welcome to
@@ -63,6 +80,27 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+        {/* Slider controls */}
+        {slides.length > 1 && (
+          <>
+            <button
+              onClick={prevSlide}
+              aria-label="Previous slide"
+              className="absolute left-4 top-1/2 z-10 -translate-y-1/2 text-4xl text-white hover:opacity-70"
+            >
+              ‹
+            </button>
+
+            <button
+              onClick={nextSlide}
+              aria-label="Next slide"
+              className="absolute right-4 top-1/2 z-10 -translate-y-1/2 text-4xl text-white hover:opacity-70"
+            >
+              ›
+            </button>
+          </>
+        )}
       </section>
 
       {/* PARTNERS — homepage only */}

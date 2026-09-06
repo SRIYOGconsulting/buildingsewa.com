@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SRIYOG Consulting",
+  title: "Building Sewa",
   description: "Next Js Boilerplate",
 };
 
