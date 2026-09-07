@@ -77,8 +77,8 @@ export default function Contact() {
     <div className="w-full">
       {/* Page Header */}
       <Ribbon
-        name="Contact Us"
-        description="Get in touch with us. We would love to hear from you and discuss how we can help."
+        name="Feedback"
+        description="We would love to hear from you and discuss how we can help."
       />
 
       {/* Main Content */}
