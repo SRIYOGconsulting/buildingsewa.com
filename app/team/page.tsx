@@ -1,5 +1,5 @@
 'use client'
-// import Ribbon from "../../components/Ribbon";
+import Ribbon from "@/components/Ribbon";
 
 const teamMembers = [
   { id: 1, name: "Alisha", role: "MERN Stack", image: "/team/2.png" },
@@ -15,8 +15,9 @@ const teamMembers = [
 const OurTeam = () => {
   return (
     <div className="about-w-full ">
-      {/* Full-width Ribbon Header */}
-      {/* <Ribbon name="Our Team" showfont={true}/> */}
+     <Ribbon
+        name="Our Team"
+      />
 
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-6 md:py-10">
 

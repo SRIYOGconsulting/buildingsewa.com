@@ -1,20 +1,16 @@
 "use client";
-import ClapFunction from "../../components/ClappingFunction";
-// import Ribbon from '../../components/Ribbon';
+import ClapFunction from "@/components/ClappingFunction";
+import Ribbon from "@/components/Ribbon";
 import Image from "next/image";
 
 const About = () => {
   return (
     <div className="about font-size">
-      <section className="bg-[#0E4541] text-white py-24 px-6 text-center">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">
-          About Building Sewa
-        </h1>
-        <p className="text-lg md:text-xl max-w-2xl mx-auto">
-          From site inspection to home automation, we're one team for every
-          stage of your property, across Nepal.
-        </p>
-      </section>
+      <Ribbon
+        name="About Building Sewa"
+        description="From site inspection to home automation, we're one team for every
+          stage of your property, across Nepal."
+      />
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 pt-10 mdse:pt-16 pb-8">
         <div className="flex flex-col md:flex-row gap-6 md:gap-8">

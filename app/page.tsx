@@ -1,14 +1,12 @@
-
 "use client";
 
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import Partners from "@/components/Partners";
 
 const slides = ["/home/hero/3.jpg", "/home/hero/2.jpg"];
 
-const PARTNER_COUNT = 14;
-const partnerLogos = Array.from({ length: PARTNER_COUNT }, (_, i) => i + 1);
 
 export default function Home() {
   const [current, setCurrent] = useState(0);
@@ -37,7 +35,6 @@ export default function Home() {
         </div>
 
         <div className="max-w-[1200px] mx-auto w-full flex flex-col sm:flex-row justify-between items-start sm:items-center sm:px-6">
-          
           <div className="relative block sm:hidden w-full h-[300px]">
             <Image
               src="/home/hero/1.jpg"
@@ -103,29 +100,7 @@ export default function Home() {
         )}
       </section>
 
-      {/* PARTNERS — homepage only */}
-      <section
-        className="py-8 sm:py-10 bg-gray-50 overflow-hidden"
-        aria-label="Partner organizations"
-      >
-        <div className="flex w-max animate-scroll gap-10 sm:gap-14 items-center">
-          {[...partnerLogos, ...partnerLogos].map((n, i) => (
-            <div
-              key={`${n}-${i}`}
-              className="relative h-10 sm:h-12 w-[120px] sm:w-[140px] shrink-0"
-              aria-hidden={i >= PARTNER_COUNT}
-            >
-              <Image
-                src={`/partners/${n}.png`}
-                alt={i < PARTNER_COUNT ? `Partner ${n}` : ""}
-                fill
-                sizes="140px"
-                className="object-contain opacity-70 hover:opacity-100 transition-opacity"
-              />
-            </div>
-          ))}
-        </div>
-      </section>
+     <Partners />
     </>
   );
 }

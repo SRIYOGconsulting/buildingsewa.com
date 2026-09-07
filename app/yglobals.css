@@ -65,19 +65,3 @@ body{
   background: var(--black);
 }
 
-@keyframes scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-.animate-scroll {
-  animation: scroll 28s linear infinite;
-}
-
-.animate-scroll:hover {
-  animation-play-state: paused;
-}

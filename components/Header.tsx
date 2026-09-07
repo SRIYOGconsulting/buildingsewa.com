@@ -96,7 +96,7 @@ const Header = () => {
             </button>
           </Link>
 
-          <Link href="/book">
+          <Link href="/services">
             <button className="bg-teal-900 cursor-pointer text-[16px] border border-teal-900 text-white px-4 py-1 rounded hover:bg-teal-800">
               Book a Service
             </button>

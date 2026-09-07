@@ -3,20 +3,19 @@
 
 type RibbonProps = {
   name: string;
+  description?: string;
   showfont?: boolean;
 };
-const Ribbon:React.FC<RibbonProps> = ({name,showfont}) => {
+
+const Ribbon: React.FC<RibbonProps> = ({ name, description, showfont }) => {
   return (
-    <div className='bg-teal-800 text-white'>
-     <div className="max-w-7xl mx-auto flex justify-between items-center py-12 px-4 md:px-8 mb-8 w-full">
-        <div className=" px-4 md:px-8">
-          <h1 className="text-3xl sm:text-4xl">{name}</h1>
-        </div>
-        <div>
-         {/* <FontSizeChanger showFont={showfont ?? false} /> */}
-         </div>
-      </div>
-    </div>
+    <section className="bg-[#0E4541] text-white py-24 px-6 text-center">
+      <h1 className="text-4xl md:text-5xl font-bold mb-4">{name}</h1>
+      {description && (
+        <p className="text-lg md:text-xl max-w-2xl mx-auto">{description}</p>
+      )}
+      {/* <FontSizeChanger showFont={showfont ?? false} /> */}
+    </section>
   )
 }
 

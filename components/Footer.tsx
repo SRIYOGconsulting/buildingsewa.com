@@ -163,9 +163,9 @@ const Footer = () => {
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
 
           {/* EMAIL + PHONE */}
-            <a href="mailto:info@sriyog.com" className={`flex items-center gap-2 border-2 rounded-lg px-7 py-3 w-full sm:w-auto `}>
+            <a href="mailto:info@buildingSewa.com" className={`flex items-center gap-2 border-2 rounded-lg px-7 py-3 w-full sm:w-auto `}>
               <img src="/icons/email.svg" alt="email" className="h-6 w-6" />
-              <span className="text-sm">info@sriyog.com</span>
+              <span className="text-sm">info@buildingSewa.com</span>
             </a>
 
 
