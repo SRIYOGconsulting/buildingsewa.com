@@ -48,7 +48,7 @@ export default function Contact() {
     {
       name: "PRACAS",
       designation: "CTO",
-      img: "/contact/3.png",
+      img: "/contact/2.png",
       email: "pracas@sriyog.com",
     },
   ];
@@ -337,7 +337,7 @@ export default function Contact() {
               <h3 className="text-[22px] text mb-2">{member.name}</h3>
               <p className=" text-base mb-6">{member.designation}</p>
               <button className="px-5 cursor-pointer py-1.5 border border-teal-700  rounded hover:bg-teal-700 hover:text-white transition-colors font-semibold text-base">
-                eMail
+                E-mail
               </button>
             </div>
           ))}
