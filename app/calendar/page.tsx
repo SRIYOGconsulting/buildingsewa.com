@@ -1,21 +1,32 @@
-import Calendar from "@/components/Calendar"
+import Calendar from "@/components/Calendar";
+import Ribbon from "@/components/Ribbon";
+
+const companyEvents = [
+  {
+    id: "company-1",
+    date: "2026-09-15",
+    title: "Building Sewa Team Meeting",
+    description: "Internal company meeting.",
+  },
+  {
+    id: "company-2",
+    date: "2026-10-05",
+    title: "Building Sewa Project Review",
+    description: "Project progress review.",
+  },
+];
 
 export default function CalendarPage() {
   return (
-    <main className="flex-1">
-      <div className="h-[200px] bg-gray-100 flex flex-col items-center justify-center text-center px-6">
-        <span className="text-gray-500">
-          Home / <span className="text-teal-700 font-semibold">Calendar</span>
-        </span>
-        <h1 className="text-4xl font-bold text-teal-800 mt-2">Calendar</h1>
-        <p className="text-gray-600 mt-2 max-w-2xl">
-          Internship intakes, holidays, and company events at a glance.
-        </p>
-      </div>
+    <main>
+      <Ribbon
+        name="Calendar"
+        description="View Nepal holidays, festivals, and Building Sewa events."
+      />
 
-      <div className="max-w-7xl mx-auto px-6 py-12">
-        <Calendar />
-      </div>
+      <Calendar
+        initialCompanyEvents={companyEvents}
+      />
     </main>
   );
 }

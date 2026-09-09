@@ -10,19 +10,19 @@ export const blogPosts: BlogPost[] = [
     slug: 'choosing-the-right-contractor',
     title: 'Choosing the Right Contractor',
     excerpt: 'What to check before signing with a construction contractor in Nepal.',
-    img: '/blog/7.jpg',
+    img: '/blog/1.jpg',
   },
   {
     slug: 'interior-finishing-trends',
     title: 'Interior Finishing Trends',
     excerpt: 'Popular finishing styles homeowners are choosing this year.',
-    img: '/blog/8.jpg',
+    img: '/blog/2.jpg',
   },
   {
     slug: 'post-construction-cleanup-tips',
     title: 'Post-Construction Cleanup Tips',
     excerpt: 'How to prepare a newly built space for move-in day.',
-    img: '/blog/9.jpg',
+    img: '/blog/3.jpg',
   },
   {
     slug: 'budgeting-your-construction-project',
