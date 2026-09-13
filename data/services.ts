@@ -1,3 +1,6 @@
+export type ScopeItem = { title: string; description: string };
+export type ServiceFaq = { question: string; answer: string };
+
 export type Service = {
   slug: string;
   name: string;
@@ -5,24 +8,63 @@ export type Service = {
   description: string;
   longDescription: string;
   priceFrom: string;
-  category: string;
-  includes: string[];
+  scopeOfWork: ScopeItem[];
+  faqs: ServiceFaq[];
 };
 
 function slugify(name: string) {
   return name
     .toLowerCase()
-    .replace(/&/g, "and")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/(^-|-$)/g, "");
 }
 
-type RawService = Omit<
-  Service,
-  "slug" | "longDescription" | "priceFrom" | "category" | "includes"
->;
+function generateScope(name: string): ScopeItem[] {
+  return [
+    {
+      title: "Site Assessment",
+      description: `Our team evaluates your property to plan the ${name.toLowerCase()} work accurately.`,
+    },
+    {
+      title: "Professional Execution",
+      description: `Skilled professionals carry out ${name.toLowerCase()} using proper tools and techniques.`,
+    },
+    {
+      title: "Quality Check",
+      description: `A final inspection ensures the ${name.toLowerCase()} meets our quality standards.`,
+    },
+  ];
+}
 
-const rawServices: RawService[] = [
+function generateFaqs(name: string): ServiceFaq[] {
+  const lower = name.toLowerCase();
+  return [
+    {
+      question: `What does the ${lower} service include?`,
+      answer: `Our ${lower} service covers a full assessment, execution by trained professionals, and a final quality check.`,
+    },
+    {
+      question: "How do I book this service?",
+      answer:
+        "Fill out the booking form on this page with your details and preferred date, and our team will confirm shortly.",
+    },
+    {
+      question: "Do you provide the necessary materials?",
+      answer:
+        "Yes, our team brings the required materials and equipment unless otherwise discussed during booking.",
+    },
+    {
+      question: "Is this service available across Nepal?",
+      answer:
+        "We currently serve Kathmandu, Lalitpur, and Bhaktapur, with select services available in other regions on request.",
+    },
+  ];
+}
+
+const rawServices: Omit<
+  Service,
+  "slug" | "longDescription" | "priceFrom" | "scopeOfWork" | "faqs"
+>[] = [
   {
     name: "Land Survey & Site Inspection",
     image: 1,
@@ -62,8 +104,7 @@ const rawServices: RawService[] = [
   {
     name: "Vaastu Consultation",
     image: 7,
-    description:
-      "Vaastu-compliant layout guidance for a harmonious home.",
+    description: "Vaastu-compliant layout guidance for a harmonious home.",
   },
   {
     name: "Fencing",
@@ -92,8 +133,7 @@ const rawServices: RawService[] = [
   {
     name: "Water Boring",
     image: 12,
-    description:
-      "Borewell drilling and groundwater access for your property.",
+    description: "Borewell drilling and groundwater access for your property.",
   },
   {
     name: "Plumbing",
@@ -111,19 +151,17 @@ const rawServices: RawService[] = [
     name: "Truss Roofing",
     image: 15,
     description:
-      "Durable truss roofing solutions built for Nepal's climate.",
+      "Durable truss roofing solutions built for Nepal\u2019s climate.",
   },
   {
     name: "Waterproofing",
     image: 16,
-    description:
-      "Leak-proofing treatments for roofs, walls, and basements.",
+    description: "Leak-proofing treatments for roofs, walls, and basements.",
   },
   {
     name: "uPVC Doors & Windows",
     image: 17,
-    description:
-      "Energy-efficient uPVC doors and windows, custom fitted.",
+    description: "Energy-efficient uPVC doors and windows, custom fitted.",
   },
   {
     name: "Glass Works",
@@ -140,8 +178,7 @@ const rawServices: RawService[] = [
   {
     name: "Parqueting",
     image: 20,
-    description:
-      "Elegant wooden parquet flooring installation and finishing.",
+    description: "Elegant wooden parquet flooring installation and finishing.",
   },
   {
     name: "Painting",
@@ -158,38 +195,32 @@ const rawServices: RawService[] = [
   {
     name: "Custom Furniture",
     image: 23,
-    description:
-      "Bespoke furniture designed and built to match your space.",
+    description: "Bespoke furniture designed and built to match your space.",
   },
   {
     name: "Modular Kitchen",
     image: 24,
-    description:
-      "Space-efficient modular kitchens with modern fittings.",
+    description: "Space-efficient modular kitchens with modern fittings.",
   },
   {
     name: "Bathroom Setup",
     image: 25,
-    description:
-      "Complete bathroom fitting, fixtures, and finishing.",
+    description: "Complete bathroom fitting, fixtures, and finishing.",
   },
   {
     name: "Interior Designing",
     image: 26,
-    description:
-      "Full interior design service from concept to execution.",
+    description: "Full interior design service from concept to execution.",
   },
   {
     name: "Wall Decoration",
     image: 27,
-    description:
-      "Decorative wall finishes, textures, and accent designs.",
+    description: "Decorative wall finishes, textures, and accent designs.",
   },
   {
     name: "Gardening & Landscaping",
     image: 28,
-    description:
-      "Landscape design and garden setup for outdoor spaces.",
+    description: "Landscape design and garden setup for outdoor spaces.",
   },
   {
     name: "Water Filter Setup",
@@ -212,8 +243,7 @@ const rawServices: RawService[] = [
   {
     name: "CCTV Camera Installation",
     image: 32,
-    description:
-      "Home and office security camera installation and setup.",
+    description: "Home and office security camera installation and setup.",
   },
   {
     name: "Home Automation",
@@ -224,32 +254,27 @@ const rawServices: RawService[] = [
   {
     name: "Wi-Fi Access Point Installation",
     image: 34,
-    description:
-      "Reliable whole-home Wi-Fi coverage setup.",
+    description: "Reliable whole-home Wi-Fi coverage setup.",
   },
   {
     name: "Solar Panel Installation",
     image: 35,
-    description:
-      "Rooftop solar panel installation for sustainable energy.",
+    description: "Rooftop solar panel installation for sustainable energy.",
   },
   {
     name: "Car Porch & Garage Setup",
     image: 36,
-    description:
-      "Car porch and garage construction tailored to your property.",
+    description: "Car porch and garage construction tailored to your property.",
   },
   {
     name: "EV Charger Installation",
     image: 37,
-    description:
-      "Home EV charging point installation for electric vehicles.",
+    description: "Home EV charging point installation for electric vehicles.",
   },
   {
     name: "Lift & Elevator Installation",
     image: 38,
-    description:
-      "Residential lift and elevator installation and servicing.",
+    description: "Residential lift and elevator installation and servicing.",
   },
   {
     name: "Fire Safety Systems",
@@ -266,8 +291,7 @@ const rawServices: RawService[] = [
   {
     name: "Packing & Moving",
     image: 41,
-    description:
-      "Safe and efficient packing and moving services.",
+    description: "Safe and efficient packing and moving services.",
   },
   {
     name: "Annual Home Maintenance",
@@ -277,22 +301,11 @@ const rawServices: RawService[] = [
   },
 ];
 
-export const services: Service[] = rawServices.map((service) => ({
-  ...service,
-
-  slug: slugify(service.name),
-
-  longDescription: service.description,
-
-  priceFrom: "Contact us for a quote",
-
-  category: "Building Services",
-
-  includes: [
-    "Professional consultation",
-    "Site assessment where required",
-    "Experienced service team",
-    "Quality-focused service",
-    "Support and coordination",
-  ],
+export const services: Service[] = rawServices.map((s) => ({
+  ...s,
+  slug: slugify(s.name),
+  longDescription: s.description,
+  priceFrom: "Contact for quote",
+  scopeOfWork: generateScope(s.name),
+  faqs: generateFaqs(s.name),
 }));

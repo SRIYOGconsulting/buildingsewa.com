@@ -1,38 +1,51 @@
-import Ribbon from "@/components/Ribbon";
-import ServiceCard from "@/components/services/ServiceCard";
+import Image from "next/image";
+import Link from "next/link";
 import { getServices } from "@/lib/services";
 
 export default async function ServicesPage() {
   const services = await getServices();
 
   return (
-    <div className="relative">
-      <Ribbon
-        name="Professional Building Services in Nepal"
-        description="From site inspection and construction to interior finishing and home automation, one team for every stage of your property."
-      />
-
-      <section className="max-w-7xl mx-auto px-4 md:px-8 pt-10 md:pt-16 pb-16">
-        <div className="mb-10 text-center max-w-3xl mx-auto">
-          <h1 className="text-3xl md:text-4xl font-semibold text2">
-            Explore Our Services
-          </h1>
-
-          <p className="text mt-3">
-            Browse our range of professional building, construction,
-            maintenance, interior, and home improvement services.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {services.map((service) => (
-            <ServiceCard
-              key={service.slug}
-              service={service}
-            />
-          ))}
-        </div>
+    <main className="min-h-screen bg-gray-50 text-gray-800 pb-24">
+      <section className="bg-[#0E4541] text-white py-24 px-6 text-center">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4">
+          Professional Building Services in Nepal
+        </h1>
+        <p className="text-lg md:text-xl max-w-2xl mx-auto">
+          From site inspection to home automation — one team for every stage
+          of your property, across Nepal.
+        </p>
       </section>
-    </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-7xl mx-auto px-6 pt-12">
+        {services.map((service) => (
+          <div
+            key={service.slug}
+            className="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition"
+          >
+            <div className="relative w-full h-64">
+              <Image
+                src={`/services/${service.image}.jpg`}
+                alt={service.name}
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="p-5">
+              <h2 className="text-lg font-semibold mb-2">{service.name}</h2>
+              <p className="text-sm text-gray-600 mb-4">
+                {service.longDescription}
+              </p>
+              <Link href={`/services/${service.slug}`}>
+                <button className="px-4 py-2 bg-[#0E4541] text-white rounded-md hover:bg-teal-800">
+                  Browse More
+                </button>
+              </Link>
+            </div>
+          </div>
+        ))}
+      </div>
+    </main>
   );
 }
