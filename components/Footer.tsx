@@ -112,7 +112,7 @@ const Footer = () => {
             <h3 className="font-semibold mb-3 text-[16px]">Explore</h3>
             <ul className="space-y-2 text-[15px] leading-[1.6] pl-0">
               <li className={`py-1 cursor-pointer `}>
-                <Link href="/video" className="hover:text-green-700">Videos</Link>
+                <Link href="/videos" className="hover:text-green-700">Videos</Link>
               </li>
               <li className={`py-1 cursor-pointer `}>
                 <a href="https://trello.com" target="_blank" className="hover:text-green-700">Trello Board</a>
