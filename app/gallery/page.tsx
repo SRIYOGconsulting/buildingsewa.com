@@ -1,96 +1,201 @@
-'use client';
-
 import Image from "next/image";
-import Link from "next/link";
-import { useState } from "react";
+import Ribbon from "@/components/Ribbon";
 
-const captionTemplates = [
-  "Professional deep cleaning delivering spotless floors and sanitized surfaces.",
-  "Expert bathroom sanitization with eco-friendly products and thorough grout cleaning.",
-  "Commercial office cleaning maintaining hygienic workspaces for staff and clients.",
-  "Kitchen deep cleaning removing grease, grime, and bacteria from all surfaces.",
-  "Carpet steam cleaning restoring freshness and removing embedded allergens.",
-  "Post-construction cleanup making newly renovated spaces move-in ready.",
-  "Hotel and hospitality cleaning meeting international hygiene standards.",
-  "Hospital-grade disinfection for healthcare facilities across Chennai.",
-  "Garden and outdoor space cleaning keeping landscapes neat and beautiful.",
-  "AC cleaning and servicing improving air quality and cooling efficiency.",
-  "Sofa and upholstery deep cleaning with fabric-safe professional methods.",
-  "Move-in/move-out cleaning ensuring every corner is spotless for new occupants.",
-  "Facade and exterior cleaning restoring building aesthetics and curb appeal.",
-  "Event venue post-cleanup leaving spaces pristine after celebrations.",
-  "Car interior detailing for luxury and everyday vehicles across India.",
-];
-
-interface GalleryItem {
+interface Project {
   id: number;
-  imageUrl: string;
-  altText: string;
-  caption: string;
+  name: string;
+  description: string;
+  image: string;
 }
 
-const cleaningProjects: GalleryItem[] = Array.from({ length: 30 }, (_, i) => ({
-  id: i + 1,
-  imageUrl: `/gallery/${i + 1}.jpg`,
-  altText: `Cleaning project ${i + 1}`,
-  caption: captionTemplates[i % captionTemplates.length],
-}));
+const projects: Project[] = [
+  {
+    id: 1,
+    name: "Residential Construction",
+    description:
+      "Complete residential construction services focused on quality, durability, and modern design.",
+    image: "/gallery/1.jpg",
+  },
+  {
+    id: 2,
+    name: "Modern Home Design",
+    description:
+      "Modern architectural and construction solutions designed around the client's lifestyle and requirements.",
+    image: "/gallery/2.jpg",
+  },
+  {
+    id: 3,
+    name: "Commercial Building",  
+    description:
+      "Professional commercial construction services delivering functional and durable spaces.",
+    image: "/gallery/3.jpg",
+  },
+  {
+    id: 4,
+    name: "Interior Development",
+    description:
+      "Complete interior development with practical layouts, quality finishes, and modern aesthetics.",
+    image: "/gallery/4.jpg",
+  },
+  {
+    id: 5,
+    name: "Renovation Project",
+    description:
+      "Renovation and remodeling solutions that improve the functionality and appearance of existing spaces.",
+    image: "/gallery/5.jpg",
+  },
+  {
+    id: 6,
+    name: "Structural Construction",
+    description:
+      "Reliable structural construction services following professional engineering and safety standards.",
+    image: "/gallery/6.jpg",
+  },
+  {
+    id: 7,
+    name: "Residential Interior",
+    description:
+      "Thoughtfully designed residential interiors combining comfort, functionality, and contemporary style.",
+    image: "/gallery/7.jpg",
+  },
+  {
+    id: 8,
+    name: "Office Development",
+    description:
+      "Professional office spaces designed to create productive, comfortable, and efficient work environments.",
+    image: "/gallery/8.jpg",
+  },
+  {
+    id: 9,
+    name: "Kitchen Design",
+    description:
+      "Custom kitchen planning and installation focused on functionality, storage, and modern aesthetics.",
+    image: "/gallery/9.jpg",
+  },
+  {
+    id: 10,
+    name: "Bathroom Renovation",
+    description:
+      "Modern bathroom renovation solutions using practical layouts and quality finishing materials.",
+    image: "/gallery/10.jpg",
+  },
+  {
+    id: 11,
+    name: "Building Finishing",
+    description:
+      "Professional finishing services that give buildings a polished, durable, and complete appearance.",
+    image: "/gallery/11.jpg",
+  },
+  {
+    id: 12,
+    name: "Exterior Development",
+    description:
+      "Exterior construction and improvement services designed to enhance both appearance and functionality.",
+    image: "/gallery/12.webp",
+  },
+  {
+    id: 13,
+    name: "Landscaping Project",
+    description:
+      "Outdoor landscaping solutions that create attractive, functional, and welcoming environments.",
+    image: "/gallery/13.jpg",
+  },
+  {
+    id: 14,
+    name: "Roofing Project",
+    description:
+      "Professional roofing solutions focused on durability, weather protection, and long-term performance.",
+    image: "/gallery/14.jpg",
+  },
+  {
+    id: 15,
+    name: "Electrical Installation",
+    description:
+      "Safe and reliable electrical installation services for residential and commercial buildings.",
+    image: "/gallery/15.jpg",
+  },
+  {
+    id: 16,
+    name: "Plumbing Installation",
+    description:
+      "Complete plumbing installation and maintenance solutions for modern building requirements.",
+    image: "/gallery/16.jpg",
+  },
+  {
+    id: 17,
+    name: "Waterproofing Project",
+    description:
+      "Professional waterproofing solutions helping protect buildings from moisture and water damage.",
+    image: "/gallery/17.jpg",
+  },
+  {
+    id: 18,
+    name: "Solar Installation",
+    description:
+      "Solar installation services providing sustainable and efficient energy solutions for buildings.",
+    image: "/gallery/18.jpg",
+  },
+  {
+    id: 19,
+    name: "CCTV Installation",
+    description:
+      "Security camera installation solutions for improved monitoring of homes, offices, and commercial spaces.",
+    image: "/gallery/19.jpg",
+  },
+  {
+    id: 20,
+    name: "Smart Home Setup",
+    description:
+      "Smart home technology integration designed to improve convenience, security, and energy efficiency.",
+    image: "/gallery/20.jpg",
+  },
+  
+  {
+    id: 21,
+    name: "House Extension",
+    description:
+      "Building extension services that add useful living space while maintaining structural integrity.",
+    image: "/gallery/22.jpg",
+  },
+  
+];
 
 export default function GalleryPage() {
-  const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
-
   return (
-    <div className="mb-40">
-      <div className="h-[200px] bg-gray-100 flex flex-col items-center justify-center text-center px-6">
-        <span className="text-gray-500">
-          Home / <span className="text-teal-700 font-semibold">Gallery</span>
-        </span>
-        <h1 className="text-4xl font-bold text-teal-800 mt-2">Cleaning Projects</h1>
-        <p className="text-gray-600 mt-2 max-w-2xl">
-          View our work quality across homes, offices, hotels, and commercial spaces in India.
-        </p>
-      </div>
+    <main className="min-h-screen bg-gray-50 text-gray-800">
+      <Ribbon
+        name="Our Projects"
+        description="Explore Building Sewa's portfolio of construction, renovation, design, and building service projects across Nepal."
+      />
 
-      <div className="max-w-7xl mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {cleaningProjects.map((item) => (
-            <div
-              key={item.id}
-              className="relative w-full h-72 rounded-xl overflow-hidden shadow-md cursor-pointer group border border-teal-100"
-              onClick={() => setSelectedImage(item)}
+      <section className="mx-auto max-w-7xl px-6 py-16">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {projects.map((project) => (
+            <article
+              key={project.id}
+              className="overflow-hidden rounded-xl bg-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl"
             >
-              <Image src={item.imageUrl} alt={item.altText} fill className="object-cover group-hover:scale-105 transition duration-300" />
-              <div className="absolute bottom-0 left-0 w-full px-4 py-3 bg-gradient-to-t from-teal-900/90 to-transparent text-white text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                {item.caption}
+              <div className="relative h-68 w-full overflow-hidden">
+                <Image
+                  src={project.image}
+                  alt={project.name}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover transition duration-500 hover:scale-105"
+                />
               </div>
-            </div>
+
+              <div className="p-6">
+                <h2 className="mb-3 text-xl font-semibold text-[#0E4541]">
+                  {project.name}
+                </h2>
+
+                <p className="leading-7 text-gray-600">{project.description}</p>
+              </div>
+            </article>
           ))}
         </div>
-      </div>
-
-      {selectedImage && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70" onClick={() => setSelectedImage(null)}>
-          <div className="relative max-w-4xl w-full p-4" onClick={(e) => e.stopPropagation()}>
-            <Image src={selectedImage.imageUrl} alt={selectedImage.altText} width={1000} height={700} className="rounded-lg object-contain w-full h-auto" />
-            <p className="text-white text-center mt-4">{selectedImage.caption}</p>
-            <button className="absolute top-2 right-2 text-white text-2xl font-bold" onClick={() => setSelectedImage(null)}>
-              &times;
-            </button>
-          </div>
-        </div>
-      )}
-
-      <div className="relative h-[300px] flex items-center justify-center text-white">
-        <Image src="/gallery/1.jpg" alt="Cleaning background" fill className="object-cover" />
-        <div className="absolute inset-0 bg-black/50"></div>
-        <div className="relative z-10 text-center px-6">
-          <h2 className="text-3xl font-bold mb-4">Have Questions?</h2>
-          <p className="mb-6">Visit our FAQ page to get answers to common service questions.</p>
-          <Link href="/faq" className="bg-teal-600 px-6 py-3 rounded-full font-semibold hover:bg-teal-700 transition">
-            View FAQ
-          </Link>
-        </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }

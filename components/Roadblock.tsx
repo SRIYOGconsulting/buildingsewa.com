@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
 const DEFAULT_IMAGE = "/roadblock/default/default.jpg";
-const LOGO_SRC = "/logo/logo.svg"; 
+const LOGO_SRC = "/logo/logo.svg";
 const SEEN_KEY = "roadblock_seen_v3";
 const COUNTDOWN_SECONDS = 5;
 
@@ -41,8 +41,18 @@ export default function RoadBlock() {
   const today = new Date();
 
   const monthNames = [
-    "january", "february", "march", "april", "may", "june",
-    "july", "august", "september", "october", "november", "december",
+    "january",
+    "february",
+    "march",
+    "april",
+    "may",
+    "june",
+    "july",
+    "august",
+    "september",
+    "october",
+    "november",
+    "december",
   ];
 
   const month = monthNames[today.getMonth()];
@@ -62,9 +72,6 @@ export default function RoadBlock() {
     setShowRoadBlock(false);
   }, [setShowRoadBlock]);
 
-  /*
-   * Check sessionStorage only on the client, on first mount.
-   */
   useEffect(() => {
     const hasSeenRoadBlock = sessionStorage.getItem(SEEN_KEY);
 
@@ -88,7 +95,6 @@ export default function RoadBlock() {
     };
   }, [showRoadBlock]);
 
- 
   useEffect(() => {
     if (!showRoadBlock) return;
 
@@ -108,7 +114,6 @@ export default function RoadBlock() {
   return (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#D0D0D0] p-4">
       <div className="relative w-full max-w-[550px] overflow-hidden rounded-[16px] bg-white shadow-xl">
-        
         <button
           type="button"
           onClick={displayTimeLeft <= 0 ? handleClose : undefined}
@@ -127,7 +132,6 @@ export default function RoadBlock() {
         </button>
 
         <a href="#" target="_blank" rel="noopener noreferrer" className="block">
-          
           <div className="relative">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -166,7 +170,6 @@ export default function RoadBlock() {
             )}
           </div>
 
-          
           <div className="flex flex-wrap items-center justify-between gap-3 bg-white px-6 py-4">
             <div className="flex items-center gap-2">
               {/* eslint-disable-next-line @next/next/no-img-element */}

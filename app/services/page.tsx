@@ -12,7 +12,7 @@ export default async function ServicesPage() {
           Professional Building Services in Nepal
         </h1>
         <p className="text-lg md:text-xl max-w-2xl mx-auto">
-          From site inspection to home automation — one team for every stage
+          From site inspection to home automation one team for every stage
           of your property, across Nepal.
         </p>
       </section>
