@@ -25,7 +25,7 @@ const projects: Project[] = [
   },
   {
     id: 3,
-    name: "Commercial Building",  
+    name: "Commercial Building",
     description:
       "Professional commercial construction services delivering functional and durable spaces.",
     image: "/gallery/3.jpg",
@@ -149,15 +149,13 @@ const projects: Project[] = [
       "Smart home technology integration designed to improve convenience, security, and energy efficiency.",
     image: "/gallery/20.jpg",
   },
-  
   {
     id: 21,
     name: "House Extension",
     description:
       "Building extension services that add useful living space while maintaining structural integrity.",
-    image: "/gallery/22.jpg",
+    image: "/gallery/21.jpg",
   },
-  
 ];
 
 export default function GalleryPage() {
@@ -175,13 +173,14 @@ export default function GalleryPage() {
               key={project.id}
               className="overflow-hidden rounded-xl bg-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl"
             >
-              <div className="relative h-68 w-full overflow-hidden">
+              <div className="relative h-72 w-full overflow-hidden">
                 <Image
-                  src={project.image}
+                  src={`${project.image}?v=2`}
                   alt={project.name}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-cover transition duration-500 hover:scale-105"
+                  width={800}
+                  height={500}
+                  className="h-72 w-full object-cover"
+                  unoptimized
                 />
               </div>
 
