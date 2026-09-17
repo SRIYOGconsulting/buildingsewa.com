@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Ribbon from "@/components/Ribbon";
 
 type TimelineItem = {
   year: string;
@@ -48,21 +49,11 @@ const events: TimelineItem[] = [
 export default function TimelinePage() {
   return (
     <main className="flex-1">
-      {/* Hero */}
-      <div className="h-[200px] bg-gray-100 flex flex-col items-center justify-center text-center px-6">
-        <span className="text-gray-500">
-          Home /{" "}
-          <span className="text-teal-700 font-semibold">Timeline</span>
-        </span>
-
-        <h1 className="text-4xl font-bold text-teal-800 mt-2">
-          Our Journey
-        </h1>
-
-        <p className="text-gray-600 mt-2 max-w-2xl">
-          Discover the journey, progress, and vision behind Building Sewa.
-        </p>
-      </div>
+      <Ribbon
+        name=" Our Journey"
+        description="Discover the journey, progress, and vision behind Building Sewa."
+      />
+     
 
       {/* Timeline */}
       <section className="max-w-5xl mx-auto px-4 md:px-8 py-16">
