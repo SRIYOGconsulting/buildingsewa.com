@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Ribbon from "@/components/Ribbon";
+import { services } from "@/data/services";
 
 type ContactForm = {
   firstname: string;
@@ -314,21 +315,11 @@ export default function Contact() {
               >
                 <option value="">Select a service</option>
 
-                <option value="Website Development">Website Development</option>
-
-                <option value="Mobile App Development">
-                  Mobile App Development
-                </option>
-
-                <option value="Social Media Marketing">
-                  Social Media Marketing
-                </option>
-
-                <option value="SEO & Digital Marketing">
-                  SEO & Digital Marketing
-                </option>
-
-                <option value="IT Consultation">IT Consultation</option>
+                {services.map((service) => (
+                  <option key={service.slug} value={service.name}>
+                    {service.name}
+                  </option>
+                ))}
               </select>
 
               {/* Dropdown Icon */}

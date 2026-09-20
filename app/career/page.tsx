@@ -1,5 +1,12 @@
 import Link from "next/link";
 import Ribbon from "@/components/Ribbon";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Careers at Building Sewa",
+  description:
+    "Join a team building end-to-end construction solutions across Nepal.",
+};
 
 export default function CareerPage() {
   return (
@@ -10,23 +17,21 @@ export default function CareerPage() {
       />
 
       <div className="max-w-5xl mx-auto px-6 py-16">
-
         <section className="mb-20">
           <h2 className="text-2xl font-bold text-gray-800 mb-4">
             Build Your Career With Us
           </h2>
 
           <p className="text-gray-600 leading-relaxed">
-            At Building Sewa, we bring together professionals from
-            different areas of construction, design, project
-            management, and technology to deliver reliable building
-            solutions. We value collaboration, continuous learning,
-            and practical experience.
+            At Building Sewa, we bring together professionals from different
+            areas of construction, design, project management, and technology to
+            deliver reliable building solutions. We value collaboration,
+            continuous learning, and practical experience.
           </p>
 
           <p className="text-gray-600 leading-relaxed mt-4">
-            If you are interested in contributing to our work and
-            growing with our team, we would be happy to hear from you.
+            If you are interested in contributing to our work and growing with
+            our team, we would be happy to hear from you.
           </p>
         </section>
 
@@ -45,8 +50,8 @@ export default function CareerPage() {
                 Learn & Grow
               </h3>
               <p className="text-gray-600 text-sm leading-relaxed">
-                Gain practical experience and develop your skills
-                through real-world projects and collaboration.
+                Gain practical experience and develop your skills through
+                real-world projects and collaboration.
               </p>
             </div>
 
@@ -71,8 +76,8 @@ export default function CareerPage() {
                 Make an Impact
               </h3>
               <p className="text-gray-600 text-sm leading-relaxed">
-                Contribute to projects that help make the building
-                process simpler and more organized for homeowners.
+                Contribute to projects that help make the building process
+                simpler and more organized for homeowners.
               </p>
             </div>
           </div>
@@ -90,8 +95,8 @@ export default function CareerPage() {
             </h3>
 
             <p className="text-gray-600 mt-2 max-w-xl mx-auto leading-relaxed">
-              We currently do not have any specific job openings
-              listed. Please check back later for new opportunities.
+              We currently do not have any specific job openings listed. Please
+              check back later for new opportunities.
             </p>
 
             <Link
@@ -110,9 +115,9 @@ export default function CareerPage() {
               Interested in an Internship?
             </h2>
             <p className="text-gray-600 leading-relaxed max-w-xl">
-              If you are a student looking for practical experience,
-              explore our internship opportunities and learn more about
-              how you can get involved with Building Sewa.
+              If you are a student looking for practical experience, explore our
+              internship opportunities and learn more about how you can get
+              involved with Building Sewa.
             </p>
           </div>
 

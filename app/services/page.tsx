@@ -1,6 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getServices } from "@/lib/services";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Professional Building Services in Nepal | Building Sewa",
+  description:
+    "From site inspection to home automation — one team for every stage of your property, across Nepal.",
+};
 
 export default async function ServicesPage() {
   const services = await getServices();
@@ -12,8 +19,8 @@ export default async function ServicesPage() {
           Professional Building Services in Nepal
         </h1>
         <p className="text-lg md:text-xl max-w-2xl mx-auto">
-          From site inspection to home automation one team for every stage
-          of your property, across Nepal.
+          From site inspection to home automation one team for every stage of
+          your property, across Nepal.
         </p>
       </section>
 

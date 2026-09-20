@@ -1,5 +1,11 @@
 import Calendar from "@/components/Calendar";
 import Ribbon from "@/components/Ribbon";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Calendar | Building Sewa",
+  description: "Internship intakes, holidays, and company events at a glance.",
+};
 
 const companyEvents = [
   {
@@ -24,9 +30,7 @@ export default function CalendarPage() {
         description="View Nepal holidays, festivals, and Building Sewa events."
       />
 
-      <Calendar
-        initialCompanyEvents={companyEvents}
-      />
+      <Calendar initialCompanyEvents={companyEvents} />
     </main>
   );
 }

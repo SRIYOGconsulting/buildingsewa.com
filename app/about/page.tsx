@@ -1,7 +1,13 @@
-"use client";
 import ClapFunction from "@/components/ClappingFunction";
 import Ribbon from "@/components/Ribbon";
 import Image from "next/image";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Us | Building Sewa",
+  description:
+    "Learn about Building Sewa's mission to simplify construction in Nepal.",
+};
 
 const About = () => {
   return (
@@ -30,7 +36,7 @@ const About = () => {
               Building Sewa is a professional construction management startup in
               Nepal dedicated to transforming your dream home into reality. We
               provide end-to-end building construction services, guiding
-              homeowners through every stage—from initial concept and
+              homeowners through every stage from initial concept and
               architectural design to construction, interior finishing,
               handover, and long-term maintenance.
             </p>
@@ -49,15 +55,15 @@ const About = () => {
               stress-free. We combine industry expertise, professional
               craftsmanship, and modern construction practices to deliver
               premium-quality homes that meet the highest standards of safety,
-              durability, and aesthetics. Whether you're building your first
-              home, renovating an existing property, or developing a commercial
-              project, our dedicated team is committed to delivering reliable,
-              budget-friendly, and deadline-focused solutions tailored to your
-              needs.
+              durability, and aesthetics. Whether you&apos;re building your
+              first home, renovating an existing property, or developing a
+              commercial project, our dedicated team is committed to delivering
+              reliable, budget-friendly, and deadline-focused solutions tailored
+              to your needs.
             </p>
 
             <p className="content-text ">
-              Building Sewa—your trusted construction partner from concept to
+              Building Sewa your trusted construction partner from concept to
               completion, building homes with quality, transparency, and
               excellence across Nepal.
             </p>

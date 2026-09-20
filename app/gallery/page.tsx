@@ -1,5 +1,12 @@
 import Image from "next/image";
 import Ribbon from "@/components/Ribbon";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Project Gallery | Building Sewa",
+  description:
+    "View our work quality across homes, offices, and commercial spaces.",
+};
 
 interface Project {
   id: number;

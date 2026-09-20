@@ -1,5 +1,11 @@
-'use client'
 import Ribbon from "@/components/Ribbon";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Our Team | Building Sewa",
+  description:
+    "Meet the professionals behind Building Sewa's construction and design services.",
+};
 
 const teamMembers = [
   { id: 1, name: "Alisha", role: "MERN Stack", image: "/team/2.png" },
@@ -15,12 +21,9 @@ const teamMembers = [
 const OurTeam = () => {
   return (
     <div className="about-w-full ">
-     <Ribbon
-        name="Our Team"
-      />
+      <Ribbon name="Our Team" />
 
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-6 md:py-10">
-
         {/* PRESIDENT SECTION */}
         <div className="rounded-lg  card  p-6 md:p-10">
           <div className="flex flex-col md:flex-row gap-10 items-center md:items-start">
@@ -40,7 +43,7 @@ const OurTeam = () => {
             <div className="flex-1 leading-relaxed space-y-7">
               <h1 className=" text-[1.8em]">About Pracas</h1>
               <p className="text-[1em]">
-                Pracas Upreti's journey from a startup founder to a
+                Pracas Upreti&apos;s journey from a startup founder to a
                 technology-driven change-maker in Biratnagar, Nepal, exemplifies
                 the profound impact that individuals can have when they combine
                 innovation with a commitment to social responsibility. Through
@@ -48,11 +51,14 @@ const OurTeam = () => {
                 has also set a precedent for how technology can be harnessed to
                 drive positive change and create a better future for all.
               </p>
-              <p className="text-[1em]">Through his endeavors, Upreti has not only
-                 transformed his community but has also set a precedent for how technology
-                  can be harnessed to drive positive change and create a better future for all.</p>
-              <p  className="text-[1em]">
-                Upreti's journey into the realm of technology began over a
+              <p className="text-[1em]">
+                Through his endeavors, Upreti has not only transformed his
+                community but has also set a precedent for how technology can be
+                harnessed to drive positive change and create a better future
+                for all.
+              </p>
+              <p className="text-[1em]">
+                Upreti&apos;s journey into the realm of technology began over a
                 decade ago when he founded his first IT startup in 2007 A.D. as
                 PRACAS Infosys in Biratnagar. Recognizing the potential of
                 technology to bridge gaps and catalyze progress, he embarked on
@@ -95,7 +101,9 @@ const OurTeam = () => {
                 alt={member.name}
                 className="w-28 h-28 md:w-full md:h-full rounded-full object-cover shadow"
               />
-              <h3 className=" font-semibold mt-5 text-[1.2em] ">{member.name}</h3>
+              <h3 className=" font-semibold mt-5 text-[1.2em] ">
+                {member.name}
+              </h3>
               <p className=" text-sm mt-2">{member.role}</p>
             </div>
           ))}

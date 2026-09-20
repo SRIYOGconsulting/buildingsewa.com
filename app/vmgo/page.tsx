@@ -1,5 +1,12 @@
 import Image from "next/image";
 import Ribbon from "@/components/Ribbon";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Vision, Mission & Goals | Building Sewa",
+  description:
+    "What drives Building Sewa forward, and where we're headed next.",
+};
 
 const overview = [
   { id: "vision", label: "Vision", icon: "/vmgo/vision.png" },

@@ -3,32 +3,38 @@ import Ribbon from "@/components/Ribbon";
 import SectionTag from "@/components/Sectiontag";
 import CtaBanner from "@/components/CtaBanner";
 import { Lightbulb, Settings2, MapPin, Monitor } from "lucide-react";
+import type { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Our History | Building Sewa",
+  description:
+    "How Building Sewa grew into Nepal's trusted partner for building and home services.",
+};
 
 const milestones = [
   {
-    year: "2018", 
+    year: "2018",
     title: "Building Sewa Founded",
     description:
       "Started with a simple idea: make it easy for Nepali homeowners to find trusted builders and tradespeople.",
     icon: Lightbulb,
   },
   {
-    year: "2020", 
+    year: "2020",
     title: "Beyond Construction",
     description:
       "Expanded past civil construction into design, engineering, and interior services under one roof.",
     icon: Settings2,
   },
   {
-    year: "2022", 
+    year: "2022",
     title: "Serving the Valley",
     description:
       "Grew our verified professional network across Kathmandu, Lalitpur, and Bhaktapur.",
     icon: MapPin,
   },
   {
-    year: "2024", 
+    year: "2024",
     title: "Online Booking Platform",
     description:
       "Launched the Building Sewa platform so customers can browse services and book online in minutes.",
@@ -64,10 +70,10 @@ export default function History() {
               The Beginning of Our Journey
             </h2>
             <p className="leading-7 text-gray-600">
-              Building Sewa began with a simple idea to make it easy for
-              Nepali homeowners to find trusted builders and tradespeople. We
-              saw a need for a more transparent, reliable, and convenient way
-              to access building and home services, and that idea laid the
+              Building Sewa began with a simple idea to make it easy for Nepali
+              homeowners to find trusted builders and tradespeople. We saw a
+              need for a more transparent, reliable, and convenient way to
+              access building and home services, and that idea laid the
               foundation for what we are today.
             </p>
           </div>
@@ -95,10 +101,9 @@ export default function History() {
             </h2>
             <p className="leading-7 text-gray-600">
               Over time, we expanded our services beyond construction into
-              design, engineering, interiors, and more. With a focus on
-              quality and customer trust, we built a network of skilled
-              professionals and developed systems to serve more people across
-              Nepal.
+              design, engineering, interiors, and more. With a focus on quality
+              and customer trust, we built a network of skilled professionals
+              and developed systems to serve more people across Nepal.
             </p>
           </div>
         </div>
@@ -113,12 +118,12 @@ export default function History() {
               Key Milestones
             </h2>
             <p className="mx-auto mt-3 max-w-2xl leading-7 text-gray-500">
-              Important moments that shaped Building Sewa&apos;s growth and success.
+              Important moments that shaped Building Sewa&apos;s growth and
+              success.
             </p>
           </div>
 
           <div className="relative grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            
             <div className="pointer-events-none absolute left-10 right-10 top-[52px] hidden border-t-2 border-dashed border-emerald-200 lg:block" />
 
             {milestones.map(({ year, title, description, icon: Icon }) => (
@@ -129,9 +134,13 @@ export default function History() {
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-emerald-50 text-[#0E4541]">
                   <Icon className="h-6 w-6" />
                 </div>
-                <div className="mt-4 text-lg font-bold text-[#0E4541]">{year}</div>
+                <div className="mt-4 text-lg font-bold text-[#0E4541]">
+                  {year}
+                </div>
                 <h3 className="mt-1 font-semibold text-[#0E4541]">{title}</h3>
-                <p className="mt-3 text-sm leading-6 text-gray-600">{description}</p>
+                <p className="mt-3 text-sm leading-6 text-gray-600">
+                  {description}
+                </p>
               </div>
             ))}
           </div>

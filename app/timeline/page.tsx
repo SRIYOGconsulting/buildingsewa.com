@@ -1,6 +1,11 @@
 import type { ReactNode } from "react";
 import Ribbon from "@/components/Ribbon";
+import type { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Our Timeline | Building Sewa",
+  description: "Key milestones in Building Sewa's growth and development.",
+};
 type TimelineItem = {
   year: string;
   title: string;
@@ -53,7 +58,6 @@ export default function TimelinePage() {
         name=" Our Journey"
         description="Discover the journey, progress, and vision behind Building Sewa."
       />
-     
 
       {/* Timeline */}
       <section className="max-w-5xl mx-auto px-4 md:px-8 py-16">
@@ -69,10 +73,7 @@ export default function TimelinePage() {
               const isLeft = index % 2 === 0;
 
               return (
-                <div
-                  key={event.title}
-                  className="relative flex items-center"
-                >
+                <div key={event.title} className="relative flex items-center">
                   {/* Desktop dot */}
                   <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-5 h-5 bg-white border-4 border-teal-600 rounded-full z-10" />
 
@@ -82,9 +83,7 @@ export default function TimelinePage() {
                   {/* Card */}
                   <div
                     className={`w-full md:w-1/2 pl-12 md:pl-0 ${
-                      isLeft
-                        ? "md:pr-12 md:mr-auto"
-                        : "md:pl-12 md:ml-auto"
+                      isLeft ? "md:pr-12 md:mr-auto" : "md:pl-12 md:ml-auto"
                     }`}
                   >
                     <div className="rounded-xl border border-gray-200 bg-white shadow-sm hover:shadow-md transition-shadow p-6">
