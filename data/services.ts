@@ -10,6 +10,7 @@ export type Service = {
   priceFrom: string;
   scopeOfWork: ScopeItem[];
   faqs: ServiceFaq[];
+  category: string;
 };
 
 function slugify(name: string) {
@@ -61,9 +62,60 @@ function generateFaqs(name: string): ServiceFaq[] {
   ];
 }
 
+
+const categoryByName: Record<string, string> = {
+  "Land Survey & Site Inspection": "Planning & Approval",
+  "Soil Testing": "Planning & Approval",
+  "Architecture & House Design": "Planning & Approval",
+  "Structural Engineering": "Planning & Approval",
+  "Building Approval & Documentation": "Planning & Approval",
+  "Project Management": "Planning & Approval",
+  "Vaastu Consultation": "Planning & Approval",
+  Fencing: "Construction",
+  "Bhumi Pooja": "Rituals",
+  "Civil Construction": "Construction",
+  "Materials Supply": "Construction",
+  "Water Boring": "Construction",
+  Plumbing: "Utilities",
+  "Electrical Services": "Utilities",
+  "Truss Roofing": "Construction",
+  Waterproofing: "Construction",
+  "uPVC Doors & Windows": "Finishing",
+  "Glass Works": "Finishing",
+  Tiling: "Finishing",
+  Parqueting: "Finishing",
+  Painting: "Finishing",
+  Woodwork: "Finishing",
+  "Custom Furniture": "Interior",
+  "Modular Kitchen": "Interior",
+  "Bathroom Setup": "Interior",
+  "Interior Designing": "Interior",
+  "Wall Decoration": "Interior",
+  "Gardening & Landscaping": "Outdoor",
+  "Water Filter Setup": "Home Systems",
+  "AC Services": "Home Systems",
+  "Electronics Setup (TV / Geyser / Fridge)": "Home Systems",
+  "CCTV Camera Installation": "Smart & Security",
+  "Home Automation": "Smart & Security",
+  "Wi-Fi Access Point Installation": "Smart & Security",
+  "Solar Panel Installation": "Home Systems",
+  "Car Porch & Garage Setup": "Outdoor",
+  "EV Charger Installation": "Home Systems",
+  "Lift & Elevator Installation": "Home Systems",
+  "Fire Safety Systems": "Smart & Security",
+  "Griha Pravesh Puja": "Rituals",
+  "Packing & Moving": "Moving & Maintenance",
+  "Annual Home Maintenance": "Moving & Maintenance",
+};
+
 const rawServices: Omit<
   Service,
-  "slug" | "longDescription" | "priceFrom" | "scopeOfWork" | "faqs"
+  | "slug"
+  | "longDescription"
+  | "priceFrom"
+  | "scopeOfWork"
+  | "faqs"
+  | "category"
 >[] = [
   {
     name: "Land Survey & Site Inspection",
@@ -304,6 +356,7 @@ const rawServices: Omit<
 export const services: Service[] = rawServices.map((s) => ({
   ...s,
   slug: slugify(s.name),
+  category: categoryByName[s.name] ?? "Other",
   longDescription: s.description,
   priceFrom: "Contact for quote",
   scopeOfWork: generateScope(s.name),
