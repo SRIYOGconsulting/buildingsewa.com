@@ -1,5 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Our Products | Building Sewa",
+  description:
+    "Digital platforms built by Sriyog Consulting across construction, services, and employment sectors.",
+};
 
 type Product = {
   name: string;

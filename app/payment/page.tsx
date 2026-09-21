@@ -1,6 +1,11 @@
 import { CreditCard } from "lucide-react";
 import Ribbon from "@/components/Ribbon";
+import type { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Payment | Building Sewa",
+  description: "Payment details and options for Building Sewa services.",
+};
 export default function Payment() {
   return (
     <div>
@@ -23,22 +28,14 @@ export default function Payment() {
             meantime, please contact us directly to arrange payment.
           </p>
           <div className="space-y-1 text-sm text">
-            <p>Email: info@sriyog.com</p>
-            <p>Phone: +977-01-4548068</p>
+            <p>Email: info@buildingSewa.com</p>
+            <p>Phone:+977 98520-24-365</p>
           </div>
         </div>
       </section>
     </div>
   );
 }
-
-
-
-
-
-
-
-
 
 // 'use client';
 
@@ -148,4 +145,3 @@ export default function Payment() {
 // };
 
 // export default Payment;
-

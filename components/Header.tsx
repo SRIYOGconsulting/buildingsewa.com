@@ -106,7 +106,7 @@ const Header = () => {
           
           {/* Mobile Notice button*/}
           <div>
-            <Link href="/book">
+            <Link href="/services">
               <button className="bg-[#ebebeb] cursor-pointer sm:hidden border-[1.5px]  border-teal-800 text-black px-4 py-1 rounded hover:bg-teal-800">
                 Book a Service
               </button>

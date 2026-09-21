@@ -1,5 +1,11 @@
 import React from "react";
 import Ribbon from "@/components/Ribbon";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Cookie Policy | Building Sewa",
+  description: "How Building Sewa uses cookies and tracking technologies.",
+};
 
 const cookiePolicy = () => {
   return (
@@ -120,8 +126,12 @@ const cookiePolicy = () => {
             <h2 className="text-2xl font-semibold text-teal-800 mb-2">
               Contact Us
             </h2>
-            <p className="about leading-relaxed mb-1">Email: info@buildingsewa.com</p>
-            <p className="about leading-relaxed mb-1">Phone: +977 98520-24-365</p>
+            <p className="about leading-relaxed mb-1">
+              Email: info@buildingsewa.com
+            </p>
+            <p className="about leading-relaxed mb-1">
+              Phone: +977 98520-24-365
+            </p>
             <p className="about leading-relaxed">
               Address: Kamalpokhari, Kathmandu, Nepal
             </p>

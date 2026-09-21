@@ -1,7 +1,11 @@
-"use client";
-
 import React from "react";
 import Ribbon from "@/components/Ribbon";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Refund Policy | Building Sewa",
+  description: "Building Sewa's refund eligibility and process.",
+};
 
 export default function RefundPolicy() {
   return (
@@ -59,8 +63,8 @@ export default function RefundPolicy() {
             </h2>
             <p className="about leading-relaxed mb-2">
               To request a refund, please contact our support team at{" "}
-              <span className="font-medium">info@buildingsewa.com</span> within 7
-              days of your booking. Include your booking details, the reason
+              <span className="font-medium">info@buildingsewa.com</span> within
+              7 days of your booking. Include your booking details, the reason
               for the refund, and any supporting documentation.
             </p>
             <p className="about leading-relaxed">
@@ -77,7 +81,9 @@ export default function RefundPolicy() {
             <p className="about leading-relaxed mb-1">
               Email: info@buildingsewa.com
             </p>
-            <p className="about leading-relaxed mb-1">Phone: +977 98520-24-365</p>
+            <p className="about leading-relaxed mb-1">
+              Phone: +977 98520-24-365
+            </p>
             <p className="about leading-relaxed">
               Address: Kamalpokhari, Kathmandu, Nepal
             </p>

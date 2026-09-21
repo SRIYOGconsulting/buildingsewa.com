@@ -1,4 +1,10 @@
 import Ribbon from "@/components/Ribbon";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Our Location | Building Sewa",
+  description: "Find Building Sewa's office location in Kathmandu, Nepal.",
+};
 
 export default function LocationPage() {
   return (
@@ -24,8 +30,8 @@ export default function LocationPage() {
 
             <p className="text-gray-600 leading-relaxed max-w-2xl">
               Visit our office to learn more about our building construction
-              services, discuss your project requirements, and connect with
-              our team.
+              services, discuss your project requirements, and connect with our
+              team.
             </p>
 
             <p className="text-gray-600 leading-relaxed max-w-2xl mt-4">
@@ -47,9 +53,7 @@ export default function LocationPage() {
                 </div>
 
                 <div>
-                  <p className="text-sm font-semibold text-gray-800">
-                    Address
-                  </p>
+                  <p className="text-sm font-semibold text-gray-800">Address</p>
 
                   <p className="text-sm text-gray-600 mt-1 leading-relaxed">
                     P86F+G8R, Pashupati Marg,
@@ -65,9 +69,7 @@ export default function LocationPage() {
                 </div>
 
                 <div>
-                  <p className="text-sm font-semibold text-gray-800">
-                    Phone
-                  </p>
+                  <p className="text-sm font-semibold text-gray-800">Phone</p>
 
                   <a
                     href="tel:+9779852024365"
@@ -84,9 +86,7 @@ export default function LocationPage() {
                 </div>
 
                 <div>
-                  <p className="text-sm font-semibold text-gray-800">
-                    Email
-                  </p>
+                  <p className="text-sm font-semibold text-gray-800">Email</p>
 
                   <a
                     href="mailto:info@buildingsewa.com"

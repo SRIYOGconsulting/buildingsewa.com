@@ -2,6 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import Ribbon from "@/components/Ribbon";
 import { blogPosts } from "@/data/blogPosts";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Blog | Building Sewa",
+  description: "Construction tips, guides, and news from Building Sewa.",
+};
 
 export default function BlogPage() {
   return (
@@ -32,9 +38,7 @@ export default function BlogPage() {
               </div>
 
               <div className="p-5 card2">
-                <h2 className="text-lg font-semibold text2">
-                  {post.title}
-                </h2>
+                <h2 className="text-lg font-semibold text2">{post.title}</h2>
 
                 <p className="text text-sm mt-2 leading-relaxed">
                   {post.excerpt}

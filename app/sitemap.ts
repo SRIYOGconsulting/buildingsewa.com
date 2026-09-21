@@ -1,21 +1,23 @@
 import type { MetadataRoute } from "next";
 import { getServices } from "@/lib/services";
+import { blogPosts } from "@/data/blogPosts";
+
+const baseUrl = "https://www.buildingsewa.com";
 
 const staticRoutes = [
-  "", "about", "services", "team", "contact", "career", "vmgo",
+  "", "about", "aipolicy", "services", "team", "contact", "career", "vmgo",
   "history", "why", "certificates", "timeline", "gallery", "qr",
   "glossary", "message", "calendar", "faq", "payment", "internship",
-  "download", "videos", "location", "refund", "cookie", "privacy",
+  "videos", "location", "refund", "cookie", "privacy",
   "disclaimer", "tos", "feedback", "testimonials", "blog", "products",
-  "events", "book",
+  "events",
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = "https://www.buildingsewa.com";
   const services = await getServices();
 
   const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
-    url: `${baseUrl}/${route}`,
+    url: route === "" ? baseUrl : `${baseUrl}/${route}`,
     lastModified: new Date(),
     changeFrequency: "monthly",
     priority: route === "" ? 1.0 : 0.7,
@@ -28,5 +30,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }));
 
-  return [...staticEntries, ...serviceEntries];
+  const blogEntries: MetadataRoute.Sitemap = blogPosts.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
+
+  return [...staticEntries, ...serviceEntries, ...blogEntries];
 }

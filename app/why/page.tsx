@@ -2,7 +2,13 @@ import Image from "next/image";
 import Ribbon from "@/components/Ribbon";
 import SectionTag from "@/components/Sectiontag";
 import CtaBanner from "@/components/CtaBanner";
+import type { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Why Choose Us | Building Sewa",
+  description:
+    "Choose Building Sewa for trusted professionals, transparent pricing, and end-to-end building solutions in Nepal.",
+};
 
 const sections = [
   {

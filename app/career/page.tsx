@@ -3,7 +3,7 @@ import Ribbon from "@/components/Ribbon";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Careers at Building Sewa",
+  title: "Careers | Building Sewa",
   description:
     "Join a team building end-to-end construction solutions across Nepal.",
 };

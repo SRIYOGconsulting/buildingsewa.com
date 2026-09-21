@@ -10,7 +10,7 @@ import { EffectFade, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
 
-const slides = ["/home/hero/3.jpg", "/home/hero/2.jpg"];
+const slides = ["/home/hero/1.jpg", "/home/hero/2.jpg"];
 
 export default function Hero() {
   const swiperRef = useRef<SwiperType | null>(null);

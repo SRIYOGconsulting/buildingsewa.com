@@ -34,7 +34,7 @@ const Footer = () => {
 
             <p className="text-[15px] leading-relaxed ">
               We provide end-to-end building construction services, guiding
-              homeowners through every stage—from initial concept and
+              homeowners through every stage from initial concept and
               architectural design to construction, interior finishing,
               handover, and long-term maintenance. Our mission is to simplify
               the building process by bringing together experienced architects,
@@ -285,7 +285,7 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 lg:mt-12 flex flex-col lg:flex-row justify-center items-center lg:justify-between text-[13px]  gap-3 text-center md:text-left font-semibold">
           <p className="flex flex-col md:flex-row gap-4 md:gap-1 items-center">
             <span>All Rights Reserved. © 2018-{currentYear}</span>
-            <span>SRIYOG Consulting</span>
+            <span>Building Sewa</span>
             <span>
               Built with :{" "}
               <a

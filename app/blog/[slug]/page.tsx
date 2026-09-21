@@ -2,6 +2,27 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { blogPosts } from "@/data/blogPosts";
+import type { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: BlogPostPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const post = blogPosts.find((item) => item.slug === slug);
+
+  if (!post) {
+    return { title: "Blog Post Not Found | Building Sewa" };
+  }
+
+  return {
+    title: `${post.title} | Building Sewa`,
+    description: post.excerpt,
+  };
+}
+
+export function generateStaticParams() {
+  return blogPosts.map((post) => ({ slug: post.slug }));
+}
 
 type BlogPostPageProps = {
   params: Promise<{
@@ -9,9 +30,7 @@ type BlogPostPageProps = {
   }>;
 };
 
-export default async function BlogPostPage({
-  params,
-}: BlogPostPageProps) {
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params;
 
   const post = blogPosts.find((item) => item.slug === slug);
@@ -46,13 +65,9 @@ export default async function BlogPostPage({
         </div>
 
         <div className="card2 px-6 md:px-10 py-8">
-          <h1 className="text-3xl md:text-4xl font-bold text2">
-            {post.title}
-          </h1>
+          <h1 className="text-3xl md:text-4xl font-bold text2">{post.title}</h1>
 
-          <p className="text mt-4 text-lg leading-relaxed">
-            {post.excerpt}
-          </p>
+          <p className="text mt-4 text-lg leading-relaxed">{post.excerpt}</p>
 
           <div className="mt-8 border-t pt-6">
             <h2 className="text-2xl font-semibold text2 mb-4">
@@ -60,15 +75,14 @@ export default async function BlogPostPage({
             </h2>
 
             <p className="text leading-relaxed">
-              This article provides useful information and practical
-              guidance related to {post.title.toLowerCase()}.
+              This article provides useful information and practical guidance
+              related to {post.title.toLowerCase()}.
             </p>
 
             <p className="text leading-relaxed mt-4">
-              Whether you are planning a construction project, improving
-              your home, or preparing for your next project, understanding
-              the important considerations can help you make informed
-              decisions.
+              Whether you are planning a construction project, improving your
+              home, or preparing for your next project, understanding the
+              important considerations can help you make informed decisions.
             </p>
           </div>
         </div>
@@ -81,7 +95,7 @@ export default async function BlogPostPage({
           className="inline-block border-2 border-[#0D5D59] py-2 px-6 rounded-md text-[#0D5D59] font-semibold hover:bg-[#0D5D59] hover:text-white transition duration-300"
         >
           View All Blogs
-        </Link>
+        </Link> 
       </div>
     </main>
   );

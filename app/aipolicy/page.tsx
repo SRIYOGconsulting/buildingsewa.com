@@ -1,16 +1,20 @@
-// app/aipolicy/page.tsx
-
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AI Usage Policy | Home Sewa",
-  description:
-    "Read Home Sewa's Artificial Intelligence Usage Policy.",
+  title: "AI Usage Policy | Building Sewa",
+  description: "Read Building Sewa's Artificial Intelligence Usage Policy.",
 };
 
 export default function AIUsagePolicy() {
   return (
-    <main style={{ maxWidth: "900px", margin: "40px auto", padding: "20px", lineHeight: "1.8" }}>
+    <main
+      style={{
+        maxWidth: "900px",
+        margin: "40px auto",
+        padding: "20px",
+        lineHeight: "1.8",
+      }}
+    >
       <h1>Artificial Intelligence (AI) Usage Policy</h1>
 
       <p>
@@ -21,10 +25,11 @@ export default function AIUsagePolicy() {
 
       <h2>1. Purpose</h2>
       <p>
-        This policy explains how Home Sewa designs, develops, and uses Artificial
-        Intelligence (AI) across its home service platform. It ensures AI is used
-        responsibly, securely, and transparently while protecting the privacy and
-        rights of customers and service professionals.
+        This policy explains how Building Sewa designs, develops, and uses
+        Artificial Intelligence (AI) across its home service platform. It
+        ensures AI is used responsibly, securely, and transparently while
+        protecting the privacy and rights of customers and service
+        professionals.
       </p>
 
       <h2>2. Scope</h2>
@@ -87,7 +92,7 @@ export default function AIUsagePolicy() {
 
       <h2>7. Data Privacy</h2>
       <p>
-        Home Sewa protects personal information in accordance with Nepal's
+        Building Sewa protects personal information in accordance with Nepal's
         privacy laws. Voice recordings, location data, and personal information
         are processed securely and only for the intended purpose.
       </p>
@@ -101,13 +106,13 @@ export default function AIUsagePolicy() {
       <h2>9. Policy Updates</h2>
       <p>
         This policy may be updated as AI technologies evolve. The latest version
-        will always be available on the Home Sewa website.
+        will always be available on the Building Sewa website.
       </p>
 
       <h2>10. Contact</h2>
       <p>
         If you have any questions regarding this AI Usage Policy, please contact
-        Home Sewa Customer Support.
+        Building Sewa Customer Support.
       </p>
     </main>
   );
