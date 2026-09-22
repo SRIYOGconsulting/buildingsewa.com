@@ -156,7 +156,7 @@ export default function PrivacyPage() {
           <div>
             <h2 className="text-2xl font-semibold text-teal-800 mb-2">13. Contact Us</h2>
             <p className="about leading-relaxed mb-1">
-              If you have any questions, concerns, or requests regarding this Privacy Policy or your personal information, please contact us at <span className="font-medium">info@sriyog.com</span>.
+              If you have any questions, concerns, or requests regarding this Privacy Policy or your personal information, please contact us at <span className="font-medium">info@buildingsewa.com</span>.
             </p>
             <p className="about leading-relaxed mb-1">Phone: +977-01-4548068</p>
             <p className="about leading-relaxed">Address: Kamalpokhari, Kathmandu, Nepal</p>
