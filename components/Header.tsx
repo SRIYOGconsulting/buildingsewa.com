@@ -9,7 +9,6 @@ import MobileDrawer from "./MobileDrawer";
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Always use the same initial value on server and client
   const [DarkIcon, setDarkIcon] = useState(true);
 
   const [showSearch, setShowSearch] = useState(false);
@@ -80,7 +79,7 @@ const Header = () => {
           <Link href="/">
             <Image
               src="/logo/wordmark-logo.svg"
-              alt="Sriyog Logo"
+              alt="Building Sewa Logo"
               width={800}
               height={600}
               className="w-[230px] md:w-[270px] h-auto"
