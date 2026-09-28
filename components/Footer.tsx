@@ -250,7 +250,7 @@ const Footer = () => {
               href="mailto:info@buildingSewa.com"
               className={`flex items-center gap-2 border-2 rounded-lg px-7 py-3 w-full sm:w-auto `}
             >
-              <img src="/icons/gmail.png" alt="email" className="h-6 w-6" />
+              <img src="/icons/1.svg" alt="email" className="h-6 w-6" />
               <span className="text-sm">info@buildingSewa.com</span>
             </a>
 

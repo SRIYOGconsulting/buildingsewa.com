@@ -38,7 +38,16 @@ export default function BlogPage() {
               </div>
 
               <div className="p-5 card2">
-                <h2 className="text-lg font-semibold text2">{post.title}</h2>
+                <div className="flex items-center justify-between text-xs">
+                  <span className="rounded-full bg-[#0D5D59] px-2.5 py-1 font-semibold text-white">
+                    {post.category}
+                  </span>
+                  <span className="text">{post.readTime}</span>
+                </div>
+
+                <h2 className="text-lg font-semibold text2 mt-3">
+                  {post.title}
+                </h2>
 
                 <p className="text text-sm mt-2 leading-relaxed">
                   {post.excerpt}
