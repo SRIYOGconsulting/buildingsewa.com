@@ -42,7 +42,6 @@ export default function BlogPage() {
                   <span className="rounded-full bg-[#0D5D59] px-2.5 py-1 font-semibold text-white">
                     {post.category}
                   </span>
-                  <span className="text">{post.readTime}</span>
                 </div>
 
                 <h2 className="text-lg font-semibold text2 mt-3">

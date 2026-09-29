@@ -176,7 +176,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <span className="rounded-full bg-[#0D5D59] px-3 py-1 font-semibold text-white">
               {post.category}
             </span>
-            <span className="text">{post.readTime}</span>
           </div>
 
           <h1 className="text-3xl md:text-4xl font-bold text2 mt-4 leading-tight">

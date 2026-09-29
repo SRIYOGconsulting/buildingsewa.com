@@ -133,6 +133,11 @@ const Footer = () => {
                     Internship
                   </Link>
                 </li>
+                <li className={`py-1 cursor-pointer `}>
+                  <Link href="/aipolicy" className="hover:text-green-700">
+                    AI policy
+                  </Link>
+                </li>
               </ul>
             </div>
 
