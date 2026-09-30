@@ -1,80 +1,58 @@
-import Image from 'next/image';
+import Image from "next/image";
+import Link from "next/link";
+import { getServices } from "@/lib/services";
+import type { Metadata } from "next";
 
-export default function ServicesPage() {
-    const services = [
-        'Land Survey & Site Inspection',
-        'Soil Testing',
-        'Architecture & House Design',
-        'Structural Engineering',
-        'Building Approval & Documentation',
-        'Project Management',
-        'Vaastu Consultation',
-        'Fencing',
-        'Bhumi Pooja',
-        'Civil Construction',
-        'Materials Supply',
-        'Water Boring',
-        'Plumbing',
-        'Electrical Services',
-        'Truss Roofing',
-        'Waterproofing',
-        'uPVC Doors & Windows',
-        'Grill / Iron Works',
-        'Glass Works',
-        'Tiling',
-        'Parqueting',
-        'Painting',
-        'Woodwork',
-        'Custom Furniture',
-        'Modular Kitchen',
-        'Bathroom Setup',
-        'Interior Designing',
-        'Wall Decoration',
-        'Gardening & Landscaping',
-        'RO Water Purification',
-        'Water Filter Setup',
-        'AC Services',
-        'Electronics Setup (TV / Geyser / Fridge)',
-        'CCTV Camera Installation',
-        'Home Automation',
-        'Wi-Fi Access Point Installation',
-        'Solar Panel Installation',
-        'Car Porch & Garage Setup',
-        'EV Charger Installation',
-        'Lift & Elevator Installation',
-        'Fire Safety Systems',
-        'Post-Construction Cleaning',
-        'Griha Pravesh Puja',
-        'Packing & Moving',
-        'Annual Home Maintenance',
-    ];
+export const metadata: Metadata = {
+  title: "Professional Building Services in Nepal | Building Sewa",
+  description:
+    "From site inspection to home automation — one team for every stage of your property, across Nepal.",
+};
 
-    return (
-        <div className="relative">
-            <div className="px-5 py-10 max-w-7xl mx-auto">
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-items-center">
-                    {services.map((service, index) => (
-                        <div
-                            key={service}
-                            className="card rounded-lg shadow-md overflow-hidden w-full max-w-xs hover:shadow-lg transition-shadow duration-300"
-                        >
-                            <Image
-                                height={600}
-                                width={800}
-                                src={`/certificates/${(index % 6) + 1}.jpg`}
-                                alt={service}
-                                className="w-full h-56 object-cover"
-                            />
-                            <div className="px-4 py-5 card2">
-                                <h2 className="text-lg font-medium">{service}</h2>
-                                <p className="card2 text-sm mt-2">
-                                    Complete support for your residential and commercial property needs.
-                                </p>
-                            </div>
-                        </div>
-                    ))}
-                </div>
+export default async function ServicesPage() {
+  const services = await getServices();
+
+  return (
+    <main className="min-h-screen bg-gray-50 text-gray-800 pb-24">
+      <section className="bg-[#0E4541] text-white py-24 px-6 text-center">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4">
+          Professional Building Services in Nepal
+        </h1>
+        <p className="text-lg md:text-xl max-w-2xl mx-auto">
+          From site inspection to home automation one team for every stage of
+          your property, across Nepal.
+        </p>
+      </section>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-7xl mx-auto px-6 pt-12">
+        {services.map((service) => (
+          <div
+            key={service.slug}
+            className="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition"
+          >
+            <div className="relative w-full h-64">
+              <Image
+                src={`/services/${service.image}.jpg`}
+                alt={service.name}
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                className="object-cover"
+              />
             </div>
-        </div>
-    );
+            <div className="p-5">
+              <h2 className="text-lg font-semibold mb-2">{service.name}</h2>
+              <p className="text-sm text-gray-600 mb-4">
+                {service.longDescription}
+              </p>
+              <Link href={`/services/${service.slug}`}>
+                <button className="px-4 py-2 bg-[#0E4541] text-white rounded-md hover:bg-teal-800">
+                  Browse More
+                </button>
+              </Link>
+            </div>
+          </div>
+        ))}
+      </div>
+    </main>
+  );
 }
