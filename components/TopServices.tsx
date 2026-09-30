@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const topServices = [
   {
-    title: "Architectural Design",
+    title: "Architecture & House Design",
     description: "Custom architectural plans tailored to your site and vision.",
     img: "/home/topservices/1.jpg",
   },
@@ -12,7 +12,7 @@ const topServices = [
     img: "/home/topservices/2.jpg",
   },
   {
-    title: "Interior Finishing",
+    title: "Interior Designing",
     description: "Detailed finishing work that brings your space to life.",
     img: "/home/topservices/3.jpg",
   },

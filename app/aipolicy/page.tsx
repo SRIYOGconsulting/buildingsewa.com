@@ -27,7 +27,7 @@ export default function AIUsagePolicy() {
 
           <p className="about text-sm">
             <span className="font-medium">Version:</span> 1.2 &nbsp;|&nbsp;{" "}
-            <span className="font-medium">Effective Date:</span> July 2026
+            <span className="font-medium">Effective Date:</span> 29th September, 2026
           </p>
 
           <div>

@@ -15,7 +15,7 @@ export default function PrivacyPage() {
       <div className="max-w-7xl mx-auto px-4 md:px-8 mb-12 space-y-6">
         <section className="footer p-6 rounded-xl shadow-md space-y-6">
           <p className="about leading-relaxed">
-            <span className="font-medium">Effective Date:</span> 1st June, 2025
+            <span className="font-medium">Effective Date:</span> 29th September, 2026
           </p>
 
           <p className="about leading-relaxed">

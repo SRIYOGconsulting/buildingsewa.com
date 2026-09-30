@@ -4,6 +4,7 @@ import TopServices from "@/components/TopServices";
 import LatestBlogs from "@/components/LatestBlogs";
 import type { Metadata } from "next";
 
+
 export const metadata: Metadata = {
   title: "Building Sewa | Construction Management in Nepal",
   description:
