@@ -65,8 +65,8 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li className={`py-1 cursor-pointer `}>
-                  <Link href="/certificates" className="hover:text-green-700">
-                    Certificates
+                  <Link href="/feedback" className="hover:text-green-700">
+                    Feedback
                   </Link>
                 </li>
                 <li className={`py-1 cursor-pointer `}>
@@ -188,7 +188,7 @@ const Footer = () => {
               className="flex items-center hover:opacity-60 transition hover:scale-110"
             >
               <img
-                src={`/icons/x.svg`}
+                src={`/icons/facebook.svg`}
                 className="h-5 w-5 sm:h-6 sm:w-6 cursor-pointer"
               />
             </a>
@@ -197,7 +197,7 @@ const Footer = () => {
               className="flex items-center hover:opacity-60 transition hover:scale-110"
             >
               <img
-                src={`/icons/linkedin.svg`}
+                src={`/icons/tiktok.svg`}
                 className="h-5 w-5 sm:h-6 sm:w-6 cursor-pointer"
               />
             </a>
@@ -215,25 +215,7 @@ const Footer = () => {
               className="flex items-center hover:opacity-60 transition hover:scale-110"
             >
               <img
-                src={`/icons/trello.svg`}
-                className="h-5 w-5 sm:h-6 sm:w-6 cursor-pointer"
-              />
-            </a>
-            <a
-              href="#"
-              className="flex items-center hover:opacity-60 transition hover:scale-110"
-            >
-              <img
-                src={`/icons/signal.svg`}
-                className="h-[22px] w-[22px] sm:h-[26px] sm:w-[26px] cursor-pointer"
-              />
-            </a>
-            <a
-              href="#"
-              className="flex items-center hover:opacity-60 transition hover:scale-110"
-            >
-              <img
-                src={`/icons/discord.svg`}
+                src={`/icons/messenger.svg`}
                 className="h-5 w-5 sm:h-6 sm:w-6 cursor-pointer"
               />
             </a>
@@ -243,6 +225,15 @@ const Footer = () => {
             >
               <img
                 src={`/icons/viber.svg`}
+                className="h-[22px] w-[22px] sm:h-[26px] sm:w-[26px] cursor-pointer"
+              />
+            </a>
+            <a
+              href="#"
+              className="flex items-center hover:opacity-60 transition hover:scale-110"
+            >
+              <img
+                src={`/icons/pitchdeck.svg`}
                 className="h-[22px] w-[22px] sm:h-[26px] sm:w-[26px] cursor-pointer"
               />
             </a>
@@ -274,7 +265,7 @@ const Footer = () => {
               className={`flex items-center gap-2 border-2 rounded-lg px-6 py-3 w-full sm:w-auto `}
             >
               <img
-                src="/icons/whatsapp.png"
+                src="/icons/whatsapp.svg"
                 alt="whatsapp"
                 className="h-6 w-6"
               />

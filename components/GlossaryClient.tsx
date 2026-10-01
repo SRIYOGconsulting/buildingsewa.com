@@ -8,7 +8,7 @@ export default function Glossary() {
     definition: string;
   };
   type TermsByLetter = {
-    [key: string]: Term[]; // keys like 'A', 'B', 'C'
+    [key: string]: Term[]; 
   };
   const glossaryTerms: TermsByLetter = {
     A: [

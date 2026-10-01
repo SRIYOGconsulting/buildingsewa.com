@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import BookingForm from "@/components/BookingForm";
-import ServiceFaqAccordion from "@/components/ServiceFaqAccordion";
+import ServiceFaqAccordion from "@/components/services/ServiceFaqAccordion";
 import { getServices, getServiceBySlug } from "@/lib/services";
 
 export async function generateStaticParams() {
@@ -51,7 +51,7 @@ export default async function ServiceDetailPage({
             </p>
 
             <Link href="#book">
-              <button className="bg-[#0E4541] text-white px-6 py-3 rounded-lg font-semibold hover:bg-teal-900 transition">
+              <button className="bg-[#0E4541] text-white px-6 py-3 rounded-lg font-semibold hover:bg-teal-900 transition cursor-pointer transition-colors duration-200">
                 Book {service.name} Service
               </button>
             </Link>

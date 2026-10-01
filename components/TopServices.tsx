@@ -1,20 +1,25 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const topServices = [
   {
     title: "Architecture & House Design",
     description: "Custom architectural plans tailored to your site and vision.",
     img: "/home/topservices/1.jpg",
+    slug: "architecture-house-design",
   },
   {
     title: "Electrical Services",
-    description: "Safe, code-compliant electrical wiring and fixture installation.",
+    description:
+      "Safe, code-compliant electrical wiring and fixture installation.",
     img: "/home/topservices/2.jpg",
+    slug: "electrical-services",
   },
   {
     title: "Interior Designing",
     description: "Detailed finishing work that brings your space to life.",
     img: "/home/topservices/3.jpg",
+    slug: "interior-designing",
   },
 ];
 
@@ -24,11 +29,13 @@ export default function TopServices() {
       <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
         Top Services
       </h2>
+
       <div className="grid md:grid-cols-3 gap-6">
         {topServices.map((service) => (
-          <div
-            key={service.title}
-            className="p-6 bg-white rounded-lg shadow-sm flex flex-col items-center text-center"
+          <Link
+            key={service.slug}
+            href={`/services/${service.slug}`}
+            className="p-6 bg-white rounded-lg shadow-sm flex flex-col items-center text-center hover:shadow-md transition duration-300"
           >
             <div className="relative w-full h-48 rounded-md overflow-hidden mb-4">
               <Image
@@ -39,12 +46,23 @@ export default function TopServices() {
                 className="object-cover"
               />
             </div>
+
             <h3 className="text-xl font-semibold mb-2 text-gray-800">
               {service.title}
             </h3>
+
             <p className="text-gray-600">{service.description}</p>
-          </div>
+          </Link>
         ))}
+      </div>
+
+      <div className="flex justify-center mt-10">
+        <Link
+          href="/services"
+          className="inline-block border-2 border-[#0D5D59] py-2 px-6 rounded-md text-[#0D5D59] font-semibold hover:bg-[#0D5D59] hover:text-white transition duration-300"
+        >
+          View All Services
+        </Link>
       </div>
     </section>
   );

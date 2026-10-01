@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getServices } from "@/lib/services";
+import Ribbon from "@/components/Ribbon";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -14,15 +15,11 @@ export default async function ServicesPage() {
 
   return (
     <main className="min-h-screen bg-gray-50 text-gray-800 pb-24">
-      <section className="bg-[#0E4541] text-white py-24 px-6 text-center">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">
-          Professional Building Services in Nepal
-        </h1>
-        <p className="text-lg md:text-xl max-w-2xl mx-auto">
-          From site inspection to home automation one team for every stage of
-          your property, across Nepal.
-        </p>
-      </section>
+      <Ribbon
+        name="Services"
+        description="From site inspection to home automation one team for every stage of
+          your property, across Nepal."
+      />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-7xl mx-auto px-6 pt-12">
         {services.map((service) => (
@@ -45,7 +42,7 @@ export default async function ServicesPage() {
                 {service.longDescription}
               </p>
               <Link href={`/services/${service.slug}`}>
-                <button className="px-4 py-2 bg-[#0E4541] text-white rounded-md hover:bg-teal-800">
+                <button className="px-4 py-2 bg-[#0E4541] text-white rounded-md hover:bg-teal-800 cursor-pointer transition-colors duration-200">
                   Browse More
                 </button>
               </Link>

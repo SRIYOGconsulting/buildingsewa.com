@@ -52,9 +52,7 @@ const Header = () => {
   // Handle search
   const handleSearch = () => {
     if (searchQuery.trim() !== "") {
-      router.push(
-        `/search?query=${encodeURIComponent(searchQuery)}`
-      );
+      router.push(`/search?query=${encodeURIComponent(searchQuery)}`);
 
       setShowSearch(false);
       setSearchQuery("");
@@ -62,9 +60,7 @@ const Header = () => {
   };
 
   // Handle Enter key
-  const handleKeyPress = (
-    e: React.KeyboardEvent<HTMLInputElement>
-  ) => {
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       handleSearch();
     }
@@ -73,7 +69,6 @@ const Header = () => {
   return (
     <header className="header">
       <div className="relative max-w-7xl mx-auto flex items-center justify-between py-4 pl-3 sm:px-6">
-
         {/* Logo */}
         <div className="flex items-center space-x-2">
           <Link href="/">
@@ -89,22 +84,14 @@ const Header = () => {
 
         {/* Navigation */}
         <nav className="flex items-center space-x-0 sm:space-x-4">
-
           {/* Desktop Navigation Links */}
           {!showSearch && (
             <div className="space-x-6 hidden lg:block">
-
-              <Link
-                href="/"
-                className="text-[16px] hover:text-teal-700"
-              >
+              <Link href="/" className="text-[16px] hover:text-teal-700">
                 Home
               </Link>
 
-              <Link
-                href="/about"
-                className="text-[16px] hover:text-teal-700"
-              >
+              <Link href="/about" className="text-[16px] hover:text-teal-700">
                 About
               </Link>
 
@@ -116,30 +103,18 @@ const Header = () => {
               </Link>
 
               <Link
-                href="/feedback"
+                href="/testimonials"
                 className="text-[16px] hover:text-teal-700"
               >
-                Feedback
+                Testimonials
               </Link>
 
-              <Link
-                href="/team"
-                className="text-[16px] hover:text-teal-700"
-              >
+              <Link href="/team" className="text-[16px] hover:text-teal-700">
                 Team
               </Link>
 
-              <Link
-                href="/contact"
-                className="text-[16px] hover:text-teal-700"
-              >
+              <Link href="/contact" className="text-[16px] hover:text-teal-700">
                 Contact
-              </Link>
-
-              <Link href="/career">
-                <button className="border cursor-pointer text-[16px] border-teal-900 hover:text-black rounded px-4 py-1 hover:bg-teal-50">
-                  Career
-                </button>
               </Link>
 
               <Link href="/services">
@@ -148,17 +123,22 @@ const Header = () => {
                 </button>
               </Link>
 
+              <Link href="/career">
+                <button className="border cursor-pointer text-[16px] border-teal-900 hover:text-black rounded px-4 py-1 hover:bg-teal-50">
+                 Login
+                </button>
+              </Link>
+
+              {/* Mobile Book a Service */}
+              <div>
+                <Link href="/services">
+                  <button className="bg-[#ebebeb] cursor-pointer sm:hidden border-[1.5px] border-teal-800 text-black px-4 py-1 rounded hover:bg-teal-800">
+                    Book a Service
+                  </button>
+                </Link>
+              </div>
             </div>
           )}
-
-          {/* Mobile Book a Service */}
-          <div>
-            <Link href="/services">
-              <button className="bg-[#ebebeb] cursor-pointer sm:hidden border-[1.5px] border-teal-800 text-black px-4 py-1 rounded hover:bg-teal-800">
-                Book a Service
-              </button>
-            </Link>
-          </div>
 
           {/* Search Input */}
           <div className="absolute md:right-52 lg:right-24">
@@ -169,7 +149,6 @@ const Header = () => {
                   : "w-0 opacity-0 px-0 py-0 overflow-hidden"
               }`}
             >
-
               {/* Close Search */}
               <button
                 onClick={() => setShowSearch(false)}
@@ -192,7 +171,6 @@ const Header = () => {
                     : "w-0 opacity-0 px-0 py-0 overflow-hidden"
                 }`}
               />
-
             </div>
           </div>
 
@@ -213,9 +191,7 @@ const Header = () => {
             <button
               onClick={TriggerTheme}
               aria-label={
-                DarkIcon
-                  ? "Switch to dark mode"
-                  : "Switch to light mode"
+                DarkIcon ? "Switch to dark mode" : "Switch to light mode"
               }
               className={`text-2xl cursor-pointer ml-2 mr-0 lg:mr-0 rounded-full h-8 w-8 ${
                 DarkIcon
@@ -228,11 +204,7 @@ const Header = () => {
           </div>
 
           {/* Mobile Drawer */}
-          <MobileDrawer
-            setIsOpen={setIsOpen}
-            isOpen={isOpen}
-          />
-
+          <MobileDrawer setIsOpen={setIsOpen} isOpen={isOpen} />
         </nav>
       </div>
     </header>
