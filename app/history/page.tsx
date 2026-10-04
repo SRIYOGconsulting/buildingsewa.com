@@ -78,7 +78,7 @@ export default function History() {
             </p>
           </div>
           <Image
-            src="/history/5.png"
+            src="/history/2.png"
             alt="House model with blueprints being drawn"
             width={800}
             height={600}
@@ -151,7 +151,7 @@ export default function History() {
       <section className="mx-auto max-w-6xl px-4 py-16">
         <CtaBanner
           title="Our Journey Continues"
-          description="With every project, we grow stronger. Our commitment remains the same — to make building and home services simpler, more reliable, and more accessible for everyone in Nepal."
+          description="With every project, we grow stronger. Our commitment remains the same to make building and home services simpler, more reliable, and more accessible for everyone in Nepal."
           buttonText="Explore Services"
           buttonHref="/services"
           backgroundImage="/history/1.png"

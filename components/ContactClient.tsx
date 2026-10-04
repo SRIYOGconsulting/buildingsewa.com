@@ -34,16 +34,16 @@ export default function Contact() {
 
   const teamMembers = [
     {
-      name: "Prakash",
-      designation: "Project Manager",
+      name: "Bibek",
+      designation: "Business Manager",
       img: "/contact/1.png",
-      email: "prakash@sriyog.com",
+      email: "bibek@sriyog.com",
     },
     {
-      name: "Bijay",
-      designation: "Internship Coordinator",
-      img: "/contact/2.png",
-      email: "bijay@sriyog.com",
+      name: "Sital",
+      designation: "Field Supervisor",
+      img: "/contact/3.png",
+      email: "sital@sriyog.com",
     },
     {
       name: "PRACAS",
