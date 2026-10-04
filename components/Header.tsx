@@ -117,13 +117,13 @@ const Header = () => {
                 Contact
               </Link>
 
-              <Link href="/services">
+              <Link href="/book">
                 <button className="bg-teal-900 cursor-pointer text-[16px] border border-teal-900 text-white px-4 py-1 rounded hover:bg-teal-800">
                   Book a Service
                 </button>
               </Link>
 
-              <Link href="/career">
+              <Link href="/#">
                 <button className="border cursor-pointer text-[16px] border-teal-900 hover:text-black rounded px-4 py-1 hover:bg-teal-50">
                  Login
                 </button>
@@ -131,7 +131,7 @@ const Header = () => {
 
               {/* Mobile Book a Service */}
               <div>
-                <Link href="/services">
+                <Link href="/book">
                   <button className="bg-[#ebebeb] cursor-pointer sm:hidden border-[1.5px] border-teal-800 text-black px-4 py-1 rounded hover:bg-teal-800">
                     Book a Service
                   </button>

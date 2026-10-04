@@ -41,10 +41,11 @@ export default async function ServicesPage() {
               <p className="text-sm text-gray-600 mb-4">
                 {service.longDescription}
               </p>
-              <Link href={`/services/${service.slug}`}>
-                <button className="px-4 py-2 bg-[#0E4541] text-white rounded-md hover:bg-teal-800 cursor-pointer transition-colors duration-200">
-                  Browse More
-                </button>
+              <Link
+                href={`/services/${service.slug}`}
+                className="inline-block rounded-md bg-[#0E4541] px-4 py-2 text-white transition-colors duration-200 hover:bg-teal-800"
+              >
+                Browse More
               </Link>
             </div>
           </div>

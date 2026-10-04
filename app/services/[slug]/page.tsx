@@ -1,13 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import BookingForm from "@/components/BookingForm";
+import CtaBanner from "@/components/CtaBanner";
 import ServiceFaqAccordion from "@/components/services/ServiceFaqAccordion";
 import { getServices, getServiceBySlug } from "@/lib/services";
 
 export async function generateStaticParams() {
   const services = await getServices();
-  return services.map((service) => ({ slug: service.slug }));
+
+  return services.map((service) => ({
+    slug: service.slug,
+  }));
 }
 
 export default async function ServiceDetailPage({
@@ -16,14 +19,17 @@ export default async function ServiceDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+
   const service = await getServiceBySlug(slug);
 
-  if (!service) notFound();
+  if (!service) {
+    notFound();
+  }
 
   return (
-    <div className="flex flex-col gap-0 mb-40">
+    <div className="mb-40 flex flex-col gap-0">
       {/* Hero */}
-      <div className="relative w-full h-[560px] flex items-center justify-center text-white mb-20">
+      <div className="relative mb-20 flex h-[560px] w-full items-center justify-center text-white">
         <Image
           src={`/services/${service.image}.jpg`}
           alt={`${service.name} Services`}
@@ -32,55 +38,66 @@ export default async function ServiceDetailPage({
           sizes="100vw"
           className="absolute inset-0 z-0 object-cover"
         />
-        <div className="absolute inset-0 bg-black opacity-60 z-10" />
 
-        <div className="relative z-10 max-w-4xl text-center px-4">
+        <div className="absolute inset-0 z-10 bg-black opacity-60" />
+
+        <div className="relative z-10 max-w-4xl px-4 text-center">
           <div className="flex flex-col items-center justify-center px-4 py-8">
+            {/* Breadcrumb */}
             <div className="mb-4 text-sm text-white opacity-90">
-              <Link href="/" className="hover:underline">Home</Link> {" > "}
-              <Link href="/services" className="hover:underline">Services</Link> {" > "}
-              <span className="font-semibold">{service.name}</span>
+              <Link href="/" className="hover:underline">
+                Home
+              </Link>{" "}
+              {">"}{" "}
+              <Link href="/services" className="hover:underline">
+                Services
+              </Link>{" "}
+              {">"} <span className="font-semibold">{service.name}</span>
             </div>
 
-            <h1 className="mb-4 text-4xl sm:text-5xl font-bold md:text-[52px]">
+            <h1 className="mb-4 text-4xl font-bold sm:text-5xl md:text-[52px]">
               {service.name} Services in Nepal
             </h1>
 
-            <p className="max-w-[858px] mb-8 text-base md:text-lg leading-relaxed">
+            <p className="mb-8 max-w-[858px] text-base leading-relaxed md:text-lg">
               {service.description}
             </p>
 
-            <Link href="#book">
-              <button className="bg-[#0E4541] text-white px-6 py-3 rounded-lg font-semibold hover:bg-teal-900 transition cursor-pointer transition-colors duration-200">
-                Book {service.name} Service
-              </button>
+            {/* Hero booking button */}
+            <Link
+              href={`/book?service=${encodeURIComponent(service.slug)}`}
+              className="rounded-lg bg-[#0E4541] px-6 py-3 font-semibold text-white transition-colors duration-200 hover:bg-teal-900"
+            >
+              Book {service.name} Service
             </Link>
           </div>
         </div>
       </div>
 
       {/* Overview */}
-      <div className="mx-auto px-5 py-10 max-w-7xl text-center">
-        <h2 className="text-3xl font-bold text-teal-900 mb-5">
+      <div className="mx-auto max-w-7xl px-5 py-10 text-center">
+        <h2 className="mb-5 text-3xl font-bold text-teal-900">
           Comprehensive {service.name} Services
         </h2>
-        <p className="text-gray-700 leading-relaxed mb-6">
+
+        <p className="mb-6 leading-relaxed text-gray-700">
           {service.longDescription}
         </p>
       </div>
 
       {/* Scope of Works */}
-      <div className="mx-auto px-5 py-10 max-w-6xl">
-        <h2 className="text-3xl font-bold text-center text-teal-900 mb-10">
+      <div className="mx-auto max-w-6xl px-5 py-10">
+        <h2 className="mb-10 text-center text-3xl font-bold text-teal-900">
           Scope of Works
         </h2>
-        <div className="grid md:grid-cols-3 gap-6">
+
+        <div className="grid gap-6 md:grid-cols-3">
           {service.scopeOfWork.map((item) => (
             <div
               key={item.title}
-              className="bg-white rounded-xl shadow-md p-5 text-center"
+              className="rounded-xl bg-white p-5 text-center shadow-md"
             >
-              <div className="relative w-full h-48 rounded-lg overflow-hidden mb-4">
+              <div className="relative mb-4 h-48 w-full overflow-hidden rounded-lg">
                 <Image
                   src={`/services/${service.image}.jpg`}
                   alt={item.title}
@@ -89,7 +106,9 @@ export default async function ServiceDetailPage({
                   className="object-cover"
                 />
               </div>
-              <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+
+              <h3 className="mb-2 text-xl font-semibold">{item.title}</h3>
+
               <p className="text-gray-600">{item.description}</p>
             </div>
           ))}
@@ -97,16 +116,22 @@ export default async function ServiceDetailPage({
       </div>
 
       {/* FAQ */}
-      <div className="w-[90%] md:w-[70%] mx-auto">
-        <h2 className="text-center text-3xl font-bold text-teal-800 mb-10">
+      <div className="mx-auto w-[90%] md:w-[70%]">
+        <h2 className="mb-10 text-center text-3xl font-bold text-teal-800">
           Frequently Asked Questions
         </h2>
+
         <ServiceFaqAccordion faqs={service.faqs} />
       </div>
 
-      {/* Booking form */}
-      <div id="book" className="w-[90%] md:w-[70%] mx-auto mt-16">
-        <BookingForm serviceSlug={service.slug} serviceName={service.name} />
+      {/* Booking CTA */}
+      <div className="mx-auto mt-16 w-[90%] md:w-[70%]">
+        <CtaBanner
+          title={`Ready to Book ${service.name}?`}
+          description="Submit your booking request and tell us about your requirements, preferred schedule, and service location. Our team will contact you to confirm the details."
+          buttonText={`Book ${service.name} Service`}
+          buttonHref={`/book?service=${encodeURIComponent(service.slug)}`}
+        />
       </div>
     </div>
   );
