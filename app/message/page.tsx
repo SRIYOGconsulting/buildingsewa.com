@@ -1,19 +1,21 @@
-'use client';
-
 import React from "react";
-// import Ribbon from "../../components/Ribbon";
+import Ribbon from "@/components/Ribbon";
 import Image from "next/image";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Message | Building Sewa",
+  description: "A message from the Building Sewa team.",
+};
 
 const Message = () => {
   return (
     <div className="message-page">
-      {/* Full-width Teal Ribbon Header */}
-      {/* <Ribbon name="Message" showfont={false}/> */}
+      <Ribbon name="Message" showfont={false} />
 
       {/* Main Content */}
       <main className=" py-14 px-4 md:px-10 lg:px-16">
         <div className="card rounded-2xl p-10 md:p-14 max-w-5xl mx-auto">
-         
           {/* Message Paragraphs */}
           <section className="space-y-6 text-justify leading-relaxed mb-10">
             <p>
@@ -58,21 +60,25 @@ const Message = () => {
 
               <p>
                 We believe in smart digital transformation solutions that solve
-                today's problems and prepare organizations for the future. Our
-                commitment is to deliver excellence and measurable value through
-                every service.
+                today&apos;s problems and prepare organizations for the future.
+                Our commitment is to deliver excellence and measurable value
+                through every service.
               </p>
               {/* Contact Info */}
               <footer className="mt-10 text-left">
                 <p className="text-xl font-bold">Prakash Upreti [ PRACAS ]</p>
-                <p className=" text-sm mb-2">
-                  Chief Technology Officer
-                </p>
+                <p className=" text-sm mb-2">Chief Technology Officer</p>
                 <p className=" font-medium mb-4">p@sriyog.com</p>
 
                 {/* Social Icons */}
                 <div className="flex gap-4 mt-3">
-                  <Image height={600} width={800} src="/icons/x.svg" alt="Twitter" className="w-5 h-5" />
+                  <Image
+                    height={600}
+                    width={800}
+                    src="/icons/x.svg"
+                    alt="Twitter"
+                    className="w-5 h-5"
+                  />
                   <Image
                     height={600}
                     width={800}

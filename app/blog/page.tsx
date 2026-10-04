@@ -1,73 +1,65 @@
-'use client'
-import { useEffect, useState } from 'react';
+import Image from "next/image";
+import Link from "next/link";
+import Ribbon from "@/components/Ribbon";
+import { blogPosts } from "@/data/blogPosts";
+import type { Metadata } from "next";
 
-import Lightbox from '../../components/Lightbox';
-import Image from 'next/image';
+export const metadata: Metadata = {
+  title: "Blog | Building Sewa",
+  description: "Construction tips, guides, and news from Building Sewa.",
+};
 
-export default function Certificate() {
-    
-    const [lightbox,setLightbox] = useState(false);
-    const [index, setIndex] = useState<number | null>(0);
+export default function BlogPage() {
+  return (
+    <main>
+      {/* Page Header */}
+      <Ribbon
+        name="Blog"
+        description="Explore useful insights, ideas, and information related to construction and building projects."
+      />
 
-    useEffect(() => {
-        const originalStyle = window.getComputedStyle(document.body).overflow;
-        
-        if (lightbox) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = originalStyle;
-        }
+      {/* Blog Posts */}
+      <section className="max-w-7xl mx-auto px-5 py-14">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          {blogPosts.map((post) => (
+            <Link
+              key={post.slug}
+              href={`/blog/${post.slug}`}
+              className="card rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
+            >
+              <div className="relative w-full h-52">
+                <Image
+                  src={post.img}
+                  alt={post.title}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover"
+                />
+              </div>
 
-        // Cleanup on unmount or when lightbox changes
-        return () => {
-            document.body.style.overflow = originalStyle;
-        };
-    }, [lightbox]);
-    // Updated certificate data with new image paths
-    const certificates = [
-        { title: 'Certificate 1', img: '/images/certificates/1.jpg' },
-        { title: 'Certificate 2', img: '/images/certificates/2.jpg' },
-        { title: 'Certificate 3', img: '/images/certificates/3.jpg' },
-        { title: 'Certificate 4', img: '/images/certificates/4.jpg' },
-        { title: 'Certificate 5', img: '/images/certificates/5.jpg' },
-        { title: 'Certificate 6', img: '/images/certificates/6.jpg' },
-        { title: 'Certificate 7', img: '/images/certificates/7.jpg' },
-        { title: 'Certificate 8', img: '/images/certificates/8.jpg' },
-        { title: 'Certificate 9', img: '/images/certificates/9.jpg' },
-    ];
-
-    return (
-        <div className='relative '>
-            {/* Header */}
-            {/* <Ribbon name="Certificates" showfont={false}/> */}
-            <div className="px-5 py-10 max-w-7xl mx-auto">
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-items-center">
-                    {certificates.map((cert, index) => (
-                        <div
-                            key={index}
-                            className="card rounded-lg shadow-md overflow-hidden w-full max-w-xs hover:shadow-lg transition-shadow duration-300"
-                        >
-                            <Image height={600} width={800}
-                                src={cert.img}
-                                alt={cert.title}
-                                onClick={()=>{setLightbox(true);setIndex(index)}}
-                                className="w-full h-56 object-cover cursor-pointer"
-                            />
-                            <div className="px-4 py-5 card2">
-                                <h2 className="text-lg font-medium ">{cert.title}</h2>
-                                <p className="card2 text-sm mt-2">
-                                    Short description about the certificate.
-                                </p>
-                            </div>
-                        </div>
-                    ))}
+              <div className="p-5 card2">
+                <div className="flex items-center justify-between text-xs">
+                  <span className="rounded-full bg-[#0D5D59] px-2.5 py-1 font-semibold text-white">
+                    {post.category}
+                  </span>
                 </div>
-            </div>
-            {lightbox && (
-            <>
-            <Lightbox setLightbox={setLightbox} lightbox={lightbox} data={certificates} index={index} setIndex={setIndex}/>
-            </>
-            )}
+
+                <h2 className="text-lg font-semibold text2 mt-3">
+                  {post.title}
+                </h2>
+
+                <p className="text text-sm mt-2 leading-relaxed">
+                  {post.excerpt}
+                </p>
+
+                <div className="mt-4 text-sm font-semibold text-[#0D5D59]">
+                  Read More →
+                </div>
+              </div>
+            </Link>
+          ))}
         </div>
-    );
+      </section>
+    </main>
+  );
 }
