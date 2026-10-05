@@ -4,4 +4,4 @@ export default function SectionTag({ children }: { children: React.ReactNode }) 
       {children}
     </span>
   );
-}
+} 

@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import MobileDrawer from "./MobileDrawer";
+import { Search, X } from "lucide-react";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,7 +21,6 @@ const Header = () => {
   useEffect(() => {
     const savedTheme = localStorage.getItem("Theme");
 
-    // Run after the initial render to avoid hydration mismatch
     setTimeout(() => {
       if (savedTheme === "dark") {
         document.body.classList.add("dark");
@@ -37,38 +37,58 @@ const Header = () => {
     const isDark = document.body.classList.contains("dark");
 
     if (isDark) {
-      // Light mode
       document.body.classList.remove("dark");
       localStorage.setItem("Theme", "light");
       setDarkIcon(true);
     } else {
-      // Dark mode
       document.body.classList.add("dark");
       localStorage.setItem("Theme", "dark");
       setDarkIcon(false);
     }
   };
 
-  // Handle search
-  const handleSearch = () => {
-    if (searchQuery.trim() !== "") {
-      router.push(`/search?query=${encodeURIComponent(searchQuery)}`);
+  // Open search
+  const openSearch = () => {
+    setShowSearch(true);
 
-      setShowSearch(false);
-      setSearchQuery("");
-    }
+    setTimeout(() => {
+      document.getElementById("header-search")?.focus();
+    }, 100);
   };
 
-  // Handle Enter key
-  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
+  // Close search
+  const closeSearch = () => {
+    setShowSearch(false);
+    setSearchQuery("");
+  };
+
+  // Search services
+  const handleSearch = () => {
+    const query = searchQuery.trim();
+
+    if (!query) {
+      return;
+    }
+
+    router.push("/search?query=" + encodeURIComponent(query));
+
+    closeSearch();
+  };
+
+  // Handle keyboard input
+  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter") {
       handleSearch();
+    }
+
+    if (event.key === "Escape") {
+      closeSearch();
     }
   };
 
   return (
     <header className="header">
-      <div className="relative max-w-7xl mx-auto flex items-center justify-between py-4 pl-3 sm:px-6">
+      <div className="relative mx-auto flex max-w-7xl items-center justify-between py-4 pl-3 sm:px-6">
         {/* Logo */}
         <div className="flex items-center space-x-2">
           <Link href="/">
@@ -77,16 +97,16 @@ const Header = () => {
               alt="Building Sewa Logo"
               width={800}
               height={600}
-              className="w-[230px] md:w-[270px] h-auto"
+              className="h-auto w-[230px] md:w-[270px]"
             />
           </Link>
         </div>
 
         {/* Navigation */}
-        <nav className="flex items-center space-x-0 sm:space-x-4">
-          {/* Desktop Navigation Links */}
+        <nav className="flex items-center gap-3 sm:gap-4">
+          {/* Desktop Navigation */}
           {!showSearch && (
-            <div className="space-x-6 hidden lg:block">
+            <div className="hidden items-center space-x-6 lg:flex">
               <Link href="/" className="text-[16px] hover:text-teal-700">
                 Home
               </Link>
@@ -117,74 +137,78 @@ const Header = () => {
                 Contact
               </Link>
 
-              <Link href="/book">
-                <button className="bg-teal-900 cursor-pointer text-[16px] border border-teal-900 text-white px-4 py-1 rounded hover:bg-teal-800">
-                  Book a Service
-                </button>
-              </Link>
-
-              <Link href="/#">
-                <button className="border cursor-pointer text-[16px] border-teal-900 hover:text-black rounded px-4 py-1 hover:bg-teal-50">
-                 Login
-                </button>
-              </Link>
-
-              {/* Mobile Book a Service */}
-              <div>
-                <Link href="/book">
-                  <button className="bg-[#ebebeb] cursor-pointer sm:hidden border-[1.5px] border-teal-800 text-black px-4 py-1 rounded hover:bg-teal-800">
-                    Book a Service
-                  </button>
-                </Link>
-              </div>
-            </div>
-          )}
-
-          {/* Search Input */}
-          <div className="absolute md:right-52 lg:right-24">
-            <div
-              className={`hidden md:flex relative bg-white dark:bg-[#222222] ml-2 mr-8 z-20 py-0 border rounded-md focus:outline-none transition-all duration-300 ease-in-out h-8 ${
-                showSearch
-                  ? "sm:w-[250px] lg:w-[550px] opacity-100 px-3 py-1"
-                  : "w-0 opacity-0 px-0 py-0 overflow-hidden"
-              }`}
-            >
-              {/* Close Search */}
-              <button
-                onClick={() => setShowSearch(false)}
-                className="text-black dark:text-white cursor-pointer absolute -top-1.5 left-2 font-bold text-3xl"
-                aria-label="Close search"
+              <Link
+                href="/book"
+                className="rounded border border-teal-900 bg-teal-900 px-4 py-1 text-[16px] text-white transition hover:bg-teal-800"
               >
-                ‹
-              </button>
+                Book a Service
+              </Link>
 
-              {/* Search Input */}
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                onKeyDown={handleKeyPress}
-                placeholder="Search..."
-                className={`absolute search left-8 right-0 top-0 bottom-0 border-none outline-none rounded-r-md focus:outline-none focus:ring-0 bg-white dark:bg-[#222222] text-black dark:text-white transition-all duration-300 ease-in-out ${
-                  showSearch
-                    ? "md:w-[300px] lg:w-[517px] opacity-100"
-                    : "w-0 opacity-0 px-0 py-0 overflow-hidden"
-                }`}
-              />
+              <Link
+                href="/#"
+                className="rounded border border-teal-900 px-4 py-1 text-[16px] transition hover:bg-teal-50 hover:text-black"
+              >
+                Login
+              </Link>
             </div>
-          </div>
-
-          {/* Search Icon */}
-          {!showSearch && (
-            <Image
-              width={22}
-              height={22}
-              alt="Search icon"
-              onClick={() => setShowSearch(true)}
-              src="/icons/search.svg"
-              className="w-[22px] h-[22px] cursor-pointer hidden md:block"
-            />
           )}
+
+          {/* Search */}
+          <div className="flex items-center">
+            {showSearch ? (
+              <div className="flex h-9 w-[230px] items-center rounded-md border border-gray-400 bg-white px-2 shadow-sm dark:border-gray-600 dark:bg-[#222222] sm:w-[280px] lg:w-[400px]">
+                {/* Search Button */}
+                <button
+                  type="button"
+                  onClick={handleSearch}
+                  aria-label="Search services"
+                  className="flex h-7 w-7 shrink-0 items-center justify-center rounded text-gray-800 transition hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                >
+                  <Search className="h-5 w-5" />
+                </button>
+
+                {/* Search Input */}
+                <input
+                  id="header-search"
+                  type="text"
+                  value={searchQuery}
+                  onChange={(event) => setSearchQuery(event.target.value)}
+                  onKeyDown={handleKeyPress}
+                  placeholder="Search services..."
+                  className="min-w-0 flex-1 bg-transparent px-2 text-sm text-gray-900 outline-none placeholder:text-gray-500 dark:text-white dark:placeholder:text-gray-400"
+                />
+
+                {/* Close Button */}
+                <button
+                  type="button"
+                  onClick={closeSearch}
+                  aria-label="Close search"
+                  className="flex h-7 w-7 shrink-0 items-center justify-center rounded text-gray-800 transition hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              </div>
+            ) : (
+              <button
+                type="button"
+                onClick={openSearch}
+                aria-label="Search services"
+                className="flex h-9 w-9 items-center justify-center rounded-full transition hover:bg-gray-100 dark:hover:bg-gray-800"
+                style={{
+                  color: DarkIcon ? "#0E4541" : "#ffffff",
+                }}
+              >
+                <Search
+                  className="h-[22px] w-[22px]"
+                  strokeWidth={2}
+                  style={{
+                    display: "block",
+                    color: DarkIcon ? "#0E4541" : "#ffffff",
+                  }}
+                />
+              </button>
+            )}
+          </div>
 
           {/* Dark / Light Mode */}
           <div className="hidden sm:block">
@@ -193,9 +217,9 @@ const Header = () => {
               aria-label={
                 DarkIcon ? "Switch to dark mode" : "Switch to light mode"
               }
-              className={`text-2xl cursor-pointer ml-2 mr-0 lg:mr-0 rounded-full h-8 w-8 ${
+              className={`h-8 w-8 cursor-pointer rounded-full text-2xl ${
                 DarkIcon
-                  ? "bg-black text-white rotate-45 pl-1"
+                  ? "rotate-45 bg-black pl-1 text-white"
                   : "bg-white text-black"
               }`}
             >

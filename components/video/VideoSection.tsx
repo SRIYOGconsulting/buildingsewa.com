@@ -1,4 +1,3 @@
-// components/video/VideoSection.tsx
 import type { Video } from "@/data/videos";
 
 interface VideoEmbedProps {
@@ -22,8 +21,8 @@ function VideoEmbed({ video, size = "small" }: VideoEmbedProps) {
       <figcaption
         className={
           size === "large"
-            ? "text-lg font-semibold text-neutral-900"
-            : "text-sm font-medium text-neutral-700"
+            ? "text-xl font-semibold text2"
+            : "text-sm font-medium text2"
         }
       >
         {video.title}
@@ -47,15 +46,20 @@ export default function VideoSection({
 }: VideoSectionProps) {
   return (
     <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
-      {/* Featured video */}
-      <h2 className="mb-6 text-2xl font-bold text-neutral-900 sm:text-3xl">
+      {/* Featured video — full width */}
+      <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-[#0E4541]">
+        Featured
+      </p>
+      <h2 className="mb-6 text-2xl font-bold text2 sm:text-3xl">
         {featuredHeading}
       </h2>
-      <div className="mb-14 max-w-3xl">
+      <div className="mb-14 w-full">
         <VideoEmbed video={{ ...featuredVideo, title: featuredHeading }} size="large" />
       </div>
 
-      <h2 className="mb-6 text-2xl font-bold text-neutral-900 sm:text-3xl">
+      <div className="mb-10 border-t border-[color:var(--border)]" />
+
+      <h2 className="mb-6 text-2xl font-bold text2 sm:text-3xl">
         {gridHeading}
       </h2>
       <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">

@@ -34,13 +34,13 @@ export const videos: Video[] = [
   },
   {
     id: "video-4",
-    youtubeId: "GGX4a7npOUA",
+    youtubeId: "EsDxyB7TOWk",
     title: "Waterproofing That Keeps Your Home Dry",
     serviceSlug: "waterproofing",
   },
   {
     id: "video-5",
-    youtubeId: "puxoiPvNx44",
+    youtubeId: "Co3zBNwBIBc",
     title: "Modular Kitchens Built for Nepali Homes",
     serviceSlug: "modular-kitchen",
   },
@@ -52,7 +52,7 @@ export const videos: Video[] = [
   },
   {
     id: "video-7",
-    youtubeId: "dyn8jSxrfBc",
+    youtubeId: "jSa1tvrrFZg",
     title: "Solar Panel Installation for a Sustainable Home",
     serviceSlug: "solar-panel-installation",
   },
