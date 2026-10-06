@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 };
 
 const teamMembers = [
-  { id: 1, name: "Rijan", role: "MERN Stack", image: "/team/2.png" },
+  { id: 1, name: "Nihit", role: "MERN Stack", image: "/team/2.png" },
   { id: 2, name: "Bitika", role: "React.Js", image: "/team/3.png" },
   { id: 3, name: "Sundar", role: "Web Developer", image: "/team/4.png" },
   { id: 4, name: "Rita", role: "Full Stack", image: "/team/5.png" },

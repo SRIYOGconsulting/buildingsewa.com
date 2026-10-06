@@ -1,10 +1,28 @@
 export type ContentBlock =
   | { type: "p"; text: string }
   | { type: "list"; items: string[] }
-  | { type: "steps"; items: { title: string; text: string }[] }
-  | { type: "tip"; title?: string; text: string }
-  | { type: "warning"; title?: string; text: string }
-  | { type: "table"; headers: string[]; rows: string[][] };
+  | {
+      type: "steps";
+      items: {
+        title: string;
+        text: string;
+      }[];
+    }
+  | {
+      type: "tip";
+      title?: string;
+      text: string;
+    }
+  | {
+      type: "warning";
+      title?: string;
+      text: string;
+    }
+  | {
+      type: "table";
+      headers: string[];
+      rows: string[][];
+    };
 
 export type BlogSection = {
   heading: string;
@@ -12,15 +30,20 @@ export type BlogSection = {
 };
 
 export type BlogContent = {
-  /** 3-4 short bullet points shown in the "In short" box */
   summary: string[];
   sections: BlogSection[];
-  checklist?: { title: string; items: string[] };
-  faqs: { q: string; a: string }[];
+  checklist?: {
+    title: string;
+    items: string[];
+  };
+  faqs: {
+    q: string;
+    a: string;
+  }[];
 };
 
 export const blogContent: Record<string, BlogContent> = {
-  /* ------------------------------------------------------------------ */
+
   "choosing-the-right-contractor": {
     summary: [
       "Never choose a contractor on the lowest price alone.",
