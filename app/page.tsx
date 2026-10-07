@@ -1,10 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import Hero from "@/components/Hero";
-import { blogPosts } from "@/data/blogPosts";
 import type { Metadata } from "next";
 
-const latestPosts = blogPosts.slice(0, 3);
+import Hero from "@/components/Hero";
+import { blogPosts } from "@/data/blogPosts";
 
 export const metadata: Metadata = {
   title: "Building Sewa | Construction Management in Nepal",
@@ -42,183 +41,187 @@ export default function Home() {
 
   return (
     <>
+      {/*HERO */}
       <Hero />
 
-      {/* Partners */}
+      {/*PARTNERS */}
+
       <section
-        className="overflow-hidden bg-white py-10 border-y border-zinc-100"
+        className="overflow-hidden border-y border-zinc-100 bg-white py-10"
         aria-label="Partner organizations"
       >
-        <div className="flex w-max gap-16 animate-scroll">
-          {[...partnerLogos, ...partnerLogos].map((n, i) => (
-            <div
-              key={`${n}-${i}`}
-              className="relative h-12 w-28 flex-shrink-0 grayscale opacity-70 transition hover:opacity-100 hover:grayscale-0"
-              aria-hidden={i >= PARTNER_COUNT}
-            >
-              <Image
-                src={`/partners/${n}.png`}
-                alt={i < PARTNER_COUNT ? `Partner ${n}` : ""}
-                fill
-                sizes="140px"
-                className="object-contain"
-              />
+        <div className="mx-auto max-w-[1200px] px-6">
+          <p className="text mb-7 text-center text-sm font-semibold uppercase tracking-[0.18em]">
+            Our Partners
+          </p>
+
+          <div className="relative overflow-hidden">
+            <div className="animate-scroll flex w-max items-center gap-12">
+              {[...partnerLogos, ...partnerLogos].map((logo, index) => (
+                <div
+                  key={`${logo}-${index}`}
+                  className="flex h-16 w-32 shrink-0 items-center justify-center"
+                >
+                  <Image
+                    src={`/partners/${logo}.png`}
+                    alt={`Partner ${logo}`}
+                    width={120}
+                    height={60}
+                    className="max-h-14 w-auto object-contain"
+                  />
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </section>
 
-      {/* Top Services */}
-      <section className="py-16 max-w-[1200px] mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
-          Top Services
-        </h2>
+      {/* TOP SERVICES */}
 
-        <div className="grid md:grid-cols-3 gap-6">
+      <section className="mx-auto max-w-[1200px] px-6 py-16">
+        <div className="mb-12 text-center">
+          <p className="text mb-2 text-sm font-semibold uppercase tracking-[0.18em]">
+            What We Offer
+          </p>
+
+          <h2 className="text2 text-3xl font-bold md:text-4xl">Top Services</h2>
+
+          <p className="text mx-auto mt-4 max-w-2xl leading-7">
+            Explore our most requested construction and property services,
+            designed to make your project easier to plan and manage.
+          </p>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-3">
           {topServices.map((service) => (
-            <div
+            <Link
               key={service.slug}
-              className="p-6 bg-white rounded-lg shadow-sm flex flex-col text-center hover:shadow-md transition duration-300"
+              href={`/services/${service.slug}`}
+              className="group card block cursor-pointer rounded-xl border border-gray-200 p-6 text-center shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg"
             >
               {/* Service Image */}
-              <div className="relative w-full h-48 rounded-md overflow-hidden mb-4">
+              <div className="relative mb-4 h-48 w-full overflow-hidden rounded-md">
                 <Image
                   src={service.img}
                   alt={service.title}
                   fill
+                  className="object-cover transition duration-500 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover"
                 />
               </div>
 
-              {/* Service Content */}
-              <h3 className="text-xl font-semibold mb-2 text-gray-800">
+              {/* Service Title */}
+              <h3 className="text2 mb-2 text-xl font-semibold transition-colors duration-300 group-hover:text-[#0E4541]">
                 {service.title}
               </h3>
 
-              <p className="text-gray-600 mb-5">{service.description}</p>
+              {/* Service Description */}
+              <p className="text mb-5 leading-7">{service.description}</p>
 
-              {/* Buttons */}
-              <div className="mt-auto flex flex-col sm:flex-row justify-center gap-3">
-                <Link
-                  href={`/services/${service.slug}`}
-                  className="inline-block rounded-md bg-[#0E4541] px-4 py-2 text-sm font-semibold text-white transition-colors duration-200 hover:bg-teal-800"
-                >
-                  Browse More
-                </Link>
-
-                <Link
-                  href={`/book?service=${encodeURIComponent(service.slug)}`}
-                  className="inline-block rounded-md border-2 border-[#0E4541] px-4 py-2 text-sm font-semibold text-[#0E4541] transition-colors duration-200 hover:bg-[#0E4541] hover:text-white"
-                >
-                  Book Service
-                </Link>
-              </div>
-            </div>
+              {/* Browse More */}
+              <span className="inline-flex items-center justify-center gap-2 rounded-lg border border-[#0E4541] px-5 py-2.5 text-sm font-semibold text-[#0E4541] transition duration-300 group-hover:bg-[#0E4541] group-hover:text-white">
+                Browse More
+                <span className="transition-transform duration-300 group-hover:translate-x-1">
+                  →
+                </span>
+              </span>
+            </Link>
           ))}
         </div>
 
         {/* View All Services */}
-        <div className="flex justify-center mt-10">
+        <div className="mt-10 text-center">
           <Link
             href="/services"
-            className="inline-block border-2 border-[#0D5D59] py-2 px-6 rounded-md text-[#0D5D59] font-semibold hover:bg-[#0D5D59] hover:text-white transition duration-300"
+            className="inline-flex items-center gap-2 rounded-lg bg-[#0E4541] px-6 py-3 font-semibold text-white transition duration-300 hover:-translate-y-0.5 hover:bg-[#0b3936]"
           >
             View All Services
+            <span className="transition-transform duration-300 group-hover:translate-x-1">
+              →
+            </span>
           </Link>
         </div>
       </section>
 
-      {/* Latest Blog */}
-      <section className="mx-auto max-w-7xl px-5 py-16 md:py-20">
-        <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end">
-          <div className="max-w-3xl">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#0E4541]">
-              From Our Blog
-            </p>
 
-            <h2 className="text2 mt-2 text-3xl font-bold md:text-4xl">
-              Construction Knowledge for Homeowners
-            </h2>
+      {/*LATEST BLOG*/}
 
-            <p className="text mt-4 max-w-3xl leading-7">
-              Practical guides on planning, construction, materials, approvals,
-              budgeting, design and maintaining your property in Nepal.
-            </p>
-          </div>
+      <section className="mx-auto max-w-[1200px] px-6 py-16">
+        <div className="mb-12 text-center">
+          <p className="text mb-2 text-sm font-semibold uppercase tracking-[0.18em]">
+            From Our Blog
+          </p>
 
-          <Link
-            href="/blog"
-            className="shrink-0 font-semibold text-[#0E4541] transition hover:underline"
-          >
-            View All Articles →
-          </Link>
+          <h2 className="text2 text-3xl font-bold md:text-4xl">
+            Latest Articles
+          </h2>
+
+          <p className="text mx-auto mt-4 max-w-2xl leading-7">
+            Practical guides and insights to help you plan, build, design, and
+            maintain your property.
+          </p>
         </div>
 
-        {/* Blog Cards */}
-        <div className="mt-10 grid grid-cols-1 gap-7 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-3">
           {latestPosts.map((post) => (
-            <article
+            <Link
               key={post.slug}
-              className="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg"
+              href={`/blog/${post.slug}`}
+              className="group card block overflow-hidden rounded-xl border border-gray-200 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg"
             >
-              {/* Image */}
-              <Link href={`/blog/${post.slug}`} className="block">
-                <div className="relative h-56 overflow-hidden">
-                  <Image
-                    src={post.img}
-                    alt={post.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover transition duration-500 hover:scale-105"
-                  />
-                </div>
-              </Link>
+              {/* Blog Image */}
+              <div className="relative h-56 w-full overflow-hidden">
+                <Image
+                  src={post.img}
+                  alt={post.title}
+                  fill
+                  className="object-cover transition duration-500 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
 
-              {/* Content */}
-              <div className="flex min-h-[310px] flex-col px-6 pb-6 pt-5">
-                {/* Category + date */}
+              {/* Blog Content */}
+              <div className="p-6">
                 <div className="flex items-center justify-center gap-2 text-sm">
-                  <span className="font-semibold text-[#0E4541]">
+                  <span className="rounded-full bg-[#0E4541]/10 px-3 py-1 font-medium text-[#0E4541]">
                     {post.category}
                   </span>
 
-                  <span className="text-gray-400">•</span>
+                  <span className="text">•</span>
 
-                  <span className="text-gray-500">{post.publishedAt}</span>
+                  <span className="text">{post.publishedAt}</span>
                 </div>
 
-                {/* Title */}
-                <Link href={`/blog/${post.slug}`}>
-                  <h3 className="mt-4 text-center text-xl font-bold leading-snug text-[#1F2937] transition hover:text-[#0E4541]">
-                    {post.title}
-                  </h3>
-                </Link>
+                <h3 className="text2 mt-4 text-center text-xl font-bold leading-snug transition-colors duration-300 group-hover:text-[#0E4541]">
+                  {post.title}
+                </h3>
 
-                {/* Description */}
-                <p className="mt-3 text-center text-[15px] leading-7 text-gray-600">
+                <p className="text mt-3 text-center text-[15px] leading-7">
                   {post.excerpt}
                 </p>
 
-                {/* Buttons */}
-                <div className="mt-auto flex justify-center gap-3 pt-6">
-                  <Link
-                    href={`/blog/${post.slug}`}
-                    className="rounded-lg bg-[#0E4541] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#0b3936]"
-                  >
-                    Read Article
-                  </Link>
-
-                  <Link
-                    href="/blog"
-                    className="rounded-lg border-2 border-[#0E4541] px-5 py-2.5 text-sm font-semibold text-[#0E4541] transition hover:bg-[#0E4541] hover:text-white"
-                  >
-                    All Articles
-                  </Link>
+                <div className="mt-5 text-center">
+                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#0E4541]">
+                    Read More
+                    <span className="transition-transform duration-300 group-hover:translate-x-1">
+                      →
+                    </span>
+                  </span>
                 </div>
               </div>
-            </article>
+            </Link>
           ))}
+        </div>
+
+        {/* View All Blog */}
+        <div className="mt-10 text-center">
+          <Link
+            href="/blog"
+            className="inline-flex items-center gap-2 rounded-lg border border-[#0E4541] px-6 py-3 font-semibold text-[#0E4541] transition duration-300 hover:bg-[#0E4541] hover:text-white"
+          >
+            View All Articles
+            <span>→</span>
+          </Link>
         </div>
       </section>
     </>

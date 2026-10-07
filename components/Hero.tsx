@@ -21,10 +21,16 @@ export default function Hero() {
         <Swiper
           modules={[EffectFade, Autoplay]}
           effect="fade"
-          fadeEffect={{ crossFade: true }}
-          autoplay={{ delay: 5000, disableOnInteraction: false }}
-          loop
-          speed={1000}
+          fadeEffect={{
+            crossFade: true,
+          }}
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: false,
+          }}
+          loop={true}
+          speed={1800}
           onSwiper={(swiper) => {
             swiperRef.current = swiper;
           }}
@@ -45,7 +51,8 @@ export default function Hero() {
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent pointer-events-none" />
+
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/10 pointer-events-none" />
       </div>
 
       <div className="max-w-[1200px] mx-auto w-full flex flex-col sm:flex-row justify-between items-start sm:items-center sm:px-6">
@@ -58,19 +65,20 @@ export default function Hero() {
             sizes="100vw"
             priority
           />
+
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
         </div>
 
         <div className="flex flex-col justify-start text-left z-10 w-full sm:w-1/2 mt-4 px-6 sm:mt-0">
-          <div className="text-[23px] md:text-2xl font-semibold mb-3 text-[#17233A] drop-shadow-sm">
+          <div className="text-[23px] md:text-2xl font-semibold mb-3 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
             Welcome to
           </div>
 
-          <div className="font-bold text-2xl sm:text-3xl md:text-5xl mb-6 text-[#17233A] drop-shadow-sm">
+          <div className="font-bold text-2xl sm:text-3xl md:text-5xl mb-6 text-white drop-shadow-[0_3px_6px_rgba(0,0,0,0.85)]">
             Building Sewa
           </div>
 
-          <h1 className="text-[18px] max-w-[600px] leading-relaxed text-[#26364D] drop-shadow-sm">
+          <h1 className="text-[18px] max-w-[600px] leading-relaxed text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.85)]">
             Engineered with Excellence
           </h1>
 
@@ -101,6 +109,7 @@ export default function Hero() {
           >
             ‹
           </button>
+
           <button
             onClick={() => swiperRef.current?.slideNext()}
             aria-label="Next slide"
