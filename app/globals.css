@@ -168,3 +168,110 @@ body.dark select option {
   background-color: #1c1c1c;
   color: #ffffff;
 }
+
+
+/*  Authentication / Form Theme*/
+
+.auth-page {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.auth-card {
+  background: var(--background);
+  color: var(--foreground);
+  border-color: #e5e7eb;
+}
+
+.auth-input,
+.auth-select,
+.auth-textarea {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  background: transparent;
+  color: var(--foreground);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.auth-input::placeholder,
+.auth-textarea::placeholder {
+  color: #737373;
+}
+
+.auth-input:focus,
+.auth-select:focus,
+.auth-textarea:focus {
+  border-color: #0d5d59;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(13, 93, 89, 0.12);
+}
+
+.auth-select option {
+  background: #ffffff;
+  color: #171717;
+}
+
+/* Dark theme */
+body.dark .auth-card {
+  background: #121212;
+  border-color: #404040;
+}
+
+body.dark .auth-input,
+body.dark .auth-select,
+body.dark .auth-textarea {
+  background: #1c1c1c;
+  color: #ffffff;
+  border-color: #404040;
+}
+
+body.dark .auth-input::placeholder,
+body.dark .auth-textarea::placeholder {
+  color: #a3a3a3;
+}
+
+body.dark .auth-select option {
+  background: #1c1c1c;
+  color: #ffffff;
+}
+
+/* Authentication secondary panels */
+.auth-muted {
+  background: #f5f5f5;
+}
+
+body.dark .auth-muted {
+  background: #1c1c1c;
+}
+
+/* Error state */
+.auth-error {
+  border-color: #ef4444 !important;
+}
+
+.auth-error-message {
+  color: #dc2626;
+}
+
+/* Required field marker */
+.auth-required {
+  color: #ef4444;
+}
+
+/* File inputs */
+.auth-file {
+  width: 100%;
+  border: 1px dashed #c4c4c4;
+  background: transparent;
+  color: var(--foreground);
+  border-radius: 0.75rem;
+  padding: 0.8rem;
+}
+
+body.dark .auth-file {
+  border-color: #505050;
+  background: #1c1c1c;
+}

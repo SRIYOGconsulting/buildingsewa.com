@@ -10,6 +10,7 @@ export type BlogPost = {
   author?: string;
   serviceSlug?: string;
   tags?: string[];
+  relatedSlugs?: string[];
 };
 
 export const blogPosts: BlogPost[] = [

@@ -145,7 +145,7 @@ const Header = () => {
               </Link>
 
               <Link
-                href="/#"
+                href="/login"
                 className="rounded border border-teal-900 px-4 py-1 text-[16px] transition hover:bg-teal-50 hover:text-black"
               >
                 Login
