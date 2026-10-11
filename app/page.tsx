@@ -41,11 +41,10 @@ export default function Home() {
 
   return (
     <>
-      {/*HERO */}
+      {/* HERO */}
       <Hero />
 
-      {/*PARTNERS */}
-
+      {/* PARTNERS */}
       <section
         className="overflow-hidden border-y border-zinc-100 bg-white py-10"
         aria-label="Partner organizations"
@@ -77,7 +76,6 @@ export default function Home() {
       </section>
 
       {/* TOP SERVICES */}
-
       <section className="mx-auto max-w-[1200px] px-6 py-16">
         <div className="mb-12 text-center">
           <p className="text mb-2 text-sm font-semibold uppercase tracking-[0.18em]">
@@ -118,9 +116,9 @@ export default function Home() {
               {/* Service Description */}
               <p className="text mb-5 leading-7">{service.description}</p>
 
-              {/* Browse More */}
+              {/* Card Action */}
               <span className="inline-flex items-center justify-center gap-2 rounded-lg border border-[#0E4541] px-5 py-2.5 text-sm font-semibold text-[#0E4541] transition duration-300 group-hover:bg-[#0E4541] group-hover:text-white">
-                Browse More
+                Book Service
                 <span className="transition-transform duration-300 group-hover:translate-x-1">
                   →
                 </span>
@@ -136,16 +134,12 @@ export default function Home() {
             className="inline-flex items-center gap-2 rounded-lg bg-[#0E4541] px-6 py-3 font-semibold text-white transition duration-300 hover:-translate-y-0.5 hover:bg-[#0b3936]"
           >
             View All Services
-            <span className="transition-transform duration-300 group-hover:translate-x-1">
-              →
-            </span>
+            <span>→</span>
           </Link>
         </div>
       </section>
 
-
-      {/*LATEST BLOG*/}
-
+      {/* LATEST BLOG */}
       <section className="mx-auto max-w-[1200px] px-6 py-16">
         <div className="mb-12 text-center">
           <p className="text mb-2 text-sm font-semibold uppercase tracking-[0.18em]">
@@ -182,6 +176,7 @@ export default function Home() {
 
               {/* Blog Content */}
               <div className="p-6">
+                {/* Category + Date */}
                 <div className="flex items-center justify-center gap-2 text-sm">
                   <span className="rounded-full bg-[#0E4541]/10 px-3 py-1 font-medium text-[#0E4541]">
                     {post.category}
@@ -192,17 +187,20 @@ export default function Home() {
                   <span className="text">{post.publishedAt}</span>
                 </div>
 
+                {/* Blog Title */}
                 <h3 className="text2 mt-4 text-center text-xl font-bold leading-snug transition-colors duration-300 group-hover:text-[#0E4541]">
                   {post.title}
                 </h3>
 
+                {/* Blog Description */}
                 <p className="text mt-3 text-center text-[15px] leading-7">
                   {post.excerpt}
                 </p>
 
+                {/* Card Action */}
                 <div className="mt-5 text-center">
                   <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#0E4541]">
-                    Read More
+                    Read Blog
                     <span className="transition-transform duration-300 group-hover:translate-x-1">
                       →
                     </span>
@@ -219,7 +217,7 @@ export default function Home() {
             href="/blog"
             className="inline-flex items-center gap-2 rounded-lg border border-[#0E4541] px-6 py-3 font-semibold text-[#0E4541] transition duration-300 hover:bg-[#0E4541] hover:text-white"
           >
-            View All Articles
+            View All Blogs
             <span>→</span>
           </Link>
         </div>

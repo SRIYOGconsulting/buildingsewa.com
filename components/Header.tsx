@@ -217,10 +217,10 @@ const Header = () => {
               aria-label={
                 DarkIcon ? "Switch to dark mode" : "Switch to light mode"
               }
-              className={`h-8 w-8 cursor-pointer rounded-full text-2xl ${
+              className={`flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border text-lg transition-all duration-300 ${
                 DarkIcon
-                  ? "rotate-45 bg-black pl-1 text-white"
-                  : "bg-white text-black"
+                  ? "border-gray-600 bg-[#1c1c1c] text-white hover:bg-[#262626]"
+                  : "border-gray-200 bg-white text-[#0E4541] hover:bg-gray-100"
               }`}
             >
               {DarkIcon ? "☽" : "☀︎"}

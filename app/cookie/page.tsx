@@ -127,7 +127,7 @@ const cookiePolicy = () => {
               Contact Us
             </h2>
             <p className="about leading-relaxed mb-1">
-              Email: info@buildingsewa.com
+              Email: buildingsewa@sriyog.com
             </p>
             <p className="about leading-relaxed mb-1">
               Phone: +977 98520-24-365

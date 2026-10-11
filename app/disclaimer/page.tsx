@@ -217,7 +217,7 @@ const Disclaimer = () => {
             <h2 className="text-2xl font-semibold text-teal-800 mb-2">
               Contact Us
             </h2>
-            <p className="about leading-relaxed">Email: info@buildingSewa.com</p>
+            <p className="about leading-relaxed">Email: buildingsewa@sriyog.com</p>
           </div>
         </section>
       </div>

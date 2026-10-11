@@ -89,10 +89,10 @@ export default function LocationPage() {
                   <p className="text-sm font-semibold text-gray-800">Email</p>
 
                   <a
-                    href="mailto:info@buildingsewa.com"
+                    href="mailto:buildingsewa@sriyog.com"
                     className="text-sm text-gray-600 mt-1 block hover:text-teal-700 transition-colors break-all"
                   >
-                    info@buildingsewa.com
+                    buildingsewa@sriyog.com
                   </a>
                 </div>
               </div>

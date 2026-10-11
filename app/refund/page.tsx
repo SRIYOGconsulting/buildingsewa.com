@@ -63,7 +63,7 @@ export default function RefundPolicy() {
             </h2>
             <p className="about leading-relaxed mb-2">
               To request a refund, please contact our support team at{" "}
-              <span className="font-medium">info@buildingsewa.com</span> within
+              <span className="font-medium">buildingsewa@sriyog.com</span> within
               7 days of your booking. Include your booking details, the reason
               for the refund, and any supporting documentation.
             </p>
@@ -79,7 +79,7 @@ export default function RefundPolicy() {
               Contact Us
             </h2>
             <p className="about leading-relaxed mb-1">
-              Email: info@buildingsewa.com
+              Email: buildingsewa@sriyog.com
             </p>
             <p className="about leading-relaxed mb-1">
               Phone: +977 98520-24-365

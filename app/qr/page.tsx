@@ -33,7 +33,7 @@ const cardData = [
     id: 4,
     title: "Appointment",
     image: "/qr/4.jpg",
-    link: "mailto:info@sriyogconsulting.com",
+    link: "mailto:srinfo@iyogconsulting.com",
     description: "Reach out via email for inquiries and project discussions.",
   },
   {
