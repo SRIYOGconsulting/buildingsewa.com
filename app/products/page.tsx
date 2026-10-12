@@ -1,73 +1,95 @@
-'use client'
-import { useEffect, useState } from 'react';
-
-import Lightbox from '../../components/Lightbox';
 import Image from 'next/image';
+import Link from 'next/link';
+import type { Metadata } from "next";
 
-export default function Certificate() {
-    
-    const [lightbox,setLightbox] = useState(false);
-    const [index, setIndex] = useState<number | null>(0);
+export const metadata: Metadata = {
+  title: "Our Products | Building Sewa",
+  description:
+    "Digital platforms built by Sriyog Consulting across construction, services, and employment sectors.",
+};
 
-    useEffect(() => {
-        const originalStyle = window.getComputedStyle(document.body).overflow;
-        
-        if (lightbox) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = originalStyle;
-        }
+type Product = {
+  name: string;
+  category: string;
+  description: string;
+  img: string;
+  href: string;
+};
 
-        // Cleanup on unmount or when lightbox changes
-        return () => {
-            document.body.style.overflow = originalStyle;
-        };
-    }, [lightbox]);
-    // Updated certificate data with new image paths
-    const certificates = [
-        { title: 'Certificate 1', img: '/images/certificates/1.jpg' },
-        { title: 'Certificate 2', img: '/images/certificates/2.jpg' },
-        { title: 'Certificate 3', img: '/images/certificates/3.jpg' },
-        { title: 'Certificate 4', img: '/images/certificates/4.jpg' },
-        { title: 'Certificate 5', img: '/images/certificates/5.jpg' },
-        { title: 'Certificate 6', img: '/images/certificates/6.jpg' },
-        { title: 'Certificate 7', img: '/images/certificates/7.jpg' },
-        { title: 'Certificate 8', img: '/images/certificates/8.jpg' },
-        { title: 'Certificate 9', img: '/images/certificates/9.jpg' },
-    ];
+const products: Product[] = [
+  {
+    name: 'Building Sewa',
+    category: 'Construction Management',
+    description:
+      'An end-to-end construction management platform connecting homeowners with architects, engineers, and contractors.',
+    img: '/products/1.jpg',
+    href: 'https://www.buildingsewa.com',
+  },
+  {
+    name: 'SRIYOG App',
+    category: 'Service Marketplace',
+    description:
+      'A platform connecting clients with verified professionals across plumbing, electrical, tutoring, beauty, and more. Now an independent company.',
+    img: '/products/2.jpg',
+    href: '#',
+  },
+  {
+    name: 'GardenSewa',
+    category: 'Agriculture & Training',
+    description:
+      'A platform connecting learners with training providers across agriculture and gardening service categories.',
+    img: '/products/3.jpg',
+    href: '#',
+  },
+  {
+    name: 'Employment Solutions',
+    category: 'Employment',
+    description:
+      'Digital platforms supporting employment-sector clients with hiring, onboarding, and workforce management tools.',
+    img: '/products/4.jpg',
+    href: '#',
+  },
+];
 
-    return (
-        <div className='relative '>
-            {/* Header */}
-            {/* <Ribbon name="Certificates" showfont={false}/> */}
-            <div className="px-5 py-10 max-w-7xl mx-auto">
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-items-center">
-                    {certificates.map((cert, index) => (
-                        <div
-                            key={index}
-                            className="card rounded-lg shadow-md overflow-hidden w-full max-w-xs hover:shadow-lg transition-shadow duration-300"
-                        >
-                            <Image height={600} width={800}
-                                src={cert.img}
-                                alt={cert.title}
-                                onClick={()=>{setLightbox(true);setIndex(index)}}
-                                className="w-full h-56 object-cover cursor-pointer"
-                            />
-                            <div className="px-4 py-5 card2">
-                                <h2 className="text-lg font-medium ">{cert.title}</h2>
-                                <p className="card2 text-sm mt-2">
-                                    Short description about the certificate.
-                                </p>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-            {lightbox && (
-            <>
-            <Lightbox setLightbox={setLightbox} lightbox={lightbox} data={certificates} index={index} setIndex={setIndex}/>
-            </>
-            )}
+export default function ProductsPage() {
+  return (
+    <div className="relative">
+      <div className="px-5 py-10 max-w-7xl mx-auto">
+        <h1 className="text-2xl font-semibold text2 text-center mb-2">
+          Our Products
+        </h1>
+        <p className="text text-center text-sm mb-10 max-w-2xl mx-auto">
+          Digital platforms built by SRIYOG Consulting across construction,
+          services, and employment sectors.
+        </p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-items-center">
+          {products.map((product) => (
+            <Link
+              key={product.name}
+              href={product.href}
+              target={product.href.startsWith('http') ? '_blank' : undefined}
+              rel={product.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+              className="card rounded-lg shadow-md overflow-hidden w-full max-w-xs hover:shadow-lg transition-shadow duration-300"
+            >
+              <Image
+                height={600}
+                width={800}
+                src={product.img}
+                alt={product.name}
+                className="w-full h-56 object-cover"
+              />
+              <div className="px-4 py-5 card2">
+                <p className="text-xs text uppercase tracking-wide mb-1">
+                  {product.category}
+                </p>
+                <h2 className="text-lg font-medium text2">{product.name}</h2>
+                <p className="text text-sm mt-2">{product.description}</p>
+              </div>
+            </Link>
+          ))}
         </div>
-    );
-}
+      </div>
+    </div>
+  );
+}   

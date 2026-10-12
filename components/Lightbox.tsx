@@ -4,7 +4,7 @@ import { useEffect, useCallback } from 'react';
 
 type LightboxItem = {
   img: string;
-  label?: string | number; // optional, can be count, title, etc.
+  label?: string | number; 
 };
 
 type LightboxProps = {

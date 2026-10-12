@@ -1,145 +1,162 @@
-'use client'
+import Image from "next/image";
+import Ribbon from "@/components/Ribbon";
+import SectionTag from "@/components/Sectiontag";
+import CtaBanner from "@/components/CtaBanner";
+import { Lightbulb, Settings2, MapPin, Monitor } from "lucide-react";
+import type { Metadata } from "next";
 
-import Image from 'next/image';
-// import Ribbon from '../../components/Ribbon';
+export const metadata: Metadata = {
+  title: "Our History | Building Sewa",
+  description:
+    "How Building Sewa grew into Nepal's trusted partner for building and home services.",
+};
 
-export default function History() { 
+const milestones = [
+  {
+    year: "2018",
+    title: "Building Sewa Founded",
+    description:
+      "Started with a simple idea: make it easy for Nepali homeowners to find trusted builders and tradespeople.",
+    icon: Lightbulb,
+  },
+  {
+    year: "2020",
+    title: "Beyond Construction",
+    description:
+      "Expanded past civil construction into design, engineering, and interior services under one roof.",
+    icon: Settings2,
+  },
+  {
+    year: "2022",
+    title: "Serving the Valley",
+    description:
+      "Grew our verified professional network across Kathmandu, Lalitpur, and Bhaktapur.",
+    icon: MapPin,
+  },
+  {
+    year: "2024",
+    title: "Online Booking Platform",
+    description:
+      "Launched the Building Sewa platform so customers can browse services and book online in minutes.",
+    icon: Monitor,
+  },
+];
 
-    return (
-        <div>
+export default function History() {
+  return (
+    <main className="bg-gray-50">
+      <Ribbon
+        name="Our History"
+        description="How Building Sewa grew into Nepal's trusted partner for building and home services."
+      />
 
-            {/* Header */}
-            {/* <Ribbon name="History" showfont={false}/> */}
+      {/* Hero image */}
+      <section className="mx-auto max-w-6xl px-4 pt-10">
+        <Image
+          src="/history/1.png"
+          alt="Building plans and a hard hat overlooking the city"
+          width={1400}
+          height={500}
+          className="h-[260px] w-full rounded-2xl object-cover md:h-[320px]"
+        />
+      </section>
 
-            <div className="max-w-6xl mx-auto px-4 md:px-8 space-y-16">
-
-                {/* Introduction Section */}
-                <section>
-                    <h2 className="text-2xl font-bold  mb-4">Our Beginning</h2>
-                    <p className=" leading-relaxed">
-                        SRIYOG Consulting Pvt. Ltd. began its journey with a mission to bring advanced digital
-                        transformation to industries that needed it the most. What started as a small initiative
-                        has now grown into a trusted technology partner for organizations across healthcare,
-                        employment, and tourism.
-                    </p>
-
-                    <div className="mt-6 rounded-lg overflow-hidden shadow-md">
-                        <Image height={600} width={800}
-                            src="/history/2.jpg"
-                            alt="History Beginning"
-                            className="w-full h-full object-cover"
-                        />
-                    </div>
-                </section>
-
-                {/* Evolution Section */}
-                <section>
-                    <h2 className="text-2xl font-bold  mb-4">Evolution Over the Years</h2>
-                    <p className=" leading-relaxed">
-                        Over the years, our company evolved by adopting modern technologies, expanding our 
-                        team, and building systems that support thousands of users. Continuous learning,
-                        innovation, and adaptability have shaped our growth and helped us stay ahead of
-                        technological advancements.
-                    </p>
-
-                    {/* Two Card Format */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-
-                        {/* Card 1 */}
-                        <div className="card p-6 shadow-sm rounded-xl hover:shadow-md transition ">
-                            <Image height={600} width={800}
-                                src="/history/1.png"  // Male placeholder
-                                alt="Male Placeholder"
-                                className="w-40 h-40 mx-auto rounded-full object-cover mb-4"
-                            />
-
-                            <h3 className="text-[24px] font-semibold text-center">
-                                Full Name
-                            </h3>
-                            <p className="text-center text-sm">
-                                Designation
-                            </p>
-                            <p className="mt-3  text-center leading-relaxed">
-                                    This individual contributed to key projects and supported the growth
-                                    of multiple teams. Their leadership helped guide important initiatives
-                                    and strengthened overall performance. Through consistent effort, they
-                                    played a meaningful role in the company’s development and long-term progress.
-                            </p>
-                        </div>
-
-                        {/* Card 2 */}
-                        <div className="card p-6 shadow-sm rounded-xl hover:shadow-md transition h-full">
-                            <Image height={600} width={800}
-                                src="/history/2.png"  // Female placeholder
-                                alt="Female Placeholder"
-                                className="w-40 h-40 mx-auto rounded-full object-cover mb-4"
-                            />
-
-                            <h3 className="text-[24px] font-semibold text-center ">
-                                Full Name
-                            </h3>
-                            <p className="text-center  text-sm">
-                                Designation
-                            </p>
-                            <p className="mt-3  text-center leading-relaxed">
-                                    This individual contributed to key projects and supported the growth
-                                    of multiple teams. Their leadership helped guide important initiatives
-                                    and strengthened overall performance. Through consistent effort, they
-                                    played a meaningful role in the company’s development and long-term progress.
-                            </p>
-                        </div>
-
-                    </div>
-                </section>
-
-                {/* Milestones */}
-                <section>
-                    <h2 className="text-2xl font-bold  mb-4">Key Milestones</h2>
-
-                    <div className="space-y-6">
-
-                        <div className="p-6 card   rounded-xl shadow-sm hover:shadow-md transition-all">
-                            <h3 className="text-xl font-semibold ">2018 – Company Established</h3>
-                            <p className=" mt-2 ">
-                                Official registration and initial establishment of the company.
-                            </p>
-                        </div>
-
-                        <div className="p-6 card  rounded-xl shadow-sm hover:shadow-md transition-all">
-                            <h3 className="text-xl font-semibold ">2020 – Service Expansion</h3>
-                            <p className=" mt-2">
-                                Introduced more services including IT consulting, digital marketing, and automation.
-                            </p>
-                        </div>
-
-                        <div className="p-6 card  rounded-xl shadow-sm hover:shadow-md transition-all">
-                            <h3 className="text-xl font-semibold ">2022 – Major Platform Launch</h3>
-                            <p className="mt-2">
-                                Developed and deployed large-scale platforms for employment and agriculture sectors.
-                            </p>
-                        </div>
-
-                        <div className="p-6 card  rounded-xl shadow-sm hover:shadow-md transition-all">
-                            <h3 className="text-xl font-semibold ">2024 – Modernization & Innovation</h3>
-                            <p className="mt-2">
-                                Adopted cloud infrastructure, smart automation, AI integration, and modern UI/UX design.
-                            </p>
-                        </div>
-
-                    </div>
-                </section>
-
-                {/* Closing Section */}
-                <section className="pb-12">
-                    <h2 className="text-2xl font-bold  mb-4">Our Journey Continues</h2>
-                    <p className=" leading-relaxed">
-                        With each passing year, SRIYOG Consulting grows stronger and more dedicated to delivering
-                        high-quality digital experiences. Our history reflects our commitment to innovation,
-                        service excellence, and building solutions that make a real difference.
-                    </p>
-                </section>
-
-            </div>
+      {/* Beginning / Evolution — alternating, matches Why Us pattern */}
+      <section className="mx-auto flex max-w-6xl flex-col gap-14 px-4 py-14">
+        <div className="grid items-center gap-10 md:grid-cols-2">
+          <div className="max-w-md space-y-4 text-left">
+            <SectionTag>OUR BEGINNING</SectionTag>
+            <h2 className="text-3xl font-semibold leading-snug text-[#0E4541] md:text-4xl">
+              The Beginning of Our Journey
+            </h2>
+            <p className="leading-7 text-gray-600">
+              Building Sewa began with a simple idea to make it easy for Nepali
+              homeowners to find trusted builders and tradespeople. We saw a
+              need for a more transparent, reliable, and convenient way to
+              access building and home services, and that idea laid the
+              foundation for what we are today.
+            </p>
+          </div>
+          <Image
+            src="/history/2.png"
+            alt="House model with blueprints being drawn"
+            width={800}
+            height={600}
+            className="w-full max-w-md rounded-xl object-cover shadow-sm"
+          />
         </div>
-    );
+
+        <div className="grid items-center gap-10 md:grid-cols-2 md:[direction:rtl]">
+          <Image
+            src="/history/3.png"
+            alt="Building Sewa team at a construction site"
+            width={800}
+            height={600}
+            className="w-full max-w-md rounded-xl object-cover shadow-sm [direction:ltr]"
+          />
+          <div className="max-w-md space-y-4 text-left [direction:ltr]">
+            <SectionTag>OUR EVOLUTION</SectionTag>
+            <h2 className="text-3xl font-semibold leading-snug text-[#0E4541] md:text-4xl">
+              Growing Together
+            </h2>
+            <p className="leading-7 text-gray-600">
+              Over time, we expanded our services beyond construction into
+              design, engineering, interiors, and more. With a focus on quality
+              and customer trust, we built a network of skilled professionals
+              and developed systems to serve more people across Nepal.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Milestones */}
+      <section className="bg-white py-16">
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="mb-12 text-center">
+            <SectionTag>OUR JOURNEY</SectionTag>
+            <h2 className="mt-2 text-3xl font-bold text-[#0E4541] md:text-4xl">
+              Key Milestones
+            </h2>
+            <p className="mx-auto mt-3 max-w-2xl leading-7 text-gray-500">
+              Important moments that shaped Building Sewa&apos;s growth and
+              success.
+            </p>
+          </div>
+
+          <div className="relative grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="pointer-events-none absolute left-10 right-10 top-[52px] hidden border-t-2 border-dashed border-emerald-200 lg:block" />
+
+            {milestones.map(({ year, title, description, icon: Icon }) => (
+              <div
+                key={year}
+                className="relative z-10 flex flex-col items-center rounded-2xl border border-gray-100 bg-gray-50 p-6 text-center shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-emerald-50 text-[#0E4541]">
+                  <Icon className="h-6 w-6" />
+                </div>
+                <div className="mt-4 text-lg font-bold text-[#0E4541]">
+                  {year}
+                </div>
+                <h3 className="mt-1 font-semibold text-[#0E4541]">{title}</h3>
+                <p className="mt-3 text-sm leading-6 text-gray-600">
+                  {description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Closing CTA */}
+      <section className="mx-auto max-w-6xl px-4 py-16">
+        <CtaBanner
+          title="Our Journey Continues"
+          description="With every project, we grow stronger. Our commitment remains the same to make building and home services simpler, more reliable, and more accessible for everyone in Nepal."
+          buttonText="Explore Services"
+          buttonHref="/services"
+          backgroundImage="/history/1.png"
+        />
+      </section>
+    </main>
+  );
 }

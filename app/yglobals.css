@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #e6d2d2;
   --mainBackground : #e1e1e1;
   --text : black;
   --text2 : #6a7282;
@@ -65,19 +65,3 @@ body{
   background: var(--black);
 }
 
-@keyframes scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-.animate-scroll {
-  animation: scroll 28s linear infinite;
-}
-
-.animate-scroll:hover {
-  animation-play-state: paused;
-}

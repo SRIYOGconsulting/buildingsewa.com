@@ -1,31 +1,42 @@
-"use client"
+"use client";
+
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import MobileDrawer from './MobileDrawer';
-//import MobileDrawer from "./MobileDrawer";
+import MobileDrawer from "./MobileDrawer";
+import { Search, X } from "lucide-react";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+
   const [DarkIcon, setDarkIcon] = useState(true);
+
   const [showSearch, setShowSearch] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-  const router = useRouter();
-  useEffect(() => {
-  const savedTheme = localStorage.getItem('Theme');
 
-    if (savedTheme === 'dark') {
-      document.body.classList.add('dark');
-      setDarkIcon(false);
-    } else {
-      document.body.classList.remove('dark');
-      setDarkIcon(true);
-    }
+  const router = useRouter();
+
+  // Load saved theme after hydration
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("Theme");
+
+    setTimeout(() => {
+      if (savedTheme === "dark") {
+        document.body.classList.add("dark");
+        setDarkIcon(false);
+      } else {
+        document.body.classList.remove("dark");
+        setDarkIcon(true);
+      }
+    }, 0);
   }, []);
 
+  // Toggle dark/light theme
   const TriggerTheme = () => {
-    if (document.body.classList.contains("dark")) {
+    const isDark = document.body.classList.contains("dark");
+
+    if (isDark) {
       document.body.classList.remove("dark");
       localStorage.setItem("Theme", "light");
       setDarkIcon(true);
@@ -35,123 +46,194 @@ const Header = () => {
       setDarkIcon(false);
     }
   };
-  // Added Function href handle search
-  const handleSearch = () => {
-    if (searchQuery.trim() !== "") {
-      router.push(`/search?query=${encodeURIComponent(searchQuery)}`); // router.push href search page
-      setShowSearch(false); // hide input after search
-      setSearchQuery(""); // clear input
-    }
+
+  // Open search
+  const openSearch = () => {
+    setShowSearch(true);
+
+    setTimeout(() => {
+      document.getElementById("header-search")?.focus();
+    }, 100);
   };
 
-  //  Added Handle Enter key href trigger search
-  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
+  // Close search
+  const closeSearch = () => {
+    setShowSearch(false);
+    setSearchQuery("");
+  };
+
+  // Search services
+  const handleSearch = () => {
+    const query = searchQuery.trim();
+
+    if (!query) {
+      return;
+    }
+
+    router.push("/search?query=" + encodeURIComponent(query));
+
+    closeSearch();
+  };
+
+  // Handle keyboard input
+  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter") {
       handleSearch();
+    }
+
+    if (event.key === "Escape") {
+      closeSearch();
     }
   };
 
   return (
     <header className="header">
-      <div className="relative max-w-7xl mx-auto flex items-center justify-between py-4 pl-3 sm:px-6">
+      <div className="relative mx-auto flex max-w-7xl items-center justify-between py-4 pl-3 sm:px-6">
         {/* Logo */}
         <div className="flex items-center space-x-2">
           <Link href="/">
             <Image
               src="/logo/wordmark-logo.svg"
-              alt="Sriyog Logo"
+              alt="Building Sewa Logo"
               width={800}
               height={600}
-              className="w-[230px] md:w-[270px] h-auto"
+              className="h-auto w-[230px] md:w-[270px]"
             />
           </Link>
         </div>
 
-        {/* Nav Links */}
-        <nav className="flex items-center spcae-x-0 sm:space-x-4">
-          {!showSearch &&
-          <div className="space-x-6 hidden lg:block">
-          <Link href="/" className="text-[16px] hover:text-teal-700">
-            Home
-          </Link>
-          <Link href="/about" className="text-[16px] hover:text-teal-700">
-            About
-          </Link>
-          <Link href="/services" className="text-[16px] hover:text-teal-700">
-            Services
-          </Link>
-          <Link href="/feedback" className="text-[16px] hover:text-teal-700">
-            Feedback
-          </Link>
-          <Link href="/team" className="text-[16px] hover:text-teal-700">
-            Team
-          </Link>
-          <Link href="/contact" className="text-[16px] hover:text-teal-700">
-            Contact
-          </Link>
+        {/* Navigation */}
+        <nav className="flex items-center gap-3 sm:gap-4">
+          {/* Desktop Navigation */}
+          {!showSearch && (
+            <div className="hidden items-center space-x-6 lg:flex">
+              <Link href="/" className="text-[16px] hover:text-teal-700">
+                Home
+              </Link>
 
-          <Link href="/career">
-            <button className="border cursor-pointer text-[16px] border-teal-900 hover:text-black rounded px-4 py-1  hover:bg-teal-50">
-              Career
-            </button>
-          </Link>
+              <Link href="/about" className="text-[16px] hover:text-teal-700">
+                About
+              </Link>
 
-          <Link href="/book">
-            <button className="bg-teal-900 cursor-pointer text-[16px] border border-teal-900 text-white px-4 py-1 rounded hover:bg-teal-800">
-              Book a Service
-            </button>
-          </Link>
-          </div>
-          }
-          
-          {/* Mobile Notice button*/}
-          <div>
-            <Link href="/book">
-              <button className="bg-[#ebebeb] cursor-pointer sm:hidden border-[1.5px]  border-teal-800 text-black px-4 py-1 rounded hover:bg-teal-800">
+              <Link
+                href="/services"
+                className="text-[16px] hover:text-teal-700"
+              >
+                Services
+              </Link>
+
+              <Link
+                href="/testimonials"
+                className="text-[16px] hover:text-teal-700"
+              >
+                Testimonials
+              </Link>
+
+              <Link href="/team" className="text-[16px] hover:text-teal-700">
+                Team
+              </Link>
+
+              <Link href="/contact" className="text-[16px] hover:text-teal-700">
+                Contact
+              </Link>
+
+              <Link
+                href="/book"
+                className="rounded border border-teal-900 bg-teal-900 px-4 py-1 text-[16px] text-white transition hover:bg-teal-800"
+              >
                 Book a Service
-              </button>
-            </Link>
-          </div>
+              </Link>
 
+              <Link
+                href="/login"
+                className="rounded border border-teal-900 px-4 py-1 text-[16px] transition hover:bg-teal-50 hover:text-black"
+              >
+                Login
+              </Link>
+            </div>
+          )}
 
-          {/* Sliding Input */}
-          <div className="absolute md:right-52 lg:right-24">
-          <div className={`hidden md:flex relative  bg-white ml-2 mr-8 z-20 py-0 border rounded-md  focus:outline-none
-                transition-all duration-300 ease-in-out h-8
-                ${showSearch ? "sm:w-[250px] lg:w-[550px] opacity-100 px-3 py-1" : "w-0 opacity-0 px-0 py-0 overflow-hidden"}`}>
-                  <button onClick={()=>setShowSearch(false)} className="text-black cursor-pointer absolute -top-1.5 left-2 font-bold text-3xl bottom-1 top">
-                    ‹
-                  </button>
+          {/* Search */}
+          <div className="flex items-center">
+            {showSearch ? (
+              <div className="flex h-9 w-[230px] items-center rounded-md border border-gray-400 bg-white px-2 shadow-sm dark:border-gray-600 dark:bg-[#222222] sm:w-[280px] lg:w-[400px]">
+                {/* Search Button */}
+                <button
+                  type="button"
+                  onClick={handleSearch}
+                  aria-label="Search services"
+                  className="flex h-7 w-7 shrink-0 items-center justify-center rounded text-gray-800 transition hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                >
+                  <Search className="h-5 w-5" />
+                </button>
+
+                {/* Search Input */}
                 <input
+                  id="header-search"
                   type="text"
                   value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onChange={(event) => setSearchQuery(event.target.value)}
                   onKeyDown={handleKeyPress}
-                  placeholder="Search..."
-                  className={` absolute search left-8 right-0 top-0 bottom-0 border-none outline-none rounded-r-md  focus:outline-none  focus:ring-none
-                    transition-all duration-300 ease-in-out 
-                    ${showSearch ? "md:w-[300px] lg:w-[517px] opacity-100 " : "w-0 opacity-0 px-0 py-0 overflow-hidden"}`}
+                  placeholder="Search services..."
+                  className="min-w-0 flex-1 bg-transparent px-2 text-sm text-gray-900 outline-none placeholder:text-gray-500 dark:text-white dark:placeholder:text-gray-400"
                 />
-          </div>               
-          </div>
-          {/* SEARCH ICON */}
-          {!showSearch && 
-          <Image width={22} height={22} alt="search icon" onClick={()=>setShowSearch(true)} src="/icons/search.svg" className="w-[22px] h-[22px] cursor-pointer hidden md:block"/>}
-          
 
+                {/* Close Button */}
+                <button
+                  type="button"
+                  onClick={closeSearch}
+                  aria-label="Close search"
+                  className="flex h-7 w-7 shrink-0 items-center justify-center rounded text-gray-800 transition hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              </div>
+            ) : (
+              <button
+                type="button"
+                onClick={openSearch}
+                aria-label="Search services"
+                className="flex h-9 w-9 items-center justify-center rounded-full transition hover:bg-gray-100 dark:hover:bg-gray-800"
+                style={{
+                  color: DarkIcon ? "#0E4541" : "#ffffff",
+                }}
+              >
+                <Search
+                  className="h-[22px] w-[22px]"
+                  strokeWidth={2}
+                  style={{
+                    display: "block",
+                    color: DarkIcon ? "#0E4541" : "#ffffff",
+                  }}
+                />
+              </button>
+            )}
+          </div>
+
+          {/* Dark / Light Mode */}
           <div className="hidden sm:block">
             <button
               onClick={TriggerTheme}
-              className={`text-2xl cursor-pointer ml-2 mr-0 lg:mr-0 rounded-full h-8 w-8 ${
+              aria-label={
+                DarkIcon ? "Switch to dark mode" : "Switch to light mode"
+              }
+              className={`flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border text-lg transition-all duration-300 ${
                 DarkIcon
-                  ? "bg-black text-white rotate-45 pl-1"
-                  : "bg-white text-black"
+                  ? "border-gray-600 bg-[#1c1c1c] text-white hover:bg-[#262626]"
+                  : "border-gray-200 bg-white text-[#0E4541] hover:bg-gray-100"
               }`}
             >
               {DarkIcon ? "☽" : "☀︎"}
             </button>
           </div>
-          <MobileDrawer setIsOpen={setIsOpen} isOpen={isOpen}/>
+
+          {/* Mobile Drawer */}
+          <MobileDrawer
+            isOpen={isOpen}
+            setIsOpen={setIsOpen}
+            TriggerTheme={TriggerTheme}
+            DarkIcon={DarkIcon}
+          />
         </nav>
       </div>
     </header>
@@ -159,14 +241,3 @@ const Header = () => {
 };
 
 export default Header;
-
-
-
-
-
-
-
-
-
-
-

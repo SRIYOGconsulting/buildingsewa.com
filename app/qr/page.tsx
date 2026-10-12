@@ -1,5 +1,11 @@
-'use client'
-// import Ribbon from "../../components/Ribbon";
+import Ribbon from "@/components/Ribbon";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "QR Codes | Building Sewa",
+  description:
+    "Scan QR codes for payments, social media, and quick access to Building Sewa services.",
+};
 
 const cardData = [
   {
@@ -27,7 +33,7 @@ const cardData = [
     id: 4,
     title: "Appointment",
     image: "/qr/4.jpg",
-    link: "mailto:info@sriyogconsulting.com",
+    link: "mailto:srinfo@iyogconsulting.com",
     description: "Reach out via email for inquiries and project discussions.",
   },
   {
@@ -49,9 +55,7 @@ const cardData = [
 function Qr() {
   return (
     <div>
-
-      {/* Page Header */}
-      {/* <Ribbon name= "QR Codes" showfont={false}/> */}
+      <Ribbon name="QR Codes" showfont={false} />
 
       {/* Cards */}
       <section className="max-w-7xl mx-auto px-6 sm:px-10 py-10">

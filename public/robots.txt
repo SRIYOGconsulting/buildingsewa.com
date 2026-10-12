@@ -1,4 +1,5 @@
 User-agent: *
 Disallow: /admin/
 Allow: /
-Sitemap: https://www.sriyog.com/sitemap.xml
+
+Sitemap: https://www.buildingsewa.com/sitemap.xml
