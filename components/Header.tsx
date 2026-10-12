@@ -228,7 +228,12 @@ const Header = () => {
           </div>
 
           {/* Mobile Drawer */}
-          <MobileDrawer setIsOpen={setIsOpen} isOpen={isOpen} />
+          <MobileDrawer
+            isOpen={isOpen}
+            setIsOpen={setIsOpen}
+            TriggerTheme={TriggerTheme}
+            DarkIcon={DarkIcon}
+          />
         </nav>
       </div>
     </header>

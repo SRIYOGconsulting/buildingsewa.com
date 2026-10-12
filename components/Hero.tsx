@@ -16,8 +16,9 @@ export default function Hero() {
   const swiperRef = useRef<SwiperType | null>(null);
 
   return (
-    <section className="w-full min-h-[600px] flex flex-col sm:flex-row justify-between items-start sm:items-center relative overflow-hidden">
-      <div className="hidden sm:block absolute inset-0 -z-10">
+    <section className="relative flex min-h-[450px] w-full flex-col items-start justify-between overflow-hidden sm:min-h-[600px] sm:flex-row sm:items-center">
+      {/* Desktop background slider */}
+      <div className="absolute inset-0 -z-10 hidden sm:block">
         <Swiper
           modules={[EffectFade, Autoplay]}
           effect="fade"
@@ -34,11 +35,11 @@ export default function Hero() {
           onSwiper={(swiper) => {
             swiperRef.current = swiper;
           }}
-          className="w-full h-full"
+          className="h-full w-full"
         >
           {slides.map((slide, i) => (
             <SwiperSlide key={slide}>
-              <div className="relative w-full h-full">
+              <div className="relative h-full min-h-[600px] w-full">
                 <Image
                   src={slide}
                   alt=""
@@ -52,11 +53,13 @@ export default function Hero() {
           ))}
         </Swiper>
 
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/10 pointer-events-none" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/10" />
       </div>
 
-      <div className="max-w-[1200px] mx-auto w-full flex flex-col sm:flex-row justify-between items-start sm:items-center sm:px-6">
-        <div className="relative block sm:hidden w-full h-[300px]">
+      {/* Main content container */}
+      <div className="mx-auto flex w-full max-w-[1200px] flex-col items-start justify-between sm:flex-row sm:items-center sm:px-6">
+        {/* Mobile background image */}
+        <div className="relative block h-[clamp(220px,65vw,300px)] w-full sm:hidden">
           <Image
             src="/home/hero/1.jpg"
             alt="Building Sewa"
@@ -69,30 +72,31 @@ export default function Hero() {
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
         </div>
 
-        <div className="flex flex-col justify-start text-left z-10 w-full sm:w-1/2 mt-4 px-6 sm:mt-0">
-          <div className="text-[23px] md:text-2xl font-semibold mb-3 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+        {/* Hero text and buttons */}
+        <div className="relative z-10 mt-4 flex w-full flex-col justify-start px-4 text-left sm:mt-0 sm:w-1/2 sm:px-0">
+          <div className="mb-3 text-[20px] font-semibold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] sm:mb-3 sm:text-[23px] md:text-2xl">
             Welcome to
           </div>
 
-          <div className="font-bold text-2xl sm:text-3xl md:text-5xl mb-6 text-white drop-shadow-[0_3px_6px_rgba(0,0,0,0.85)]">
+          <div className="mb-6 text-2xl font-bold text-white drop-shadow-[0_3px_6px_rgba(0,0,0,0.85)] sm:text-3xl md:text-5xl">
             Building Sewa
           </div>
 
-          <h1 className="text-[18px] max-w-[600px] leading-relaxed text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.85)]">
+          <h1 className="max-w-[600px] text-[16px] leading-relaxed text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.85)] sm:text-[18px]">
             Engineered with Excellence
           </h1>
 
-          <div className="mt-8 flex gap-4">
+          <div className="mt-8 flex flex-wrap gap-3 sm:gap-4">
             <Link
               href="/about"
-              className="inline-block border-2 border-[#0D5D59] py-2 px-6 rounded-md text-[#0D5D59] font-semibold hover:bg-[#0D5D59] hover:text-white transition duration-300 cursor-pointer"
+              className="inline-block cursor-pointer rounded-md border-2 border-[#0D5D59] px-5 py-2 text-sm font-semibold text-[#0D5D59] transition duration-300 hover:bg-[#0D5D59] hover:text-white sm:px-6 sm:text-base"
             >
               About
             </Link>
 
             <Link
               href="/services"
-              className="inline-block border-2 border-[#0D5D59] py-2 px-6 rounded-md text-[#0D5D59] font-semibold hover:bg-[#0D5D59] hover:text-white transition duration-300 cursor-pointer"
+              className="inline-block cursor-pointer rounded-md border-2 border-[#0D5D59] px-5 py-2 text-sm font-semibold text-[#0D5D59] transition duration-300 hover:bg-[#0D5D59] hover:text-white sm:px-6 sm:text-base"
             >
               Explore Services
             </Link>
@@ -100,20 +104,23 @@ export default function Hero() {
         </div>
       </div>
 
+      {/* Slider controls */}
       {slides.length > 1 && (
         <>
           <button
+            type="button"
             onClick={() => swiperRef.current?.slidePrev()}
             aria-label="Previous slide"
-            className="absolute left-4 top-1/2 z-20 -translate-y-1/2 flex items-center justify-center w-10 h-10 rounded-full bg-black/40 hover:bg-black/60 text-white text-2xl transition-colors"
+            className="absolute left-4 top-1/2 z-20 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/40 text-2xl text-white transition-colors hover:bg-black/60 sm:flex"
           >
             ‹
           </button>
 
           <button
+            type="button"
             onClick={() => swiperRef.current?.slideNext()}
             aria-label="Next slide"
-            className="absolute right-4 top-1/2 z-20 -translate-y-1/2 flex items-center justify-center w-10 h-10 rounded-full bg-black/40 hover:bg-black/60 text-white text-2xl transition-colors"
+            className="absolute right-4 top-1/2 z-20 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/40 text-2xl text-white transition-colors hover:bg-black/60 sm:flex"
           >
             ›
           </button>

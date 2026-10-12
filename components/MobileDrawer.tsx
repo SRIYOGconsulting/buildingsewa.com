@@ -1,16 +1,21 @@
 "use client";
+
 import Link from "next/link";
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 type MobileDrawerProps = {
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  TriggerTheme: () => void;
+  DarkIcon: boolean;
 };
+
 type SocialIconProps = {
   href: string;
   label: string;
   icon: string;
 };
+
 type NavItemProps = {
   to: string;
   label: string;
@@ -22,13 +27,13 @@ const SocialIcon: React.FC<SocialIconProps> = ({ href, label, icon }) => (
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    className="flex items-center justify-center w-9 h-9 rounded-full card hover:opacity-80 transition-opacity"
     aria-label={label}
+    className="mobile-social-icon flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 transition duration-200 hover:border-[#0D5D59] hover:bg-[#0D5D59]/10"
   >
     <img
       src={icon}
-      alt={label}
-      className="w-5 h-5 dark:invert"
+      alt=""
+      className="h-5 w-5 object-contain"
       aria-hidden="true"
     />
   </a>
@@ -38,39 +43,74 @@ const NavItem: React.FC<NavItemProps> = ({ to, label, onClick }) => (
   <Link
     href={to}
     onClick={onClick}
-    className="group flex items-center space-x-3 p-2 rounded-lg text2 transition-all duration-200 hover:card"
+    className="group flex min-h-11 items-center justify-between gap-3 rounded-lg px-4 py-3 text2 transition-colors duration-200 hover:bg-[#0D5D59]/10 hover:text-[#0D5D59]"
   >
     <span className="font-medium">{label}</span>
-    <span className="flex-1"></span>
-    <span className="opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-200">
+
+    <span
+      aria-hidden="true"
+      className="translate-x-0 text-[#0D5D59] opacity-0 transition-all duration-200 group-hover:translate-x-1 group-hover:opacity-100"
+    >
       →
     </span>
   </Link>
 );
 
-const MENU_BREAKPOINT = 768;
-
-const MobileDrawer: React.FC<MobileDrawerProps> = ({ isOpen, setIsOpen }) => {
+const MobileDrawer: React.FC<MobileDrawerProps> = ({
+  isOpen,
+  setIsOpen,
+  TriggerTheme,
+  DarkIcon,
+}) => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => {
-      const mobile = window.innerWidth < MENU_BREAKPOINT;
+      const mobile = window.innerWidth < 768;
       setIsMobile(mobile);
-      if (!mobile) setIsOpen(false);
+
+      if (!mobile) {
+        setIsOpen(false);
+      }
     };
+
     checkMobile();
+
     window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
+
+    return () => {
+      window.removeEventListener("resize", checkMobile);
+    };
   }, [setIsOpen]);
 
-  // Scroll-lock driven purely by isOpen, so it can never get stuck locked
+  // Lock page scrolling while the drawer is open.
   useEffect(() => {
-    document.body.style.overflow = isOpen ? "hidden" : "";
+    if (!isOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = previousOverflow;
     };
   }, [isOpen]);
+
+  // Close drawer with the Escape key.
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen, setIsOpen]);
 
   const navItems = [
     { to: "/", label: "Home" },
@@ -92,7 +132,11 @@ const MobileDrawer: React.FC<MobileDrawerProps> = ({ isOpen, setIsOpen }) => {
       label: "YouTube",
       path: "/icons/youtube.svg",
     },
-    { href: "https://www.x.com/", label: "Instagram", path: "/icons/x.svg" },
+    {
+      href: "https://www.x.com/",
+      label: "X",
+      path: "/icons/x.svg",
+    },
     {
       href: "https://www.linkedin.com/company/",
       label: "LinkedIn",
@@ -101,81 +145,133 @@ const MobileDrawer: React.FC<MobileDrawerProps> = ({ isOpen, setIsOpen }) => {
   ];
 
   const closeDrawer = () => setIsOpen(false);
-  const toggleDrawer = () => setIsOpen((prev) => !prev);
 
   if (!isMobile) return null;
 
   return (
     <>
-      {/* HAMBURGER / CLOSE TOGGLE */}
-      <div className="relative w-full">
-        <button
-          onClick={toggleDrawer}
-          className="md:hidden block z-50 p-2 rounded card text2"
-          aria-label={isOpen ? "Close menu" : "Open menu"}
-          aria-expanded={isOpen}
-        >
-          {isOpen ? (
-            <svg
-              width="28"
-              height="28"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-            >
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
-          ) : (
-            <svg
-              width="28"
-              height="28"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-            >
-              <line x1="3" y1="6" x2="21" y2="6" />
-              <line x1="3" y1="12" x2="21" y2="12" />
-              <line x1="3" y1="18" x2="21" y2="18" />
-            </svg>
-          )}
-        </button>
-      </div>
+      {/* Hamburger / Close Toggle */}
+      <button
+        type="button"
+        onClick={() => setIsOpen((previous) => !previous)}
+        aria-label={isOpen ? "Close menu" : "Open menu"}
+        aria-expanded={isOpen}
+        aria-controls="building-sewa-mobile-drawer"
+        className="relative z-[60] flex h-10 w-10 items-center justify-center rounded-lg border border-gray-200 bg-[var(--background)] text2 transition-colors duration-200 hover:border-[#0D5D59] hover:text-[#0D5D59] md:hidden"
+      >
+        {isOpen ? (
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            aria-hidden="true"
+          >
+            <path d="M18 6 6 18" />
+            <path d="m6 6 12 12" />
+          </svg>
+        ) : (
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            aria-hidden="true"
+          >
+            <path d="M3 6h18" />
+            <path d="M3 12h18" />
+            <path d="M3 18h18" />
+          </svg>
+        )}
+      </button>
 
       {/* Overlay */}
       {isOpen && (
-        <div className="fixed inset-0 bg-black/50 z-40" onClick={closeDrawer} />
+        <button
+          type="button"
+          aria-label="Close navigation menu"
+          onClick={closeDrawer}
+          className="fixed inset-0 z-[70] cursor-default bg-black/50 backdrop-blur-[2px] md:hidden"
+        />
       )}
 
-      {/* Drawer */}
-      <div
-        className={`fixed top-0 left-0 h-full w-72 z-50 sidekick transition-transform duration-300 ${
+      {/* Mobile Drawer */}
+      <aside
+        id="building-sewa-mobile-drawer"
+        aria-label="Mobile navigation"
+        aria-hidden={!isOpen}
+        className={`fixed inset-y-0 left-0 z-[80] flex h-[100dvh] w-[min(21rem,88vw)] flex-col overflow-hidden border-r border-gray-200 bg-[var(--background)] text-[var(--foreground)] shadow-2xl transition-transform duration-300 ease-in-out md:hidden ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <div className="p-6 overflow-y-auto h-full">
-          <div className="flex justify-between items-center mb-4 pb-4 border-b border-opacity-10 border-gray-300">
-            <Link href="/" onClick={closeDrawer} className="block">
-              <img
-                src="/logo/wordmark-logo.svg"
-                alt="Building Sewa"
-                className="w-40 h-auto"
-              />
-            </Link>
-            <button
-              onClick={closeDrawer}
-              className="text-2xl p-1 -mr-2 text2"
-              aria-label="Close menu"
+        {/* Drawer Header */}
+        <div className="flex shrink-0 items-center justify-between gap-3 border-b border-gray-200 px-5 py-4">
+          <Link
+            href="/"
+            onClick={closeDrawer}
+            className="block min-w-0"
+            tabIndex={isOpen ? 0 : -1}
+          >
+            <img
+              src="/logo/wordmark-logo.svg"
+              alt="Building Sewa"
+              className="h-auto w-36 max-w-full object-contain"
+            />
+          </Link>
+
+          <button
+            type="button"
+            onClick={closeDrawer}
+            aria-label="Close menu"
+            tabIndex={isOpen ? 0 : -1}
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text2 transition-colors hover:bg-[#0D5D59]/10 hover:text-[#0D5D59]"
+          >
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              aria-hidden="true"
             >
-              ✕
+              <path d="M18 6 6 18" />
+              <path d="m6 6 12 12" />
+            </svg>
+          </button>
+        </div>
+
+        {/* Scrollable Drawer Content */}
+        <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 py-5">
+          {/* Theme Toggle */}
+          <div className="mb-5 flex items-center justify-between gap-3 rounded-xl border border-gray-200 p-3">
+            <div>
+              <p className="text2 text-sm font-semibold">Appearance</p>
+              <p className="text mt-1 text-xs">
+                {DarkIcon ? "Light mode" : "Dark mode"}
+              </p>
+            </div>
+
+            <button
+              type="button"
+              onClick={TriggerTheme}
+              aria-label={
+                DarkIcon ? "Switch to dark mode" : "Switch to light mode"
+              }
+              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-[var(--background)] text-xl text2 transition-all duration-200 hover:border-[#0D5D59] hover:bg-[#0D5D59]/10 hover:text-[#0D5D59]"
+            >
+              {DarkIcon ? "☽" : "☀"}
             </button>
           </div>
-
-          <nav className="flex flex-col space-y-2 pb-2">
+          {/* Navigation */}
+          <nav aria-label="Main navigation" className="space-y-1">
             {navItems.map((item) => (
               <NavItem
                 key={item.to}
@@ -184,39 +280,52 @@ const MobileDrawer: React.FC<MobileDrawerProps> = ({ isOpen, setIsOpen }) => {
                 onClick={closeDrawer}
               />
             ))}
-
-            <div className="pt-4 space-y-2">
-              <Link href="/career" onClick={closeDrawer} className="block">
-                <button className="w-full border text2 rounded-lg px-6 py-2.5 hover:card transition-colors duration-200">
-                  Career
-                </button>
-              </Link>
-
-              <Link href="/notice" onClick={closeDrawer} className="block">
-                <button className="w-full bg-teal-900 text-white px-6 py-2.5 rounded-lg hover:bg-teal-800 transition-colors duration-200">
-                  Notice
-                </button>
-              </Link>
-            </div>
-
-            <div className="mt-4 pt-3 border-t border-opacity-10 border-gray-300">
-              <p className="text-xs font-medium text-center opacity-70 mb-3 text2">
-                Connect With Us
-              </p>
-              <div className="flex flex-wrap justify-center gap-3 px-2">
-                {socialLinks.map((social) => (
-                  <SocialIcon
-                    key={social.label}
-                    href={social.href}
-                    label={social.label}
-                    icon={social.path}
-                  />
-                ))}
-              </div>
-            </div>
           </nav>
+          {/* Additional Links */}
+          <div className="mt-5 space-y-3 border-t border-gray-200 pt-5">
+            <Link
+              href="/book"
+              onClick={closeDrawer}
+              tabIndex={isOpen ? 0 : -1}
+              className="flex min-h-11 items-center justify-center rounded-lg bg-[#0D5D59] px-5 py-3 text-sm font-semibold text-white transition-colors duration-200 hover:bg-[#0E4541]"
+            >
+              Book Service
+            </Link>
+
+            <Link
+              href="/login"
+              onClick={closeDrawer}
+              tabIndex={isOpen ? 0 : -1}
+              className="flex min-h-11 items-center justify-center rounded-lg border border-[#0D5D59] px-5 py-3 text-sm font-semibold text-[#0D5D59] transition-colors duration-200 hover:bg-[#0D5D59]/10"
+            >
+              Login
+            </Link>
+          </div>
+        
+          {/* Social Links */}
+          <div className="mt-6 border-t border-gray-200 pt-5">
+            <p className="text2 mb-4 text-center text-xs font-semibold uppercase tracking-[0.16em]">
+              Connect With Us
+            </p>
+
+            <div className="flex flex-wrap justify-center gap-3">
+              {socialLinks.map((social) => (
+                <SocialIcon
+                  key={social.label}
+                  href={social.href}
+                  label={social.label}
+                  icon={social.path}
+                />
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
+
+        {/* Drawer Footer */}
+        <div className="shrink-0 border-t border-gray-200 px-5 py-3">
+          <p className="text text-center text-xs">Building Sewa</p>
+        </div>
+      </aside>
     </>
   );
 };

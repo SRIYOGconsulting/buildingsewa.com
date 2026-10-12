@@ -233,6 +233,15 @@ const Footer = () => {
               className="flex items-center hover:opacity-60 transition hover:scale-110"
             >
               <img
+                src={`/icons/whatsapp1.svg`}
+                className="h-[22px] w-[22px] sm:h-[26px] sm:w-[26px] cursor-pointer"
+              />  
+            </a>
+            <a
+              href="#"
+              className="flex items-center hover:opacity-60 transition hover:scale-110"
+            >
+              <img
                 src={`/icons/pitchdeck.svg`}
                 className="h-[22px] w-[22px] sm:h-[26px] sm:w-[26px] cursor-pointer"
               />

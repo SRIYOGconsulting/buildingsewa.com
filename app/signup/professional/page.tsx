@@ -759,7 +759,7 @@ export default function ProfessionalSignupPage() {
                   error={errors.terms}
                 >
                   I agree to the{" "}
-                  <Link href="/terms" className="font-semibold text-[#0D5D59]">
+                  <Link href="/tos" className="font-semibold text-[#0D5D59]">
                     Terms & Conditions
                   </Link>{" "}
                   and{" "}
