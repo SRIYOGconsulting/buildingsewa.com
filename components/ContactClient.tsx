@@ -34,10 +34,10 @@ export default function Contact() {
 
   const teamMembers = [
     {
-      name: "Bibek",
+      name: "Shyam",
       designation: "Business Manager",
       img: "/contact/1.png",
-      email: "bibek@sriyog.com",
+      email: "shyam@sriyog.com",
     },
     {
       name: "Sital",
@@ -46,10 +46,10 @@ export default function Contact() {
       email: "sital@sriyog.com",
     },
     {
-      name: "PRACAS",
-      designation: "CTO",
+      name: "Hari",
+      designation: "Development Head",
       img: "/contact/2.png",
-      email: "pracas@sriyog.com",
+      email: "hari@sriyog.com",
     },
   ];
 
@@ -184,7 +184,7 @@ export default function Contact() {
                   <input
                     type="text"
                     name="firstName"
-                    placeholder="eg: Madan"
+                    placeholder="eg: Sundar"
                     value={formData.firstName}
                     onChange={handleChange}
                     className="w-full px-4 py-2.5 border  rounded text-sm focus:ring-2 focus:ring-teal-500 focus:border-transparent focus:bg-white"
@@ -197,7 +197,7 @@ export default function Contact() {
                   <input
                     type="text"
                     name="lastName"
-                    placeholder="eg: Tamang"
+                    placeholder="eg: Shrestha"
                     value={formData.lastName}
                     onChange={handleChange}
                     className="w-full px-4 py-2.5  border rounded text-sm focus:ring-2 focus:ring-teal-500 focus:border-transparent focus:bg-white"
@@ -213,7 +213,7 @@ export default function Contact() {
                 <input
                   type="email"
                   name="email"
-                  placeholder="eg: madan@sriyog.com"
+                  placeholder="eg: sundar@sriyog.com"
                   value={formData.email}
                   onChange={handleChange}
                   className="w-full px-4 py-2.5 border rounded text-sm focus:ring-2 focus:ring-teal-500 focus:border-transparent focus:bg-white"

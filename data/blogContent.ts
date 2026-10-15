@@ -43,6 +43,139 @@ export type BlogContent = {
 };
 
 export const blogContent: Record<string, BlogContent> = {
+  "planning-your-house-construction-in-nepal": {
+    summary: [
+      "Confirm your land details, needs and realistic budget before finalising a design.",
+      "Work with qualified professionals and check the current approval process with your municipality.",
+      "Use written specifications, milestone-based payments and regular site inspections to track progress.",
+    ],
+    sections: [
+      {
+        heading: "Start with your land and household needs",
+        blocks: [
+          {
+            type: "p",
+            text: "Before drawing plans, confirm that the land documents and boundaries are in order and understand the site's access, levels, drainage and surrounding conditions. Make a practical list of household needs, such as the number of rooms, future expansion, parking, natural light and accessibility. These decisions help your design professional prepare a plan that fits the plot and the way your family will use the house.",
+          },
+        ],
+      },
+      {
+        heading: "Prepare a realistic project budget",
+        blocks: [
+          {
+            type: "p",
+            text: "A construction budget should cover more than the main structure. Discuss design and engineering fees, approvals, site preparation, labour, materials, plumbing and electrical work, finishing, utility connections and other project-specific expenses. Keep a contingency for unexpected conditions, and compare quotations only when they cover the same scope and specifications.",
+          },
+          {
+            type: "list",
+            items: [
+              "Separate structural work from finishing and furnishing costs.",
+              "Ask for a bill of quantities or a clearly itemised estimate where appropriate.",
+              "Confirm what is excluded from every contractor quotation.",
+              "Keep a record of approved changes and their cost impact.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Plan the design and approvals",
+        blocks: [
+          {
+            type: "p",
+            text: "Work with qualified design and engineering professionals to develop drawings that suit the site, your budget and applicable requirements. Before construction begins, confirm the current documents, inspections, fees and submission process with the relevant municipality. Rules and procedures can vary by location, so do not rely only on another project's experience.",
+          },
+          {
+            type: "tip",
+            title: "Confirm requirements locally",
+            text: "Ask your designer or engineer to explain the approval steps and keep copies of submitted documents, receipts, approved drawings and any revisions.",
+          },
+        ],
+      },
+      {
+        heading: "Choose a contractor with clear terms",
+        blocks: [
+          {
+            type: "p",
+            text: "Review relevant completed work, ask who will supervise the site and compare the proposed team, schedule and specifications. A written agreement should describe the work, material standards, responsibilities, payment milestones, process for changes, expected timeline and defect-liability arrangements. Avoid making major decisions based on verbal promises alone.",
+          },
+          {
+            type: "list",
+            items: [
+              "Use the same drawings and specifications when comparing bids.",
+              "Write down who purchases and stores each major material.",
+              "Tie payments to agreed progress milestones and verified work.",
+              "Document variations before additional work begins.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Create a practical construction schedule",
+        blocks: [
+          {
+            type: "p",
+            text: "The schedule should cover site preparation, foundation, structural work, masonry, services, plastering, finishing, inspections and handover. Timing depends on design complexity, weather, labour and material availability, site conditions and approval requirements. Include time for curing, drying, testing and corrections rather than assuming every stage can be accelerated.",
+          },
+          {
+            type: "steps",
+            items: [
+              {
+                title: "Before work starts",
+                text: "Finalise the drawings, approval status, scope, contract, budget and site access.",
+              },
+              {
+                title: "During construction",
+                text: "Record progress, inspect work at important stages and resolve questions before the next stage covers it.",
+              },
+              {
+                title: "Before handover",
+                text: "Test services, prepare a snag list, collect relevant documents and confirm how outstanding defects will be handled.",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Monitor quality and keep records",
+        blocks: [
+          {
+            type: "p",
+            text: "Keep copies of contracts, drawings, approvals, quotations, invoices, payment records and written change approvals. Arrange appropriate professional inspections at key stages, especially where structural work or concealed services will soon be covered. Photos and regular updates are useful records, but they do not replace inspections by a qualified professional.",
+          },
+          {
+            type: "warning",
+            title: "Do not compromise structural safety",
+            text: "Material grades, structural details and construction methods should be specified and checked by qualified professionals. Do not change structural elements or substitute specified materials without professional review.",
+          },
+        ],
+      },
+    ],
+    checklist: {
+      title: "Before construction begins",
+      items: [
+        "Land documents, boundaries and site access checked",
+        "Household requirements and budget written down",
+        "Drawings reviewed with qualified professionals",
+        "Current municipal approval requirements confirmed",
+        "Contract scope, materials, schedule and payment terms documented",
+        "Inspection, reporting and handover process agreed",
+      ],
+    },
+    faqs: [
+      {
+        q: "Should I finalise the budget before or after the design?",
+        a: "Start with a realistic budget before design, then refine it as the drawings and specifications develop. Review the estimate with your design professional so the plan and budget remain aligned.",
+      },
+      {
+        q: "Can I start construction while approval is being processed?",
+        a: "Do not assume you can. Confirm the current requirements with your municipality and qualified local professionals before starting work.",
+      },
+      {
+        q: "How often should I check the construction site?",
+        a: "Agree on a regular reporting schedule with your contractor and arrange professional inspections at important stages. The right frequency depends on the project and the work underway.",
+      },
+    ],
+  },
 
   "choosing-the-right-contractor": {
     summary: [

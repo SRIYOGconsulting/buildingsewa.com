@@ -140,31 +140,31 @@ export default function Home() {
       </section>
 
       {/* LATEST BLOG */}
-      <section className="mx-auto max-w-[1200px] px-6 py-16">
-        <div className="mb-12 text-center">
+      <section className="mx-auto max-w-[1200px] px-6 py-12">
+        <div className="mb-8 text-center">
           <p className="text mb-2 text-sm font-semibold uppercase tracking-[0.18em]">
             From Our Blog
           </p>
 
           <h2 className="text2 text-3xl font-bold md:text-4xl">
-            Latest Articles
+            Latest Updates
           </h2>
 
-          <p className="text mx-auto mt-4 max-w-2xl leading-7">
+          <p className="text mx-auto mt-3 max-w-2xl leading-7">
             Practical guides and insights to help you plan, build, design, and
             maintain your property.
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid items-stretch gap-6 md:grid-cols-3">
           {latestPosts.map((post) => (
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className="group card block overflow-hidden rounded-xl border border-gray-200 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg"
+              className="group card flex h-full flex-col overflow-hidden rounded-xl border border-gray-200 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg"
             >
               {/* Blog Image */}
-              <div className="relative h-56 w-full overflow-hidden">
+              <div className="relative h-44 w-full shrink-0 overflow-hidden">
                 <Image
                   src={post.img}
                   alt={post.title}
@@ -175,33 +175,50 @@ export default function Home() {
               </div>
 
               {/* Blog Content */}
-              <div className="p-6">
-                {/* Category + Date */}
-                <div className="flex items-center justify-center gap-2 text-sm">
-                  <span className="rounded-full bg-[#0E4541]/10 px-3 py-1 font-medium text-[#0E4541]">
+              <div className="flex flex-1 flex-col p-5">
+                {/* Category */}
+                <div className="flex min-h-7 items-center">
+                  <span className="rounded-full bg-[#0E4541]/10 px-3 py-1 text-xs font-medium text-[#0E4541]">
                     {post.category}
                   </span>
-
-                  <span className="text">•</span>
-
-                  <span className="text">{post.publishedAt}</span>
                 </div>
 
                 {/* Blog Title */}
-                <h3 className="text2 mt-4 text-center text-xl font-bold leading-snug transition-colors duration-300 group-hover:text-[#0E4541]">
+                <h3 className="text2 mt-3 line-clamp-2 min-h-[3.5rem] text-lg font-bold leading-snug transition-colors duration-300 group-hover:text-[#0E4541]">
                   {post.title}
                 </h3>
 
-                {/* Blog Description */}
-                <p className="text mt-3 text-center text-[15px] leading-7">
+                {/* Short Description */}
+                <p className="text mt-2 line-clamp-3 min-h-[4.5rem] text-sm leading-6">
                   {post.excerpt}
                 </p>
 
+                {/* Author and Publication Date */}
+                <div className="mt-4 flex min-h-[49px] items-center justify-between gap-2 border-t border-gray-200 pt-3">
+                  <div className="flex min-w-0 items-center gap-2">
+                    <Image
+                      src="/blog/1.png"
+                      alt="Sundar Shrestha"
+                      width={32}
+                      height={32}
+                      className="h-8 w-8 shrink-0 rounded-full border border-gray-200 object-cover"
+                    />
+
+                    <span className="text2 truncate text-xs font-semibold">
+                      Sundar Shrestha
+                    </span>
+                  </div>
+
+                  <span className="text shrink-0 text-right text-xs">
+                    {post.publishedAt}
+                  </span>
+                </div>
+
                 {/* Card Action */}
-                <div className="mt-5 text-center">
+                <div className="mt-auto pt-4">
                   <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#0E4541]">
                     Read Blog
-                    <span className="transition-transform duration-300 group-hover:translate-x-1">
+                    <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
                       →
                     </span>
                   </span>
@@ -212,7 +229,7 @@ export default function Home() {
         </div>
 
         {/* View All Blog */}
-        <div className="mt-10 text-center">
+        <div className="mt-8 text-center">
           <Link
             href="/blog"
             className="inline-flex items-center gap-2 rounded-lg border border-[#0E4541] px-6 py-3 font-semibold text-[#0E4541] transition duration-300 hover:bg-[#0E4541] hover:text-white"

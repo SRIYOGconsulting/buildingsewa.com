@@ -77,13 +77,17 @@ export default function WhyUs() {
           </section>
         ))}
 
-        <div className="w-full pt-4">
+      
+         <div className="w-full pt-4">
+        
           <CtaBanner
             title="Your Dream Space Is Our Priority"
             description="Get started with Building Sewa today and experience a simpler way to build, renovate, or maintain your space."
-            buttonText="Explore Services"
-            buttonHref="/services"
+            buttonText="Explore Our Timeline"
+            buttonHref="/timeline"
+            backgroundImage="/history/1.png"
           />
+
         </div>
       </div>
     </main>

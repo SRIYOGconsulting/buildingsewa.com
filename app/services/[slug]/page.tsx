@@ -131,6 +131,7 @@ export default async function ServiceDetailPage({
           description="Submit your booking request and tell us about your requirements, preferred schedule, and service location. Our team will contact you to confirm the details."
           buttonText={`Book ${service.name} Service`}
           buttonHref={`/book?service=${encodeURIComponent(service.slug)}`}
+          backgroundImage={`/services/${service.image}.jpg`}
         />
       </div>
     </div>
